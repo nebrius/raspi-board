@@ -25,6 +25,7 @@ THE SOFTWARE.
 var fs = require('fs');
 var revision;
 var pins;
+var aliases = {};
 
 // Version lookup info obtained from:
 // http://raspberryalphaomega.org.uk/2013/02/06/automatic-raspberry-pi-board-revision-detection-model-a-b1-and-b2/
@@ -291,54 +292,47 @@ var BPLUS = {
   ]
 };
 
-module.exports.getBoardVersion = function(cb) {
-  if (revision) {
-    process.nextTick(cb.bind(undefined, null, revision));
-    return;
+// Initialize the board info
+var procInfo;
+if (global._raspiBoardtest) {
+  procInfo = 'Revision:0D';
+} else {
+  procInfo = fs.readFileSync('/proc/cpuinfo').toString();
+}
+var rev = procInfo.match(/Revision\s*:\s*(.*)/);
+rev = parseInt(rev && rev[1] || '0', 16);
+switch(BOARD_REVISIONS[rev]) {
+  case 'A':
+    // Information is scarce, going to have to reverse-engineer the
+    // schematics to figure out pinouts, if any actually cares about the A
+    throw new Error('Rev A boards are not yet supported.');
+    break;
+  case 'B1':
+    pins = B1;
+    break;
+  case 'B2':
+    pins = B2;
+    break;
+  case 'APLUS':
+  case 'BPLUS':
+    pins = BPLUS;
+    break;
+  default:
+    throw new Error('Unknown board revision ' + revision);
+}
+
+// Create the aliases
+for (var pin in pins) {
+  aliases[pin] = parseInt(pin);
+  for (var i = 0; i < pins[pin].length; i++) {
+    aliases[pins[pin][i]] = parseInt(pin);
   }
-  fs.readFile('/proc/cpuinfo', function(err, buf) {
-    if (err) {
-      cb(err);
-    } else {
-      var rev = buf.toString().match(/Revision\s*:\s*(.*)/);
-      rev = parseInt(rev && rev[1] || '0', 16);
-      revision = BOARD_REVISIONS[rev];
+}
 
-      switch(revision) {
-        case 'A':
-          // Information is scarce, going to have to reverse-engineer the
-          // schematics to figure out pinouts, if any actually cares about the A
-          throw new Error('Rev A boards are not yet supported.');
-          break;
-        case 'B1':
-          pins = B1;
-          break;
-        case 'B2':
-          pins = B2;
-          break;
-        case 'APLUS':
-        case 'BPLUS':
-          pins = BPLUS;
-          break;
-        default:
-          throw new Error('Unknown board revision ' + revision);
-      }
-
-      cb(null, revision);
-    }
-  });
+module.exports.getPins = function getPins() {
+  return pins;
 };
 
-module.exports.getBoardPins = function(cb) {
-  if (!pins) {
-    module.exports.getBoardVersion(function (err) {
-      if (err) {
-        cb(err);
-        return;
-      }
-      cb(null, pins);
-    });
-  } else {
-    process.nextTick(cb.bind(undefined, null, pins));
-  }
+module.exports.getPinNumber = function getPinNumber(alias) {
+  return aliases[alias];
 };
