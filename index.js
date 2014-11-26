@@ -294,7 +294,7 @@ var BPLUS = {
 
 // Initialize the board info
 var procInfo;
-if (global._raspiBoardtest) {
+if (global._raspiTest) {
   procInfo = 'Revision:0D';
 } else {
   procInfo = fs.readFileSync('/proc/cpuinfo').toString();
