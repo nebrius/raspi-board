@@ -4,7 +4,7 @@
   "description": "Machine-digestible pin information for the Raspberry Pi ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jasmine-node tests.spec.js"
   },
   "repository": {
     "type": "git",
@@ -13,7 +13,7 @@
   "keywords": [
     "nodebots",
     "robotics",
-    "raspberrypi"
+    "raspberry pi"
   ],
   "author": "Bryan Hughes",
   "license": "MIT",
