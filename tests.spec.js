@@ -24,7 +24,7 @@ THE SOFTWARE.
 
 /*global describe, it, expect */
 
-global._raspiBoardtest = true;
+global._raspiTest = true;
 var board = require('./index.js');
 
 describe('Board Tests', function() {
