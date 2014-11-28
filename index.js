@@ -408,7 +408,6 @@ switch(BOARD_REVISIONS[rev]) {
 
 // Create the aliases
 for (var pin in pins) {
-  aliases[pin] = parseInt(pin);
   for (var i = 0; i < pins[pin].length; i++) {
     aliases[pins[pin][i]] = parseInt(pin);
   }

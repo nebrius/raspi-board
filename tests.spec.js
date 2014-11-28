@@ -30,13 +30,15 @@ var board = require('./index.js');
 describe('Board Tests', function() {
   it('can get the pins', function() {
     var pins = board.getPins();
-    expect(pins[3].length).toBe(2);
-    expect(pins[3].indexOf('GPIO2')).not.toBe(-1);
-    expect(pins[3].indexOf('SDA')).not.toBe(-1);
+    expect(pins[8].length).toBe(4);
+    expect(pins[8].indexOf('GPIO2')).not.toBe(-1);
+    expect(pins[8].indexOf('SDA')).not.toBe(-1);
+    expect(pins[8].indexOf('P1-3')).not.toBe(-1);
+    expect(pins[8].indexOf('3')).not.toBe(-1);
   });
   it('can lookup pin numbers', function() {
-    expect(board.getPinNumber('GPIO2')).toBe(3);
-    expect(board.getPinNumber('TXD')).toBe(8);
-    expect(board.getPinNumber(12)).toBe(12);
+    expect(board.getPinNumber('GPIO2')).toBe(8);
+    expect(board.getPinNumber('TXD')).toBe(15);
+    expect(board.getPinNumber(12)).toBe(1);
   })
 });
