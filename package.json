@@ -15,7 +15,7 @@
     "robotics",
     "raspberry pi"
   ],
-  "author": "Bryan Hughes",
+  "author": "Bryan Hughes <bryan@theoreticalideations.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/bryan-m-hughes/raspi-board/issues"
