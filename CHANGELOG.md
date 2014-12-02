@@ -1,3 +1,7 @@
+## 1.1.1 (2014-12-1)
+
+- Bug fix with looking up a pin number by said pin number
+
 ## 1.1.0 (2014-12-1)
 
 - Switched to using ECMAScript 6

@@ -1,6 +1,6 @@
 {
   "name": "raspi-board",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Machine-digestible pin information for the Raspberry Pi ",
   "main": "index.js",
   "scripts": {

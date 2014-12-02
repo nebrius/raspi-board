@@ -681,5 +681,11 @@ export function getPins() {
 }
 
 export function getPinNumber(alias) {
-  return aliases[alias];
+  if (typeof alias == 'number') {
+    if (Object.keys(pins).indexOf(alias.toString()) != -1) {
+      return alias;
+    }
+  } else {
+    return aliases[alias];
+  }
 }

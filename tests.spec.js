@@ -42,5 +42,8 @@ describe('Board Tests', function() {
     expect(board.getPinNumber('GPIO2')).toBe(8);
     expect(board.getPinNumber('TXD')).toBe(15);
     expect(board.getPinNumber('P1-12')).toBe(1);
+    expect(board.getPinNumber(10)).toBe(10);
+    expect(board.getPinNumber(50)).toBeUndefined();
+    expect(board.getPinNumber('fake')).toBeUndefined();
   })
 });
