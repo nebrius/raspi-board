@@ -22,25 +22,21 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-/*global describe, it, expect */
+var gulp = require('gulp');
+var traceur = require('gulp-traceur');
+var sourcemaps = require('gulp-sourcemaps');
+var del = require('del');
 
-global._raspiTest = true;
-var board = require('./lib/index.js');
+gulp.task('default', function() {
+  return gulp.src('index.js')
+    .pipe(sourcemaps.init())
+      .pipe(traceur({
+        modules: 'commonjs'
+      }))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('lib'));
+});
 
-describe('Board Tests', function() {
-  it('can get the pins', function() {
-    var pins = board.getPins();
-    expect(pins[8].pins.length).toBe(3);
-    expect(pins[8].pins.indexOf('GPIO2')).not.toBe(-1);
-    expect(pins[8].pins.indexOf('SDA')).not.toBe(-1);
-    expect(pins[8].pins.indexOf('P1-3')).not.toBe(-1);
-    expect(pins[8].peripherals.length).toBe(2);
-    expect(pins[8].peripherals.indexOf('gpio')).not.toBe(-1);
-    expect(pins[8].peripherals.indexOf('i2c')).not.toBe(-1);
-  });
-  it('can lookup pin numbers', function() {
-    expect(board.getPinNumber('GPIO2')).toBe(8);
-    expect(board.getPinNumber('TXD')).toBe(15);
-    expect(board.getPinNumber('P1-12')).toBe(1);
-  })
+gulp.task('clean', function(cb) {
+  del(['lib/index.js'], cb);
 });

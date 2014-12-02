@@ -1,3 +1,9 @@
+## 1.1.0 (2014-12-1)
+
+- Switched to using ECMAScript 6
+- Added peripheral usage and removed # => P1-# mappings
+    - This is a breaking API change!
+
 ## 1.0.2 (2014-11-27)
 
 - Reworked aliases so that they map to Wiring Pi numbers, not header numbers

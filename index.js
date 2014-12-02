@@ -22,7 +22,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-var fs = require('fs');
+import fs from 'fs';
+
 var revision;
 var pins;
 var aliases = {};
@@ -47,334 +48,596 @@ var BOARD_REVISIONS = {
 };
 
 var B1 = {
-  0: [
-    'GPIO17',
-    'P1-11',
-    '11'
-  ],
-  1: [
-    'GPIO18',
-    'P1-12',
-    '12'
-  ],
-  2: [
-    'GPIO21',
-    'P1-13',
-    '13'
-  ],
-  3: [
-    'GPIO22',
-    'P1-15',
-    '15'
-  ],
-  4: [
-    'GPIO23',
-    'P1-16',
-    '16'
-  ],
-  5: [
-    'GPIO24',
-    'P1-18',
-    '18'
-  ],
-  6: [
-    'GPIO25',
-    'P1-22',
-    '22'
-  ],
-  7: [
-    'GPIO4',
-    'P1-7',
-    '7'
-  ],
-  8: [
-    'GPIO0',
-    'SDA',
-    'P1-3',
-    '3'
-  ],
-  9: [
-    'GPIO1',
-    'SCL',
-    'P1-5',
-    '5'
-  ],
-  10: [
-    'GPIO8',
-    'P1-24',
-    '24'
-  ],
-  11: [
-    'GPIO7',
-    'P1-26',
-    '26'
-  ],
-  12: [
-    'GPIO10',
-    'MOSI',
-    'P1-19',
-    '19'
-  ],
-  13: [
-    'GPIO9',
-    'MISO',
-    'P1-21',
-    '21'
-  ],
-  14: [
-    'GPIO11',
-    'P1-23',
-    '23'
-  ],
-  15: [
-    'GPIO14',
-    'TXD',
-    'P1-8',
-    '8'
-  ],
-  16: [
-    'GPIO15',
-    'RXD',
-    'P1-10',
-    '10'
-  ]
+  0: {
+    pins: [
+      'GPIO17',
+      'P1-11'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  1: {
+    pins: [
+      'GPIO18',
+      'P1-12'
+    ],
+    peripherals: [
+      'gpio',
+      'pwm'
+    ]
+  },
+  2: {
+    pins: [
+      'GPIO21',
+      'P1-13'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  3: {
+    pins: [
+      'GPIO22',
+      'P1-15'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  4: {
+    pins: [
+      'GPIO23',
+      'P1-16'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  5: {
+    pins: [
+      'GPIO24',
+      'P1-18'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  6: {
+    pins: [
+      'GPIO25',
+      'P1-22'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  7: {
+    pins: [
+      'GPIO4',
+      'P1-7'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  8: {
+    pins: [
+      'GPIO0',
+      'SDA',
+      'P1-3'
+    ],
+    peripherals: [
+      'gpio',
+      'i2c'
+    ]
+  },
+  9: {
+    pins: [
+      'GPIO1',
+      'SCL',
+      'P1-5'
+    ],
+    peripherals: [
+      'gpio',
+      'i2c'
+    ]
+  },
+  10: {
+    pins: [
+      'GPIO8',
+      'P1-24'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  11: {
+    pins: [
+      'GPIO7',
+      'P1-26'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  12: {
+    pins: [
+      'GPIO10',
+      'MOSI',
+      'P1-19'
+    ],
+    peripherals: [
+      'gpio',
+      'spi'
+    ]
+  },
+  13: {
+    pins: [
+      'GPIO9',
+      'MISO',
+      'P1-21'
+    ],
+    peripherals: [
+      'gpio',
+      'spi'
+    ]
+  },
+  14: {
+    pins: [
+      'GPIO11',
+      'P1-23'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  15: {
+    pins: [
+      'GPIO14',
+      'TXD',
+      'P1-8'
+    ],
+    peripherals: [
+      'gpio',
+      'uart'
+    ]
+  },
+  16: {
+    pins: [
+      'GPIO15',
+      'RXD',
+      'P1-10'
+    ],
+    peripherals: [
+      'gpio',
+      'uart'
+    ]
+  }
 };
 
 var B2 = {
-  0: [
-    'GPIO17',
-    'P1-11',
-    '11'
-  ],
-  1: [
-    'GPIO18',
-    'P1-12',
-    '12'
-  ],
-  2: [
-    'GPIO27',
-    'P1-13',
-    '13'
-  ],
-  3: [
-    'GPIO22',
-    'P1-15',
-    '15'
-  ],
-  4: [
-    'GPIO23',
-    'P1-16',
-    '16'
-  ],
-  5: [
-    'GPIO24',
-    'P1-18',
-    '18'
-  ],
-  6: [
-    'GPIO25',
-    'P1-22',
-    '22'
-  ],
-  7: [
-    'GPIO4',
-    'P1-7',
-    '7'
-  ],
-  8: [
-    'GPIO2',
-    'SDA',
-    'P1-3',
-    '3'
-  ],
-  9: [
-    'GPIO3',
-    'SCL',
-    'P1-5',
-    '5'
-  ],
-  10: [
-    'GPIO8',
-    'P1-24',
-    '24'
-  ],
-  11: [
-    'GPIO7',
-    'P1-26',
-    '26'
-  ],
-  12: [
-    'GPIO10',
-    'MOSI',
-    'P1-19',
-    '19'
-  ],
-  13: [
-    'GPIO9',
-    'MISO',
-    'P1-21',
-    '21'
-  ],
-  14: [
-    'GPIO11',
-    'P1-23',
-    '23'
-  ],
-  15: [
-    'GPIO14',
-    'TXD',
-    'P1-8',
-    '8'
-  ],
-  16: [
-    'GPIO15',
-    'RXD',
-    'P1-10',
-    '10'
-  ]
+  0: {
+    pins: [
+      'GPIO17',
+      'P1-11'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  1: {
+    pins: [
+      'GPIO18',
+      'P1-12'
+    ],
+    peripherals: [
+      'gpio',
+      'pwm'
+    ]
+  },
+  2: {
+    pins: [
+      'GPIO27',
+      'P1-13'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  3: {
+    pins: [
+      'GPIO22',
+      'P1-15'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  4: {
+    pins: [
+      'GPIO23',
+      'P1-16'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  5: {
+    pins: [
+      'GPIO24',
+      'P1-18'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  6: {
+    pins: [
+      'GPIO25',
+      'P1-22'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  7: {
+    pins: [
+      'GPIO4',
+      'P1-7'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  8: {
+    pins: [
+      'GPIO2',
+      'SDA',
+      'P1-3'
+    ],
+    peripherals: [
+      'gpio',
+      'i2c'
+    ]
+  },
+  9: {
+    pins: [
+      'GPIO3',
+      'SCL',
+      'P1-5'
+    ],
+    peripherals: [
+      'gpio',
+      'i2c'
+    ]
+  },
+  10: {
+    pins: [
+      'GPIO8',
+      'P1-24'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  11: {
+    pins: [
+      'GPIO7',
+      'P1-26'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  12: {
+    pins: [
+      'GPIO10',
+      'MOSI',
+      'P1-19'
+    ],
+    peripherals: [
+      'gpio',
+      'spi'
+    ]
+  },
+  13: {
+    pins: [
+      'GPIO9',
+      'MISO',
+      'P1-21'
+    ],
+    peripherals: [
+      'gpio',
+      'spi'
+    ]
+  },
+  14: {
+    pins: [
+      'GPIO11',
+      'P1-23'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  15: {
+    pins: [
+      'GPIO14',
+      'TXD',
+      'P1-8'
+    ],
+    peripherals: [
+      'gpio',
+      'uart'
+    ]
+  },
+  16: {
+    pins: [
+      'GPIO15',
+      'RXD',
+      'P1-10'
+    ],
+    peripherals: [
+      'gpio',
+      'uart'
+    ]
+  }
   // TODO: 17-20 are on P5
 };
 
 var BPLUS = {
-  0: [
-    'GPIO17',
-    'P1-11',
-    '11'
-  ],
-  1: [
-    'GPIO18',
-    'P1-12',
-    '12'
-  ],
-  2: [
-    'GPIO27',
-    'P1-13',
-    '13'
-  ],
-  3: [
-    'GPIO22',
-    'P1-15',
-    '15'
-  ],
-  4: [
-    'GPIO23',
-    'P1-16',
-    '16'
-  ],
-  5: [
-    'GPIO24',
-    'P1-18',
-    '18'
-  ],
-  6: [
-    'GPIO25',
-    'P1-22',
-    '22'
-  ],
-  7: [
-    'GPIO4',
-    'P1-7',
-    '7'
-  ],
-  8: [
-    'GPIO2',
-    'SDA',
-    'P1-3',
-    '3'
-  ],
-  9: [
-    'GPIO3',
-    'SCL',
-    'P1-5',
-    '5'
-  ],
-  10: [
-    'GPIO8',
-    'P1-24',
-    '24'
-  ],
-  11: [
-    'GPIO7',
-    'P1-26',
-    '26'
-  ],
-  12: [
-    'GPIO10',
-    'MOSI',
-    'P1-19',
-    '19'
-  ],
-  13: [
-    'GPIO9',
-    'MISO',
-    'P1-21',
-    '21'
-  ],
-  14: [
-    'GPIO11',
-    'P1-23',
-    '23'
-  ],
-  15: [
-    'GPIO14',
-    'TXD',
-    'P1-8',
-    '8'
-  ],
-  16: [
-    'GPIO15',
-    'RXD',
-    'P1-10',
-    '10'
-  ],
+  0: {
+    pins: [
+      'GPIO17',
+      'P1-11'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  1: {
+    pins: [
+      'GPIO18',
+      'P1-12'
+    ],
+    peripherals: [
+      'gpio',
+      'pwm'
+    ]
+  },
+  2: {
+    pins: [
+      'GPIO27',
+      'P1-13'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  3: {
+    pins: [
+      'GPIO22',
+      'P1-15'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  4: {
+    pins: [
+      'GPIO23',
+      'P1-16'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  5: {
+    pins: [
+      'GPIO24',
+      'P1-18'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  6: {
+    pins: [
+      'GPIO25',
+      'P1-22'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  7: {
+    pins: [
+      'GPIO4',
+      'P1-7'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  8: {
+    pins: [
+      'GPIO2',
+      'SDA',
+      'P1-3'
+    ],
+    peripherals: [
+      'gpio',
+      'i2c'
+    ]
+  },
+  9: {
+    pins: [
+      'GPIO3',
+      'SCL',
+      'P1-5'
+    ],
+    peripherals: [
+      'gpio',
+      'i2c'
+    ]
+  },
+  10: {
+    pins: [
+      'GPIO8',
+      'P1-24'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  11: {
+    pins: [
+      'GPIO7',
+      'P1-26'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  12: {
+    pins: [
+      'GPIO10',
+      'MOSI',
+      'P1-19'
+    ],
+    peripherals: [
+      'gpio',
+      'spi'
+    ]
+  },
+  13: {
+    pins: [
+      'GPIO9',
+      'MISO',
+      'P1-21'
+    ],
+    peripherals: [
+      'gpio',
+      'spi'
+    ]
+  },
+  14: {
+    pins: [
+      'GPIO11',
+      'P1-23'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  15: {
+    pins: [
+      'GPIO14',
+      'TXD',
+      'P1-8'
+    ],
+    peripherals: [
+      'gpio',
+      'uart'
+    ]
+  },
+  16: {
+    pins: [
+      'GPIO15',
+      'RXD',
+      'P1-10'
+    ],
+    peripherals: [
+      'gpio',
+      'uart'
+    ]
+  },
   // TODO: 17-20 are on P5
-  21: [
-    'GPIO5',
-    'P1-29',
-    '29'
-  ],
-  22: [
-    'GPIO6',
-    'P1-31',
-    '31'
-  ],
-  23: [
-    'GPIO13',
-    'P1-33',
-    '33'
-  ],
-  24: [
-    'GPIO19',
-    'P1-35',
-    '35'
-  ],
-  25: [
-    'GPIO26',
-    'P1-37',
-    '37'
-  ],
-  26: [
-    'GPIO12',
-    'P1-32',
-    '32'
-  ],
-  27: [
-    'GPIO16',
-    'P1-36',
-    '36'
-  ],
-  28: [
-    'GPIO20',
-    'P1-38',
-    '38'
-  ],
-  29: [
-    'GPIO21',
-    'P1-40',
-    '40'
-  ]
+  21: {
+    pins: [
+      'GPIO5',
+      'P1-29'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  22: {
+    pins: [
+      'GPIO6',
+      'P1-31'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  23: {
+    pins: [
+      'GPIO13',
+      'P1-33'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  24: {
+    pins: [
+      'GPIO19',
+      'P1-35'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  25: {
+    pins: [
+      'GPIO26',
+      'P1-37'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  26: {
+    pins: [
+      'GPIO12',
+      'P1-32'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  27: {
+    pins: [
+      'GPIO16',
+      'P1-36'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  28: {
+    pins: [
+      'GPIO20',
+      'P1-38'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  29: {
+    pins: [
+      'GPIO21',
+      'P1-40'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  }
   // TODO: 30 and 31 are listed in the Wiring Pi source, mapped to GPIO0 and 1,
-  // but I don't know where they are exposed, if at all
+  // but I don't know where they are exposed, if at all, on the board itself.
+  // Need to dig through the schematics
 };
 
 // Initialize the board info
@@ -408,15 +671,15 @@ switch(BOARD_REVISIONS[rev]) {
 
 // Create the aliases
 for (var pin in pins) {
-  for (var i = 0; i < pins[pin].length; i++) {
-    aliases[pins[pin][i]] = parseInt(pin);
+  for (var i = 0; i < pins[pin].pins.length; i++) {
+    aliases[pins[pin].pins[i]] = parseInt(pin);
   }
 }
 
-module.exports.getPins = function getPins() {
+export function getPins() {
   return pins;
-};
+}
 
-module.exports.getPinNumber = function getPinNumber(alias) {
+export function getPinNumber(alias) {
   return aliases[alias];
-};
+}
