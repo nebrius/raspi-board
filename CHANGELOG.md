@@ -1,3 +1,7 @@
+## 1.1.2 (2014-12-2)
+
+- Well this is embarrassing, I had a bug in package.json
+
 ## 1.1.1 (2014-12-1)
 
 - Bug fix with looking up a pin number by said pin number
