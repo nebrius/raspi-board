@@ -32,7 +32,7 @@ describe('Board Tests', function() {
     var pins = board.getPins();
     expect(pins[8].pins.length).toBe(3);
     expect(pins[8].pins.indexOf('GPIO2')).not.toBe(-1);
-    expect(pins[8].pins.indexOf('SDA')).not.toBe(-1);
+    expect(pins[8].pins.indexOf('SDA0')).not.toBe(-1);
     expect(pins[8].pins.indexOf('P1-3')).not.toBe(-1);
     expect(pins[8].peripherals.length).toBe(2);
     expect(pins[8].peripherals.indexOf('gpio')).not.toBe(-1);
@@ -40,7 +40,7 @@ describe('Board Tests', function() {
   });
   it('can lookup pin numbers', function() {
     expect(board.getPinNumber('GPIO2')).toBe(8);
-    expect(board.getPinNumber('TXD')).toBe(15);
+    expect(board.getPinNumber('TXD0')).toBe(15);
     expect(board.getPinNumber('P1-12')).toBe(1);
     expect(board.getPinNumber(10)).toBe(10);
     expect(board.getPinNumber(50)).toBeUndefined();

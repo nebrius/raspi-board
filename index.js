@@ -60,6 +60,7 @@ var B1 = {
   1: {
     pins: [
       'GPIO18',
+      'PWM0',
       'P1-12'
     ],
     peripherals: [
@@ -124,7 +125,7 @@ var B1 = {
   8: {
     pins: [
       'GPIO0',
-      'SDA',
+      'SDA0',
       'P1-3'
     ],
     peripherals: [
@@ -135,7 +136,7 @@ var B1 = {
   9: {
     pins: [
       'GPIO1',
-      'SCL',
+      'SCL0',
       'P1-5'
     ],
     peripherals: [
@@ -146,10 +147,12 @@ var B1 = {
   10: {
     pins: [
       'GPIO8',
-      'P1-24'
+      'P1-24',
+      'CE0'
     ],
     peripherals: [
-      'gpio'
+      'gpio',
+      'spi'
     ]
   },
   11: {
@@ -164,7 +167,7 @@ var B1 = {
   12: {
     pins: [
       'GPIO10',
-      'MOSI',
+      'MOSI0',
       'P1-19'
     ],
     peripherals: [
@@ -175,7 +178,7 @@ var B1 = {
   13: {
     pins: [
       'GPIO9',
-      'MISO',
+      'MISO0',
       'P1-21'
     ],
     peripherals: [
@@ -195,7 +198,7 @@ var B1 = {
   15: {
     pins: [
       'GPIO14',
-      'TXD',
+      'TXD0',
       'P1-8'
     ],
     peripherals: [
@@ -206,7 +209,7 @@ var B1 = {
   16: {
     pins: [
       'GPIO15',
-      'RXD',
+      'RXD0',
       'P1-10'
     ],
     peripherals: [
@@ -229,6 +232,7 @@ var B2 = {
   1: {
     pins: [
       'GPIO18',
+      'PWM0',
       'P1-12'
     ],
     peripherals: [
@@ -293,7 +297,7 @@ var B2 = {
   8: {
     pins: [
       'GPIO2',
-      'SDA',
+      'SDA0',
       'P1-3'
     ],
     peripherals: [
@@ -304,7 +308,7 @@ var B2 = {
   9: {
     pins: [
       'GPIO3',
-      'SCL',
+      'SCL0',
       'P1-5'
     ],
     peripherals: [
@@ -315,10 +319,12 @@ var B2 = {
   10: {
     pins: [
       'GPIO8',
+      'CE0',
       'P1-24'
     ],
     peripherals: [
-      'gpio'
+      'gpio',
+      'spi'
     ]
   },
   11: {
@@ -333,7 +339,7 @@ var B2 = {
   12: {
     pins: [
       'GPIO10',
-      'MOSI',
+      'MOSI0',
       'P1-19'
     ],
     peripherals: [
@@ -344,7 +350,7 @@ var B2 = {
   13: {
     pins: [
       'GPIO9',
-      'MISO',
+      'MISO0',
       'P1-21'
     ],
     peripherals: [
@@ -355,16 +361,18 @@ var B2 = {
   14: {
     pins: [
       'GPIO11',
+      'SCLK0',
       'P1-23'
     ],
     peripherals: [
-      'gpio'
+      'gpio',
+      'spi'
     ]
   },
   15: {
     pins: [
       'GPIO14',
-      'TXD',
+      'TXD0',
       'P1-8'
     ],
     peripherals: [
@@ -375,15 +383,50 @@ var B2 = {
   16: {
     pins: [
       'GPIO15',
-      'RXD',
+      'RXD0',
       'P1-10'
     ],
     peripherals: [
       'gpio',
       'uart'
     ]
+  },
+  17: {
+    pins: [
+      'GPIO28',
+      'P5-3'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  18: {
+    pins: [
+      'GPIO29',
+      'P5-4'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  19: {
+    pins: [
+      'GPIO30',
+      'P5-5'
+    ],
+    peripherals: [
+      'gpio'
+    ]
+  },
+  20: {
+    pins: [
+      'GPIO31',
+      'P5-6'
+    ],
+    peripherals: [
+      'gpio'
+    ]
   }
-  // TODO: 17-20 are on P5
 };
 
 var BPLUS = {
@@ -399,6 +442,7 @@ var BPLUS = {
   1: {
     pins: [
       'GPIO18',
+      'PWM0',
       'P1-12'
     ],
     peripherals: [
@@ -463,7 +507,7 @@ var BPLUS = {
   8: {
     pins: [
       'GPIO2',
-      'SDA',
+      'SDA0',
       'P1-3'
     ],
     peripherals: [
@@ -474,7 +518,7 @@ var BPLUS = {
   9: {
     pins: [
       'GPIO3',
-      'SCL',
+      'SCL0',
       'P1-5'
     ],
     peripherals: [
@@ -485,25 +529,29 @@ var BPLUS = {
   10: {
     pins: [
       'GPIO8',
+      'CE0',
       'P1-24'
     ],
     peripherals: [
-      'gpio'
+      'gpio',
+      'spi'
     ]
   },
   11: {
     pins: [
       'GPIO7',
+      'CE1',
       'P1-26'
     ],
     peripherals: [
-      'gpio'
+      'gpio',
+      'spi'
     ]
   },
   12: {
     pins: [
       'GPIO10',
-      'MOSI',
+      'MOSI0',
       'P1-19'
     ],
     peripherals: [
@@ -514,7 +562,7 @@ var BPLUS = {
   13: {
     pins: [
       'GPIO9',
-      'MISO',
+      'MISO0',
       'P1-21'
     ],
     peripherals: [
@@ -525,16 +573,18 @@ var BPLUS = {
   14: {
     pins: [
       'GPIO11',
+      'SCLK0',
       'P1-23'
     ],
     peripherals: [
-      'gpio'
+      'gpio',
+      'spi'
     ]
   },
   15: {
     pins: [
       'GPIO14',
-      'TXD',
+      'TXD0',
       'P1-8'
     ],
     peripherals: [
@@ -545,7 +595,7 @@ var BPLUS = {
   16: {
     pins: [
       'GPIO15',
-      'RXD',
+      'RXD0',
       'P1-10'
     ],
     peripherals: [
@@ -553,7 +603,6 @@ var BPLUS = {
       'uart'
     ]
   },
-  // TODO: 17-20 are on P5
   21: {
     pins: [
       'GPIO5',
@@ -584,10 +633,14 @@ var BPLUS = {
   24: {
     pins: [
       'GPIO19',
+      'PWM1',
+      'MISO1',
       'P1-35'
     ],
     peripherals: [
-      'gpio'
+      'gpio',
+      'pwm',
+      'spi'
     ]
   },
   25: {
@@ -602,10 +655,12 @@ var BPLUS = {
   26: {
     pins: [
       'GPIO12',
+      'PWM0',
       'P1-32'
     ],
     peripherals: [
-      'gpio'
+      'gpio',
+      'pwm'
     ]
   },
   27: {
@@ -620,24 +675,25 @@ var BPLUS = {
   28: {
     pins: [
       'GPIO20',
+      'MOSI1',
       'P1-38'
     ],
     peripherals: [
-      'gpio'
+      'gpio',
+      'spi'
     ]
   },
   29: {
     pins: [
       'GPIO21',
+      'SCLK1',
       'P1-40'
     ],
     peripherals: [
-      'gpio'
+      'gpio',
+      'spi'
     ]
   }
-  // TODO: 30 and 31 are listed in the Wiring Pi source, mapped to GPIO0 and 1,
-  // but I don't know where they are exposed, if at all, on the board itself.
-  // Need to dig through the schematics
 };
 
 // Initialize the board info

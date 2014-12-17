@@ -1,3 +1,11 @@
+## 1.2.0
+
+- Added P5 support for R2 models
+- Added some missed peripherals
+- POTENTIALLY BREAKING: Modified all peripherals to have a number, so "SDA"->"SDA0", etc
+    - This change was done to allow for multiple SPI connections
+    - It's possible there will be multiple I2C and UART pins on future revisions (the BCM2835 supports them)
+
 ## 1.1.2 (2014-12-2)
 
 - Well this is embarrassing, I had a bug in package.json
