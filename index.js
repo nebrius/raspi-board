@@ -189,10 +189,12 @@ var B1 = {
   14: {
     pins: [
       'GPIO11',
+      'SCLK0',
       'P1-23'
     ],
     peripherals: [
-      'gpio'
+      'gpio',
+      'spi'
     ]
   },
   15: {

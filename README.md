@@ -64,6 +64,14 @@ _Return Type_: A number representing the Wiring Pi pin number
 
 ## Examples
 
+```JavaScript
+
+var board = require('raspi-board');
+
+// Prints 14
+console.log(board.getPinNumber('SCLK0'));
+```
+
 License
 =======
 
