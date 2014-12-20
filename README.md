@@ -41,7 +41,7 @@ _Return Type_: An array of pin entry objects structured such that the array inde
 
 ### getPinNumber(pin)
 
-Normalizes a pin name to a Wiring Pi pin number.
+Normalizes a pin name to a Wiring Pi pin number. This method accounts for the differences between board revisions by checking which Raspberry Pi the method is being called on.
 
 _Arguments_:
 
