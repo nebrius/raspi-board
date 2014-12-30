@@ -1,4 +1,8 @@
-## 1.2.0
+## 1.2.1 (2014-12-29)
+
+- README updates
+
+## 1.2.0 (2014-12-20)
 
 - Added P5 support for R2 models
 - Added some missed peripherals

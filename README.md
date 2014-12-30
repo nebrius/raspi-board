@@ -1,7 +1,7 @@
 Raspi Board
 ===========
 
-Raspi Board provides pin mapping functionality for the various Raspberry Pi models. This module is meant to be run on a Raspberry Pi, and reports pins for that specific board.
+Raspi Board provides pin mapping functionality for the various Raspberry Pi models. This module is meant to be run on a physical Raspberry Pi _only_, and maps pins for the specific board it is being run on.
 
 ## Installation
 
