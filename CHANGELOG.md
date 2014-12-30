@@ -1,3 +1,7 @@
+## 1.2.2 (2014-12-30)
+
+- Added support for looking up Wiring Pi pin numbers that are passed in as a string
+
 ## 1.2.1 (2014-12-29)
 
 - README updates

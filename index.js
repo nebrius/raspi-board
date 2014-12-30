@@ -739,10 +739,9 @@ export function getPins() {
 }
 
 export function getPinNumber(alias) {
-  if (typeof alias == 'number') {
-    if (Object.keys(pins).indexOf(alias.toString()) != -1) {
-      return alias;
-    }
+  alias = alias.toString();
+  if (Object.keys(pins).indexOf(alias.toString()) != -1) {
+    return parseInt(alias);
   } else {
     return aliases[alias];
   }
