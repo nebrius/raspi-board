@@ -11,13 +11,21 @@ npm install raspi-board
 
 ## API
 
+### getBoardRevision()
+
+Gets the board revision.
+
+_Arguments_: None.
+
+_Returns_: A string with the board version, one of 'Unknown', 'B1', 'B2', 'A', 'BPLUS', or 'APLUS'.
+
 ### getPins()
 
 Gets a list of 
 
 _Arguments_: None.
 
-_Return Type_: An array of pin entry objects structured such that the array index is the Wiring Pi pin number, each with the following structure:
+_Returns_: An array of pin entry objects structured such that the array index is the Wiring Pi pin number, each with the following structure:
 
 <table>
   <thead>
@@ -60,7 +68,7 @@ _Arguments_:
   </tr>
 </table>
 
-_Return Type_: A number representing the Wiring Pi pin number 
+_Returns_: A number representing the Wiring Pi pin number 
 
 ## Examples
 

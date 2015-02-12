@@ -1,3 +1,7 @@
+## 1.3.0 (2015-2-12)
+
+- Added getBoardRevision method
+
 ## 1.2.2 (2014-12-30)
 
 - Added support for looking up Wiring Pi pin numbers that are passed in as a string

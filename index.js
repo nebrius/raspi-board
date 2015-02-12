@@ -734,6 +734,10 @@ for (var pin in pins) {
   }
 }
 
+export function getBoardRevision() {
+  return BOARD_REVISIONS[rev] || 'Unknown';
+}
+
 export function getPins() {
   return pins;
 }
