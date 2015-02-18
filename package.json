@@ -1,6 +1,6 @@
 {
   "name": "raspi-board",
-  "version": "1.3.0",
+  "version": "2.0.0",
   "description": "Pin mapping functionality for the Raspberry Pi in Node.js",
   "main": "lib/index.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "del": "^0.1.3",
     "gulp-traceur": "^0.13.0",
     "gulp-sourcemaps": "^1.2.4",
-    "gulp": "^3.8.9"
+    "gulp": "^3.8.11"
   },
   "repository": {
     "type": "git",

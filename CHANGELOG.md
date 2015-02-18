@@ -1,3 +1,10 @@
+## 2.0.0 (2015-2-17)
+
+- Added support for the Raspberry Pi 2
+- Added constants for the different board revisions
+- Cleaned up error handling surrounding unsupported or unknown versions
+- Reworked getBoardRevision to return one of the above constants. THIS IS A BREAKING CHANGE!
+
 ## 1.3.0 (2015-2-12)
 
 - Added getBoardRevision method

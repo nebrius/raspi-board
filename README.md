@@ -11,13 +11,52 @@ npm install raspi-board
 
 ## API
 
+### Module Constants
+
+<table>
+  <thead>
+    <tr>
+      <th>Constant</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tr>
+    <td>VERSION_1_MODEL_A</td>
+    <td>Constant representing the Raspberry Pi 1 Model A. For use with ```getBoardRevision()```</td>
+  </tr>
+  <tr>
+    <td>VERSION_1_MODEL_B_REV_1</td>
+    <td>Constant representing the Raspberry Pi 1 Model B Rev 1. For use with ```getBoardRevision()```</td>
+  </tr>
+  <tr>
+    <td>VERSION_1_MODEL_B_REV_2</td>
+    <td>Constant representing the Raspberry Pi 1 Model B Rev 1. For use with ```getBoardRevision()```</td>
+  </tr>
+  <tr>
+    <td>VERSION_1_MODEL_B_PLUS</td>
+    <td>Constant representing the Raspberry Pi 1 Model B+. For use with ```getBoardRevision()```</td>
+  </tr>
+  <tr>
+    <td>VERSION_1_MODEL_A_PLUS</td>
+    <td>Constant representing the Raspberry Pi 1 Model A+. For use with ```getBoardRevision()```</td>
+  </tr>
+  <tr>
+    <td>VERSION_2_MODEL_B</td>
+    <td>Constant representing the Raspberry Pi 2 Model B. For use with ```getBoardRevision()```</td>
+  </tr>
+  <tr>
+    <td>VERSION_UNKNOWN</td>
+    <td>Constant representing an unknown or unsupported version of the Raspberry Pi. For use with ```getBoardRevision()```</td>
+  </tr>
+</table>
+
 ### getBoardRevision()
 
 Gets the board revision.
 
 _Arguments_: None.
 
-_Returns_: A string with the board version, one of 'Unknown', 'B1', 'B2', 'A', 'BPLUS', or 'APLUS'.
+_Returns_: A constant representing the board version, one of ```VERSION_1_MODEL_A```, ```VERSION_1_MODEL_B_REV_1```, ```VERSION_1_MODEL_B_REV_2```, ```VERSION_1_MODEL_B_PLUS```, ```VERSION_1_MODEL_A_PLUS```, ```VERSION_2_MODEL_B```, or ```VERSION_UNKNOWN```
 
 ### getPins()
 

@@ -24,27 +24,32 @@ THE SOFTWARE.
 
 import fs from 'fs';
 
-var revision;
 var pins;
 var aliases = {};
 
-// Version lookup info obtained from:
-// http://raspberryalphaomega.org.uk/2013/02/06/automatic-raspberry-pi-board-revision-detection-model-a-b1-and-b2/
+export var VERSION_1_MODEL_A = 'rpi1_a';
+export var VERSION_1_MODEL_B_REV_1 = 'rpi1_b1';
+export var VERSION_1_MODEL_B_REV_2 = 'rpi1_b2';
+export var VERSION_1_MODEL_B_PLUS = 'rpi1_bplus';
+export var VERSION_1_MODEL_A_PLUS = 'rpi1_aplus';
+export var VERSION_2_MODEL_B = 'rpi2_b';
+
 var BOARD_REVISIONS = {
-  0x00: 'Unknown',
-  0x02: 'B1',
-  0x03: 'B1',
-  0x04: 'B2',
-  0x05: 'B2',
-  0x06: 'B2',
-  0x07: 'A',
-  0x08: 'A',
-  0x09: 'A',
-  0x0D: 'B2',
-  0x0E: 'B2',
-  0x0F: 'B2',
-  0x10: 'BPLUS',
-  0x12: 'APLUS'
+  '0002': VERSION_1_MODEL_B_REV_1,
+  '0003': VERSION_1_MODEL_B_REV_1,
+  '0004': VERSION_1_MODEL_B_REV_2,
+  '0005': VERSION_1_MODEL_B_REV_2,
+  '0006': VERSION_1_MODEL_B_REV_2,
+  '0007': VERSION_1_MODEL_A,
+  '0008': VERSION_1_MODEL_A,
+  '0009': VERSION_1_MODEL_A,
+  '000d': VERSION_1_MODEL_B_REV_2,
+  '000e': VERSION_1_MODEL_B_REV_2,
+  '000f': VERSION_1_MODEL_B_REV_2,
+  '0010': VERSION_1_MODEL_B_PLUS,
+  '0012': VERSION_1_MODEL_A_PLUS,
+  'a01041': VERSION_2_MODEL_B,
+  'a21041': VERSION_2_MODEL_B
 };
 
 var B1 = {
@@ -706,25 +711,28 @@ if (global._raspiTest) {
   procInfo = fs.readFileSync('/proc/cpuinfo').toString();
 }
 var rev = procInfo.match(/Revision\s*:\s*(.*)/);
-rev = parseInt(rev && rev[1] || '0', 16);
+if (!rev) {
+  throw new Error('Unable to parse revision information in /proc/cpuinfo');
+}
+rev = rev[1];
 switch(BOARD_REVISIONS[rev]) {
-  case 'A':
-    // Information is scarce, going to have to reverse-engineer the
-    // schematics to figure out pinouts, if any actually cares about the A
-    throw new Error('Rev A boards are not yet supported.');
+  case VERSION_1_MODEL_A:
+    // Information is scarce, and no one has complained about it not being supported
+    throw new Error('Raspberry Pi 1 Model A boards are not supported.');
     break;
-  case 'B1':
+  case VERSION_1_MODEL_B_REV_1:
     pins = B1;
     break;
-  case 'B2':
+  case VERSION_1_MODEL_B_REV_2:
     pins = B2;
     break;
-  case 'APLUS':
-  case 'BPLUS':
+  case VERSION_1_MODEL_A_PLUS:
+  case VERSION_1_MODEL_B_PLUS:
+  case VERSION_2_MODEL_B:
     pins = BPLUS;
     break;
   default:
-    throw new Error('Unknown board revision ' + revision);
+    throw new Error('Unknown board revision ' + rev);
 }
 
 // Create the aliases
@@ -735,7 +743,7 @@ for (var pin in pins) {
 }
 
 export function getBoardRevision() {
-  return BOARD_REVISIONS[rev] || 'Unknown';
+  return BOARD_REVISIONS[rev];
 }
 
 export function getPins() {
