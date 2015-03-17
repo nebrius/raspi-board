@@ -706,7 +706,7 @@ var BPLUS = {
 // Initialize the board info
 var procInfo;
 if (global._raspiTest) {
-  procInfo = 'Revision:0D';
+  procInfo = 'Revision:000d';
 } else {
   procInfo = fs.readFileSync('/proc/cpuinfo').toString();
 }
