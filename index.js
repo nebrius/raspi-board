@@ -751,6 +751,9 @@ export function getPins() {
 }
 
 export function getPinNumber(alias) {
+  if (typeof alias != 'number' && typeof alias != 'string') {
+    return;
+  }
   alias = alias.toString();
   if (Object.keys(pins).indexOf(alias.toString()) != -1) {
     return parseInt(alias);

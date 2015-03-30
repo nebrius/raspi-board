@@ -1,3 +1,7 @@
+## 2.1.2 (2015-3-29)
+
+- Added some error checking to getPinNumber to prevent a crash when passing in undefined or null
+
 ## 2.1.1 (2015-3-17)
 
 - Fixed a broken unit test

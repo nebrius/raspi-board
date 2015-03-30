@@ -46,5 +46,12 @@ describe('Board Tests', function() {
     expect(board.getPinNumber('10')).toBe(10);
     expect(board.getPinNumber(50)).toBeUndefined();
     expect(board.getPinNumber('fake')).toBeUndefined();
+  });
+  it('returns undefined for invalid input', function(){
+    expect(board.getPinNumber()).toBeUndefined();
+    expect(board.getPinNumber([])).toBeUndefined();
+    expect(board.getPinNumber({})).toBeUndefined();
+    expect(board.getPinNumber(function() {})).toBeUndefined();
+    expect(board.getPinNumber(/foo/)).toBeUndefined();
   })
 });
