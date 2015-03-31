@@ -60,7 +60,7 @@ _Returns_: A constant representing the board version, one of ```VERSION_1_MODEL_
 
 ### getPins()
 
-Gets a list of 
+Gets a list of all pins for the device it's running on.
 
 _Arguments_: None.
 
