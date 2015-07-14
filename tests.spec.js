@@ -24,10 +24,14 @@ THE SOFTWARE.
 
 /*global describe, it, expect */
 
-global._raspiTest = true;
+global.raspiTest = true;
 var board = require('./lib/index.js');
 
 describe('Board Tests', function() {
+  it('gets the correct board revision', function() {
+    var revision = board.getBoardRevision();
+    expect(revision).toBe(board.VERSION_2_MODEL_B);
+  });
   it('can get the pins', function() {
     var pins = board.getPins();
     expect(pins[8].pins.length).toBe(3);
@@ -44,14 +48,14 @@ describe('Board Tests', function() {
     expect(board.getPinNumber('P1-12')).toBe(1);
     expect(board.getPinNumber(10)).toBe(10);
     expect(board.getPinNumber('10')).toBe(10);
-    expect(board.getPinNumber(50)).toBeUndefined();
-    expect(board.getPinNumber('fake')).toBeUndefined();
+    expect(board.getPinNumber(50)).toBeNull();
+    expect(board.getPinNumber('fake')).toBeNull();
   });
   it('returns undefined for invalid input', function(){
-    expect(board.getPinNumber()).toBeUndefined();
-    expect(board.getPinNumber([])).toBeUndefined();
-    expect(board.getPinNumber({})).toBeUndefined();
-    expect(board.getPinNumber(function() {})).toBeUndefined();
-    expect(board.getPinNumber(/foo/)).toBeUndefined();
-  })
+    expect(board.getPinNumber()).toBeNull();
+    expect(board.getPinNumber([])).toBeNull();
+    expect(board.getPinNumber({})).toBeNull();
+    expect(board.getPinNumber(function() {})).toBeNull();
+    expect(board.getPinNumber(/foo/)).toBeNull();
+  });
 });

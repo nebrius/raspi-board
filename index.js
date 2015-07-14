@@ -24,17 +24,17 @@ THE SOFTWARE.
 
 import fs from 'fs';
 
-var pins;
-var aliases = {};
+let pins;
+const aliases = {};
 
-export var VERSION_1_MODEL_A = 'rpi1_a';
-export var VERSION_1_MODEL_B_REV_1 = 'rpi1_b1';
-export var VERSION_1_MODEL_B_REV_2 = 'rpi1_b2';
-export var VERSION_1_MODEL_B_PLUS = 'rpi1_bplus';
-export var VERSION_1_MODEL_A_PLUS = 'rpi1_aplus';
-export var VERSION_2_MODEL_B = 'rpi2_b';
+export const VERSION_1_MODEL_A = 'rpi1_a';
+export const VERSION_1_MODEL_B_REV_1 = 'rpi1_b1';
+export const VERSION_1_MODEL_B_REV_2 = 'rpi1_b2';
+export const VERSION_1_MODEL_B_PLUS = 'rpi1_bplus';
+export const VERSION_1_MODEL_A_PLUS = 'rpi1_aplus';
+export const VERSION_2_MODEL_B = 'rpi2_b';
 
-var BOARD_REVISIONS = {
+const BOARD_REVISIONS = {
   '0002': VERSION_1_MODEL_B_REV_1,
   '0003': VERSION_1_MODEL_B_REV_1,
   '0004': VERSION_1_MODEL_B_REV_2,
@@ -52,7 +52,7 @@ var BOARD_REVISIONS = {
   'a21041': VERSION_2_MODEL_B
 };
 
-var B1 = {
+const B1 = {
   0: {
     pins: [
       'GPIO17',
@@ -226,7 +226,7 @@ var B1 = {
   }
 };
 
-var B2 = {
+const B2 = {
   0: {
     pins: [
       'GPIO17',
@@ -436,7 +436,7 @@ var B2 = {
   }
 };
 
-var BPLUS = {
+const BPLUS = {
   0: {
     pins: [
       'GPIO17',
@@ -704,22 +704,29 @@ var BPLUS = {
 };
 
 // Initialize the board info
-var procInfo;
-if (global._raspiTest) {
-  procInfo = 'Revision:000d';
+let procInfo;
+if (global.raspiTest) {
+  procInfo = 'Revision:a21041';
 } else {
   procInfo = fs.readFileSync('/proc/cpuinfo').toString();
 }
-var rev = procInfo.match(/Revision\s*:\s*(.*)/);
+let rev = procInfo.match(/Revision\s*:\s*(.*)/);
 if (!rev) {
   throw new Error('Unable to parse revision information in /proc/cpuinfo');
 }
 rev = rev[1];
-switch(BOARD_REVISIONS[rev]) {
+
+// If the board has been overclocked, the revision is modified, so clear it here
+if (/10[0-9a-z]{5}/.test(rev)) { // Check for RPi 1 overclock
+  rev = rev.substr(-4);
+} else if (/1a[0-9a-z]{5}/.test(rev)) { // Check for RPi 2 overclock
+  rev = rev.substr(-6);
+}
+
+switch (BOARD_REVISIONS[rev]) {
   case VERSION_1_MODEL_A:
     // Information is scarce, and no one has complained about it not being supported
     throw new Error('Raspberry Pi 1 Model A boards are not supported.');
-    break;
   case VERSION_1_MODEL_B_REV_1:
     pins = B1;
     break;
@@ -736,9 +743,12 @@ switch(BOARD_REVISIONS[rev]) {
 }
 
 // Create the aliases
-for (var pin in pins) {
-  for (var i = 0; i < pins[pin].pins.length; i++) {
-    aliases[pins[pin].pins[i]] = parseInt(pin);
+let pin; // Note: babel complains about const in for...in, and eslint complains about let in for...in
+for (pin in pins) {
+  if (pins.hasOwnProperty(pin)) {
+    for (let i = 0; i < pins[pin].pins.length; i++) {
+      aliases[pins[pin].pins[i]] = parseInt(pin, 10);
+    }
   }
 }
 
@@ -752,12 +762,13 @@ export function getPins() {
 
 export function getPinNumber(alias) {
   if (typeof alias != 'number' && typeof alias != 'string') {
-    return;
+    return null;
   }
   alias = alias.toString();
   if (Object.keys(pins).indexOf(alias.toString()) != -1) {
-    return parseInt(alias);
+    alias = parseInt(alias, 10);
   } else {
-    return aliases[alias];
+    alias = aliases[alias];
   }
+  return alias || null;
 }

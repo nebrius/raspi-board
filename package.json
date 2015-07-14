@@ -1,6 +1,6 @@
 {
   "name": "raspi-board",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "Pin mapping functionality for the Raspberry Pi in Node.js",
   "main": "lib/index.js",
   "scripts": {

@@ -1,3 +1,9 @@
+## 2.1.3 (2015-7-14)
+
+- Fixed a bug with detecting overclocked RPi revisions
+- Added .eslintrc file
+- Updated code to pass linting
+
 ## 2.1.2 (2015-3-29)
 
 - Added some error checking to getPinNumber to prevent a crash when passing in undefined or null
@@ -34,8 +40,8 @@
 - Added P5 support for R2 models
 - Added some missed peripherals
 - POTENTIALLY BREAKING: Modified all peripherals to have a number, so "SDA"->"SDA0", etc
-    - This change was done to allow for multiple SPI connections
-    - It's possible there will be multiple I2C and UART pins on future revisions (the BCM2835 supports them)
+  - This change was done to allow for multiple SPI connections
+  - It's possible there will be multiple I2C and UART pins on future revisions (the BCM2835 supports them)
 
 ## 1.1.2 (2014-12-2)
 
@@ -49,7 +55,7 @@
 
 - Switched to using ECMAScript 6
 - Added peripheral usage and removed # => P1-# mappings
-    - This is a breaking API change!
+  - This is a breaking API change!
 
 ## 1.0.2 (2014-11-27)
 
