@@ -111,7 +111,7 @@ _Arguments_:
   </tr>
 </table>
 
-_Returns_: A number representing the Wiring Pi pin number 
+_Returns_: A number representing the Wiring Pi pin number, or null if an invalid pin name was passed in.
 
 ## Examples
 

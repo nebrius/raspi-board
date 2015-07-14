@@ -1,3 +1,10 @@
+## 2.2.0 (2015-7-14)
+
+- Realized that this should be a minor bump, not a patch bump
+- There is a very subtle behavior change in getPinNumber
+  - If a pin is not found, it now returns null instead of undefined
+  - The behavior when a pin is not found was previously undocumented before this release
+
 ## 2.1.3 (2015-7-14)
 
 - Fixed a bug with detecting overclocked RPi revisions
