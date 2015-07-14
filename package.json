@@ -1,6 +1,6 @@
 {
   "name": "raspi-board",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Pin mapping functionality for the Raspberry Pi in Node.js",
   "main": "lib/index.js",
   "scripts": {
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bryan-m-hughes/raspi-board.git"
+    "url": "https://github.com/nebrius/raspi-board.git"
   },
   "keywords": [
     "nodebots",
@@ -24,7 +24,7 @@
   "author": "Bryan Hughes <bryan@theoreticalideations.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bryan-m-hughes/raspi-board/issues"
+    "url": "https://github.com/nebrius/raspi-board/issues"
   },
-  "homepage": "https://github.com/bryan-m-hughes/raspi-board"
+  "homepage": "https://github.com/nebrius/raspi-board"
 }

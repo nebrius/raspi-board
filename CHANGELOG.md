@@ -1,3 +1,7 @@
+## 2.2.1 (2015-7-14)
+
+- Updated the repository links to match the new location
+
 ## 2.2.0 (2015-7-14)
 
 - Realized that this should be a minor bump, not a patch bump
