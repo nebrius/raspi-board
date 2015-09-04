@@ -770,5 +770,8 @@ export function getPinNumber(alias) {
   } else {
     alias = aliases[alias];
   }
-  return alias || null;
+  if (typeof alias == 'undefined') {
+    return null;
+  }
+  return alias;
 }

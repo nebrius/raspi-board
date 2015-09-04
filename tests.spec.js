@@ -47,11 +47,12 @@ describe('Board Tests', function() {
     expect(board.getPinNumber('TXD0')).toBe(15);
     expect(board.getPinNumber('P1-12')).toBe(1);
     expect(board.getPinNumber(10)).toBe(10);
+    expect(board.getPinNumber(0)).toBe(0);
     expect(board.getPinNumber('10')).toBe(10);
     expect(board.getPinNumber(50)).toBeNull();
     expect(board.getPinNumber('fake')).toBeNull();
   });
-  it('returns undefined for invalid input', function(){
+  it('returns null for invalid input', function(){
     expect(board.getPinNumber()).toBeNull();
     expect(board.getPinNumber([])).toBeNull();
     expect(board.getPinNumber({})).toBeNull();

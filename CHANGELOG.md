@@ -1,3 +1,7 @@
+## 2.2.2 (2015-9-3)
+
+- Fixed a bug where ```getPinNumber(0)``` was returning ```null``` instead of ```0```
+
 ## 2.2.1 (2015-7-14)
 
 - Updated the repository links to match the new location
