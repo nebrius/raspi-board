@@ -4,13 +4,14 @@
   "description": "Pin mapping functionality for the Raspberry Pi in Node.js",
   "main": "lib/index.js",
   "scripts": {
-    "test": "jasmine-node tests.spec.js"
+    "test": "node test/runner.js"
   },
   "devDependencies": {
     "del": "^1.2.1",
     "gulp": "^3.9.0",
     "gulp-babel": "^4.0.1",
-    "gulp-sourcemaps": "^1.5.2"
+    "gulp-sourcemaps": "^1.5.2",
+    "nodeunit": "^0.9.1"
   },
   "repository": {
     "type": "git",

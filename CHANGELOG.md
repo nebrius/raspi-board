@@ -1,3 +1,7 @@
+## Next
+
+- Refactored unit tests to use nodeunit
+
 ## 2.2.2 (2015-9-3)
 
 - Fixed a bug where ```getPinNumber(0)``` was returning ```null``` instead of ```0```
