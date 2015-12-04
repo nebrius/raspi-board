@@ -34,6 +34,10 @@ Be sure to read the [full list of pins](https://github.com/nebrius/raspi-io/wiki
     </tr>
   </thead>
   <tr>
+    <td>VERSION_1_MODEL_ZERO</td>
+    <td>Constant representing the first version of the Raspberry Pi Zero. For use with ```getBoardRevision()```</td>
+  </tr>
+  <tr>
     <td>VERSION_1_MODEL_A</td>
     <td>Constant representing the Raspberry Pi 1 Model A. For use with ```getBoardRevision()```</td>
   </tr>
@@ -69,7 +73,7 @@ Gets the board revision.
 
 _Arguments_: None.
 
-_Returns_: A constant representing the board version, one of ```VERSION_1_MODEL_A```, ```VERSION_1_MODEL_B_REV_1```, ```VERSION_1_MODEL_B_REV_2```, ```VERSION_1_MODEL_B_PLUS```, ```VERSION_1_MODEL_A_PLUS```, ```VERSION_2_MODEL_B```, or ```VERSION_UNKNOWN```
+_Returns_: A constant representing the board version, one of ```VERSION_1_MODEL_ZERO```, ```VERSION_1_MODEL_A```, ```VERSION_1_MODEL_B_REV_1```, ```VERSION_1_MODEL_B_REV_2```, ```VERSION_1_MODEL_B_PLUS```, ```VERSION_1_MODEL_A_PLUS```, ```VERSION_2_MODEL_B```, or ```VERSION_UNKNOWN```
 
 ### getPins()
 
