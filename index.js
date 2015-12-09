@@ -27,6 +27,7 @@ import fs from 'fs';
 let pins;
 const aliases = {};
 
+export const VERSION_1_MODEL_ZERO = 'rpi1_zero';
 export const VERSION_1_MODEL_A = 'rpi1_a';
 export const VERSION_1_MODEL_B_REV_1 = 'rpi1_b1';
 export const VERSION_1_MODEL_B_REV_2 = 'rpi1_b2';
@@ -49,7 +50,8 @@ const BOARD_REVISIONS = {
   '0010': VERSION_1_MODEL_B_PLUS,
   '0012': VERSION_1_MODEL_A_PLUS,
   'a01041': VERSION_2_MODEL_B,
-  'a21041': VERSION_2_MODEL_B
+  'a21041': VERSION_2_MODEL_B,
+  '900092': VERSION_1_MODEL_ZERO
 };
 
 const B1 = {
@@ -733,6 +735,7 @@ switch (BOARD_REVISIONS[rev]) {
   case VERSION_1_MODEL_B_REV_2:
     pins = B2;
     break;
+  case VERSION_1_MODEL_ZERO:
   case VERSION_1_MODEL_A_PLUS:
   case VERSION_1_MODEL_B_PLUS:
   case VERSION_2_MODEL_B:
