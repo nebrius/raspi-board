@@ -1,7 +1,7 @@
 Raspi Board
 ===========
 
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/bryan-m-hughes/raspi-io?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/nebrius/raspi-io?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Raspi Board provides pin mapping functionality for the various Raspberry Pi models. This module is meant to be run on a physical Raspberry Pi _only_, and maps pins for the specific board it is being run on.
 
@@ -60,6 +60,10 @@ Be sure to read the [full list of pins](https://github.com/nebrius/raspi-io/wiki
   <tr>
     <td>VERSION_2_MODEL_B</td>
     <td>Constant representing the Raspberry Pi 2 Model B. For use with ```getBoardRevision()```</td>
+  </tr>
+  <tr>
+    <td>VERSION_1_MODEL_ZERO</td>
+    <td>Constant representing the Raspberry Pi Zero. For use with ```getBoardRevision()```</td>
   </tr>
   <tr>
     <td>VERSION_UNKNOWN</td>
