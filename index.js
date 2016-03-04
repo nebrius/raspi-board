@@ -34,6 +34,7 @@ export const VERSION_1_MODEL_B_REV_2 = 'rpi1_b2';
 export const VERSION_1_MODEL_B_PLUS = 'rpi1_bplus';
 export const VERSION_1_MODEL_A_PLUS = 'rpi1_aplus';
 export const VERSION_2_MODEL_B = 'rpi2_b';
+export const VERSION_3_MODEL_B = 'rpi3_b';
 
 const BOARD_REVISIONS = {
   '0002': VERSION_1_MODEL_B_REV_1,
@@ -51,7 +52,8 @@ const BOARD_REVISIONS = {
   '0012': VERSION_1_MODEL_A_PLUS,
   'a01041': VERSION_2_MODEL_B,
   'a21041': VERSION_2_MODEL_B,
-  '900092': VERSION_1_MODEL_ZERO
+  '900092': VERSION_1_MODEL_ZERO,
+  'a02082': VERSION_3_MODEL_B
 };
 
 const B1 = {
@@ -739,6 +741,7 @@ switch (BOARD_REVISIONS[rev]) {
   case VERSION_1_MODEL_A_PLUS:
   case VERSION_1_MODEL_B_PLUS:
   case VERSION_2_MODEL_B:
+  case VERSION_3_MODEL_B:
     pins = BPLUS;
     break;
   default:
