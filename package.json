@@ -4,6 +4,7 @@
   "description": "Pin mapping functionality for the Raspberry Pi in Node.js",
   "main": "lib/index.js",
   "scripts": {
+    "build": "gulp",
     "test": "node test/runner.js"
   },
   "devDependencies": {
