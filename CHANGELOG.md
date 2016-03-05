@@ -1,3 +1,7 @@
+## 2.4.0 (2016-4-4)
+
+- Added Raspberry Pi 3 Model B support
+
 ## 2.3.0 (2015-12-8)
 
 - Added Raspberry Pi Zero support
