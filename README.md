@@ -35,39 +35,39 @@ Be sure to read the [full list of pins](https://github.com/nebrius/raspi-io/wiki
   </thead>
   <tr>
     <td>VERSION_1_MODEL_ZERO</td>
-    <td>Constant representing the first version of the Raspberry Pi Zero. For use with ```getBoardRevision()```</td>
+    <td>Constant representing the first version of the Raspberry Pi Zero. For use with <code>getBoardRevision()</code></td>
   </tr>
   <tr>
     <td>VERSION_1_MODEL_A</td>
-    <td>Constant representing the Raspberry Pi 1 Model A. For use with ```getBoardRevision()```</td>
+    <td>Constant representing the Raspberry Pi 1 Model A. For use with <code>getBoardRevision()</code></td>
   </tr>
   <tr>
     <td>VERSION_1_MODEL_B_REV_1</td>
-    <td>Constant representing the Raspberry Pi 1 Model B Rev 1. For use with ```getBoardRevision()```</td>
+    <td>Constant representing the Raspberry Pi 1 Model B Rev 1. For use with <code>getBoardRevision()</code></td>
   </tr>
   <tr>
     <td>VERSION_1_MODEL_B_REV_2</td>
-    <td>Constant representing the Raspberry Pi 1 Model B Rev 1. For use with ```getBoardRevision()```</td>
+    <td>Constant representing the Raspberry Pi 1 Model B Rev 1. For use with <code>getBoardRevision()</code></td>
   </tr>
   <tr>
     <td>VERSION_1_MODEL_B_PLUS</td>
-    <td>Constant representing the Raspberry Pi 1 Model B+. For use with ```getBoardRevision()```</td>
+    <td>Constant representing the Raspberry Pi 1 Model B+. For use with <code>getBoardRevision()</code></td>
   </tr>
   <tr>
     <td>VERSION_1_MODEL_A_PLUS</td>
-    <td>Constant representing the Raspberry Pi 1 Model A+. For use with ```getBoardRevision()```</td>
+    <td>Constant representing the Raspberry Pi 1 Model A+. For use with <code>getBoardRevision()</code></td>
   </tr>
   <tr>
     <td>VERSION_2_MODEL_B</td>
-    <td>Constant representing the Raspberry Pi 2 Model B. For use with ```getBoardRevision()```</td>
+    <td>Constant representing the Raspberry Pi 2 Model B. For use with <code>getBoardRevision()</code></td>
   </tr>
   <tr>
     <td>VERSION_1_MODEL_ZERO</td>
-    <td>Constant representing the Raspberry Pi Zero. For use with ```getBoardRevision()```</td>
+    <td>Constant representing the Raspberry Pi Zero. For use with <code>getBoardRevision()</code></td>
   </tr>
   <tr>
     <td>VERSION_UNKNOWN</td>
-    <td>Constant representing an unknown or unsupported version of the Raspberry Pi. For use with ```getBoardRevision()```</td>
+    <td>Constant representing an unknown or unsupported version of the Raspberry Pi. For use with <code>getBoardRevision()</code></td>
   </tr>
 </table>
 
@@ -98,12 +98,12 @@ _Returns_: An array of pin entry objects structured such that the array index is
   <tr>
     <td>pins</td>
     <td>Array</td>
-    <td>An array of all the pin names for pin, e.g. ```['GPIO21', 'SCLK1', 'P1-40']```</td>
+    <td>An array of all the pin names for pin, e.g. <code>['GPIO21', 'SCLK1', 'P1-40']</code></td>
   </tr>
   <tr>
     <td>peripherals</td>
     <td>Array</td>
-    <td>An array of all the peripherals supported on the pin, and may contain any combination of ```'gpio'```, ```'pwm'```, ```'i2c'```, ```'uart'```, or ```'spi'```</td>
+    <td>An array of all the peripherals supported on the pin, and may contain any combination of <code>'gpio'</code>, <code>'pwm'</code>, <code>'i2c'</code>, <code>'uart'</code>, or <code>'spi'</code></td>
   </tr>
 </table>
 
