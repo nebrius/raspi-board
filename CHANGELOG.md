@@ -1,4 +1,8 @@
-## 2.4.0 (2016-4-4)
+## 2.4.1 (2016-3-7)
+
+- Added a missing revision ID for certain batches of Raspberry Pi 3s
+
+## 2.4.0 (2016-3-4)
 
 - Added Raspberry Pi 3 Model B support
 
