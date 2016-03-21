@@ -1,3 +1,8 @@
+## 3.0.0 (2016-3-20)
+
+- Fixed a bug where `PWM1` wasn't mapped to 23.
+  - POTENTIALLY BREAKING CHANGE: using the identifier `PWM1` now maps to Wiring Pi pin 23, not 24
+
 ## 2.4.1 (2016-3-7)
 
 - Added a missing revision ID for certain batches of Raspberry Pi 3s

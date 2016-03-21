@@ -1,7 +1,7 @@
 /*
 The MIT License (MIT)
 
-Copyright (c) 2014 Bryan Hughes <bryan@theoreticalideations.com> (http://theoreticalideations.com)
+Copyright (c) 2014 Bryan Hughes <bryan@nebri.us>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -636,10 +636,12 @@ const BPLUS = {
   23: {
     pins: [
       'GPIO13',
-      'P1-33'
+      'P1-33',
+      'PWM1'
     ],
     peripherals: [
-      'gpio'
+      'gpio',
+      'pwm'
     ]
   },
   24: {
