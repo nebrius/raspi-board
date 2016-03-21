@@ -2,6 +2,7 @@
 
 - Fixed a bug where `PWM1` wasn't mapped to 23.
   - POTENTIALLY BREAKING CHANGE: using the identifier `PWM1` now maps to Wiring Pi pin 23, not 24
+- New build system
 
 ## 2.4.1 (2016-3-7)
 
