@@ -1,3 +1,7 @@
+## 3.1.0 (2016-6-21)
+
+- Added missing revision ID for certain batches of the Raspbery Pi Zero
+
 ## 3.0.0 (2016-3-20)
 
 - Fixed a bug where `PWM1` wasn't mapped to 23.
