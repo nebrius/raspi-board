@@ -1,3 +1,7 @@
+## 3.2.0 (2016-9-19)
+
+- Added missing revision ID for certain batches of the Raspberry Pi Model A+
+
 ## 3.1.0 (2016-6-21)
 
 - Added missing revision ID for certain batches of the Raspbery Pi Zero

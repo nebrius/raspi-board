@@ -30,3 +30,4 @@ node_modules
 # IDE
 .idea
 jsconfig.json
+.vscode
