@@ -1,3 +1,9 @@
+## 4.0.0 (2016-10-13)
+
+- Added missing revision IDs for certain batches of the Raspbery Pi Zero
+- Updated logic so an unknown board assumes Raspberry Pi 3 Model B pinout
+  - POTENTIALLY BREAKING CHANGE: previous behavior was to throw an exception
+
 ## 3.2.0 (2016-9-19)
 
 - Added missing revision ID for certain batches of the Raspberry Pi Model A+

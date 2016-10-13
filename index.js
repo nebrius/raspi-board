@@ -54,7 +54,9 @@ const BOARD_REVISIONS = {
   'a01041': VERSION_2_MODEL_B,
   'a21041': VERSION_2_MODEL_B,
   '900092': VERSION_1_MODEL_ZERO,
+  '920092': VERSION_1_MODEL_ZERO,
   '900093': VERSION_1_MODEL_ZERO,
+  '920093': VERSION_1_MODEL_ZERO,
   'a02082': VERSION_3_MODEL_B,
   'a22082': VERSION_3_MODEL_B
 };
@@ -750,7 +752,9 @@ switch (BOARD_REVISIONS[rev]) {
     pins = BPLUS;
     break;
   default:
-    throw new Error('Unknown board revision ' + rev);
+    console.warn(`Unknown board revision ${rev}, assuming Raspberry Pi 3 pinout.`);
+    pins = BPLUS;
+    break;
 }
 
 // Create the aliases
