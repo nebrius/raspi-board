@@ -29,5 +29,5 @@ node_modules
 
 # IDE
 .idea
-jsconfig.json
 .vscode
+jsconfig.json
