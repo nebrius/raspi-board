@@ -15,6 +15,16 @@ npm install raspi-board
 
 Note: this project is written in [TypeScript](http://www.typescriptlang.org/) and includes type definitions in the package.json file. This means that if you want to use it from TypeScript, you don't need to install a separate @types module.
 
+## Example
+
+```JavaScript
+
+var board = require('raspi-board');
+
+// Prints 14
+console.log(board.getPinNumber('SCLK0'));
+```
+
 ## Pin Naming
 
 The pins on the Raspberry Pi are a little complicated. There are multiple headers on some Raspberry Pis with extra pins, and the pin numbers are not consistent between Raspberry Pi board versions.
@@ -22,7 +32,6 @@ The pins on the Raspberry Pi are a little complicated. There are multiple header
 To help make it easier, you can specify pins in three ways. The first is to specify the pin by function, e.g. ```'GPIO18'```. The second way is to specify by pin number, which is specified in the form "P[header]-[pin]", e.g. ```'P1-7'```. The final way is specify the [Wiring Pi virtual pin number](http://wiringpi.com/pins/), e.g. ```7```. If you specify a number instead of a string, it is assumed to be a Wiring Pi number.
 
 Be sure to read the [full list of pins](https://github.com/nebrius/raspi-io/wiki/Pin-Information) on the supported models of the Raspberry Pi.
-
 
 ## API
 
@@ -131,16 +140,6 @@ _Arguments_:
 </table>
 
 _Returns_: A number representing the Wiring Pi pin number, or null if an invalid pin name was passed in.
-
-## Examples
-
-```JavaScript
-
-var board = require('raspi-board');
-
-// Prints 14
-console.log(board.getPinNumber('SCLK0'));
-```
 
 License
 =======
