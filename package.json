@@ -2,7 +2,7 @@
   "name": "raspi-board",
   "version": "4.0.1",
   "description": "Pin mapping functionality for the Raspberry Pi in Node.js",
-  "main": "./lib/index.js",
+  "main": "./dist/index.js",
   "types": "./declarations/index.d.ts",
   "scripts": {
     "prebuild": "tslint src/**/*.ts",
