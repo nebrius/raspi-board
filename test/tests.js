@@ -1,7 +1,7 @@
 /*
 The MIT License (MIT)
 
-Copyright (c) 2015 Bryan Hughes <bryan@theoreticalideations.com>
+Copyright (c) 2015 Bryan Hughes <bryan@nebri.us>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -25,7 +25,7 @@ THE SOFTWARE.
 /*global global*/
 
 global.raspiTest = true;
-var board = require('../lib/index.js');
+var board = require('../dist/index.js');
 
 exports.testBoardRevision = function testBoardRevision(test) {
   var revision = board.getBoardRevision();

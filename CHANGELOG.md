@@ -1,3 +1,8 @@
+## 4.0.1 (2016-12-3)
+
+- Converted the project to TypeScript and cleaned up a bunch of odds and ends
+  - Note: there is no functionality change or bug fixes with this release
+
 ## 4.0.0 (2016-10-13)
 
 - Added missing revision IDs for certain batches of the Raspbery Pi Zero

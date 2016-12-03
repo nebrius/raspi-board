@@ -1,0 +1,786 @@
+/*
+The MIT License (MIT)
+
+Copyright (c) 2014 Bryan Hughes <bryan@nebri.us>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+*/
+"use strict";
+var fs_1 = require('fs');
+exports.VERSION_1_MODEL_ZERO = 'rpi1_zero';
+exports.VERSION_1_MODEL_A = 'rpi1_a';
+exports.VERSION_1_MODEL_B_REV_1 = 'rpi1_b1';
+exports.VERSION_1_MODEL_B_REV_2 = 'rpi1_b2';
+exports.VERSION_1_MODEL_B_PLUS = 'rpi1_bplus';
+exports.VERSION_1_MODEL_A_PLUS = 'rpi1_aplus';
+exports.VERSION_2_MODEL_B = 'rpi2_b';
+exports.VERSION_3_MODEL_B = 'rpi3_b';
+var BOARD_REVISIONS = {
+    '0002': exports.VERSION_1_MODEL_B_REV_1,
+    '0003': exports.VERSION_1_MODEL_B_REV_1,
+    '0004': exports.VERSION_1_MODEL_B_REV_2,
+    '0005': exports.VERSION_1_MODEL_B_REV_2,
+    '0006': exports.VERSION_1_MODEL_B_REV_2,
+    '0007': exports.VERSION_1_MODEL_A,
+    '0008': exports.VERSION_1_MODEL_A,
+    '0009': exports.VERSION_1_MODEL_A,
+    '000d': exports.VERSION_1_MODEL_B_REV_2,
+    '000e': exports.VERSION_1_MODEL_B_REV_2,
+    '000f': exports.VERSION_1_MODEL_B_REV_2,
+    '0010': exports.VERSION_1_MODEL_B_PLUS,
+    '0012': exports.VERSION_1_MODEL_A_PLUS,
+    '900021': exports.VERSION_1_MODEL_A_PLUS,
+    'a01041': exports.VERSION_2_MODEL_B,
+    'a21041': exports.VERSION_2_MODEL_B,
+    '900092': exports.VERSION_1_MODEL_ZERO,
+    '920092': exports.VERSION_1_MODEL_ZERO,
+    '900093': exports.VERSION_1_MODEL_ZERO,
+    '920093': exports.VERSION_1_MODEL_ZERO,
+    'a02082': exports.VERSION_3_MODEL_B,
+    'a22082': exports.VERSION_3_MODEL_B
+};
+var B1 = {
+    0: {
+        pins: [
+            'GPIO17',
+            'P1-11'
+        ],
+        peripherals: [
+            'gpio'
+        ]
+    },
+    1: {
+        pins: [
+            'GPIO18',
+            'PWM0',
+            'P1-12'
+        ],
+        peripherals: [
+            'gpio',
+            'pwm'
+        ]
+    },
+    2: {
+        pins: [
+            'GPIO21',
+            'P1-13'
+        ],
+        peripherals: [
+            'gpio'
+        ]
+    },
+    3: {
+        pins: [
+            'GPIO22',
+            'P1-15'
+        ],
+        peripherals: [
+            'gpio'
+        ]
+    },
+    4: {
+        pins: [
+            'GPIO23',
+            'P1-16'
+        ],
+        peripherals: [
+            'gpio'
+        ]
+    },
+    5: {
+        pins: [
+            'GPIO24',
+            'P1-18'
+        ],
+        peripherals: [
+            'gpio'
+        ]
+    },
+    6: {
+        pins: [
+            'GPIO25',
+            'P1-22'
+        ],
+        peripherals: [
+            'gpio'
+        ]
+    },
+    7: {
+        pins: [
+            'GPIO4',
+            'P1-7'
+        ],
+        peripherals: [
+            'gpio'
+        ]
+    },
+    8: {
+        pins: [
+            'GPIO0',
+            'SDA0',
+            'P1-3'
+        ],
+        peripherals: [
+            'gpio',
+            'i2c'
+        ]
+    },
+    9: {
+        pins: [
+            'GPIO1',
+            'SCL0',
+            'P1-5'
+        ],
+        peripherals: [
+            'gpio',
+            'i2c'
+        ]
+    },
+    10: {
+        pins: [
+            'GPIO8',
+            'P1-24',
+            'CE0'
+        ],
+        peripherals: [
+            'gpio',
+            'spi'
+        ]
+    },
+    11: {
+        pins: [
+            'GPIO7',
+            'P1-26'
+        ],
+        peripherals: [
+            'gpio'
+        ]
+    },
+    12: {
+        pins: [
+            'GPIO10',
+            'MOSI0',
+            'P1-19'
+        ],
+        peripherals: [
+            'gpio',
+            'spi'
+        ]
+    },
+    13: {
+        pins: [
+            'GPIO9',
+            'MISO0',
+            'P1-21'
+        ],
+        peripherals: [
+            'gpio',
+            'spi'
+        ]
+    },
+    14: {
+        pins: [
+            'GPIO11',
+            'SCLK0',
+            'P1-23'
+        ],
+        peripherals: [
+            'gpio',
+            'spi'
+        ]
+    },
+    15: {
+        pins: [
+            'GPIO14',
+            'TXD0',
+            'P1-8'
+        ],
+        peripherals: [
+            'gpio',
+            'uart'
+        ]
+    },
+    16: {
+        pins: [
+            'GPIO15',
+            'RXD0',
+            'P1-10'
+        ],
+        peripherals: [
+            'gpio',
+            'uart'
+        ]
+    }
+};
+var B2 = {
+    0: {
+        pins: [
+            'GPIO17',
+            'P1-11'
+        ],
+        peripherals: [
+            'gpio'
+        ]
+    },
+    1: {
+        pins: [
+            'GPIO18',
+            'PWM0',
+            'P1-12'
+        ],
+        peripherals: [
+            'gpio',
+            'pwm'
+        ]
+    },
+    2: {
+        pins: [
+            'GPIO27',
+            'P1-13'
+        ],
+        peripherals: [
+            'gpio'
+        ]
+    },
+    3: {
+        pins: [
+            'GPIO22',
+            'P1-15'
+        ],
+        peripherals: [
+            'gpio'
+        ]
+    },
+    4: {
+        pins: [
+            'GPIO23',
+            'P1-16'
+        ],
+        peripherals: [
+            'gpio'
+        ]
+    },
+    5: {
+        pins: [
+            'GPIO24',
+            'P1-18'
+        ],
+        peripherals: [
+            'gpio'
+        ]
+    },
+    6: {
+        pins: [
+            'GPIO25',
+            'P1-22'
+        ],
+        peripherals: [
+            'gpio'
+        ]
+    },
+    7: {
+        pins: [
+            'GPIO4',
+            'P1-7'
+        ],
+        peripherals: [
+            'gpio'
+        ]
+    },
+    8: {
+        pins: [
+            'GPIO2',
+            'SDA0',
+            'P1-3'
+        ],
+        peripherals: [
+            'gpio',
+            'i2c'
+        ]
+    },
+    9: {
+        pins: [
+            'GPIO3',
+            'SCL0',
+            'P1-5'
+        ],
+        peripherals: [
+            'gpio',
+            'i2c'
+        ]
+    },
+    10: {
+        pins: [
+            'GPIO8',
+            'CE0',
+            'P1-24'
+        ],
+        peripherals: [
+            'gpio',
+            'spi'
+        ]
+    },
+    11: {
+        pins: [
+            'GPIO7',
+            'P1-26'
+        ],
+        peripherals: [
+            'gpio'
+        ]
+    },
+    12: {
+        pins: [
+            'GPIO10',
+            'MOSI0',
+            'P1-19'
+        ],
+        peripherals: [
+            'gpio',
+            'spi'
+        ]
+    },
+    13: {
+        pins: [
+            'GPIO9',
+            'MISO0',
+            'P1-21'
+        ],
+        peripherals: [
+            'gpio',
+            'spi'
+        ]
+    },
+    14: {
+        pins: [
+            'GPIO11',
+            'SCLK0',
+            'P1-23'
+        ],
+        peripherals: [
+            'gpio',
+            'spi'
+        ]
+    },
+    15: {
+        pins: [
+            'GPIO14',
+            'TXD0',
+            'P1-8'
+        ],
+        peripherals: [
+            'gpio',
+            'uart'
+        ]
+    },
+    16: {
+        pins: [
+            'GPIO15',
+            'RXD0',
+            'P1-10'
+        ],
+        peripherals: [
+            'gpio',
+            'uart'
+        ]
+    },
+    17: {
+        pins: [
+            'GPIO28',
+            'P5-3'
+        ],
+        peripherals: [
+            'gpio'
+        ]
+    },
+    18: {
+        pins: [
+            'GPIO29',
+            'P5-4'
+        ],
+        peripherals: [
+            'gpio'
+        ]
+    },
+    19: {
+        pins: [
+            'GPIO30',
+            'P5-5'
+        ],
+        peripherals: [
+            'gpio'
+        ]
+    },
+    20: {
+        pins: [
+            'GPIO31',
+            'P5-6'
+        ],
+        peripherals: [
+            'gpio'
+        ]
+    }
+};
+var BPLUS = {
+    0: {
+        pins: [
+            'GPIO17',
+            'P1-11'
+        ],
+        peripherals: [
+            'gpio'
+        ]
+    },
+    1: {
+        pins: [
+            'GPIO18',
+            'PWM0',
+            'P1-12'
+        ],
+        peripherals: [
+            'gpio',
+            'pwm'
+        ]
+    },
+    2: {
+        pins: [
+            'GPIO27',
+            'P1-13'
+        ],
+        peripherals: [
+            'gpio'
+        ]
+    },
+    3: {
+        pins: [
+            'GPIO22',
+            'P1-15'
+        ],
+        peripherals: [
+            'gpio'
+        ]
+    },
+    4: {
+        pins: [
+            'GPIO23',
+            'P1-16'
+        ],
+        peripherals: [
+            'gpio'
+        ]
+    },
+    5: {
+        pins: [
+            'GPIO24',
+            'P1-18'
+        ],
+        peripherals: [
+            'gpio'
+        ]
+    },
+    6: {
+        pins: [
+            'GPIO25',
+            'P1-22'
+        ],
+        peripherals: [
+            'gpio'
+        ]
+    },
+    7: {
+        pins: [
+            'GPIO4',
+            'P1-7'
+        ],
+        peripherals: [
+            'gpio'
+        ]
+    },
+    8: {
+        pins: [
+            'GPIO2',
+            'SDA0',
+            'P1-3'
+        ],
+        peripherals: [
+            'gpio',
+            'i2c'
+        ]
+    },
+    9: {
+        pins: [
+            'GPIO3',
+            'SCL0',
+            'P1-5'
+        ],
+        peripherals: [
+            'gpio',
+            'i2c'
+        ]
+    },
+    10: {
+        pins: [
+            'GPIO8',
+            'CE0',
+            'P1-24'
+        ],
+        peripherals: [
+            'gpio',
+            'spi'
+        ]
+    },
+    11: {
+        pins: [
+            'GPIO7',
+            'CE1',
+            'P1-26'
+        ],
+        peripherals: [
+            'gpio',
+            'spi'
+        ]
+    },
+    12: {
+        pins: [
+            'GPIO10',
+            'MOSI0',
+            'P1-19'
+        ],
+        peripherals: [
+            'gpio',
+            'spi'
+        ]
+    },
+    13: {
+        pins: [
+            'GPIO9',
+            'MISO0',
+            'P1-21'
+        ],
+        peripherals: [
+            'gpio',
+            'spi'
+        ]
+    },
+    14: {
+        pins: [
+            'GPIO11',
+            'SCLK0',
+            'P1-23'
+        ],
+        peripherals: [
+            'gpio',
+            'spi'
+        ]
+    },
+    15: {
+        pins: [
+            'GPIO14',
+            'TXD0',
+            'P1-8'
+        ],
+        peripherals: [
+            'gpio',
+            'uart'
+        ]
+    },
+    16: {
+        pins: [
+            'GPIO15',
+            'RXD0',
+            'P1-10'
+        ],
+        peripherals: [
+            'gpio',
+            'uart'
+        ]
+    },
+    21: {
+        pins: [
+            'GPIO5',
+            'P1-29'
+        ],
+        peripherals: [
+            'gpio'
+        ]
+    },
+    22: {
+        pins: [
+            'GPIO6',
+            'P1-31'
+        ],
+        peripherals: [
+            'gpio'
+        ]
+    },
+    23: {
+        pins: [
+            'GPIO13',
+            'P1-33',
+            'PWM1'
+        ],
+        peripherals: [
+            'gpio',
+            'pwm'
+        ]
+    },
+    24: {
+        pins: [
+            'GPIO19',
+            'PWM1',
+            'MISO1',
+            'P1-35'
+        ],
+        peripherals: [
+            'gpio',
+            'pwm',
+            'spi'
+        ]
+    },
+    25: {
+        pins: [
+            'GPIO26',
+            'P1-37'
+        ],
+        peripherals: [
+            'gpio'
+        ]
+    },
+    26: {
+        pins: [
+            'GPIO12',
+            'PWM0',
+            'P1-32'
+        ],
+        peripherals: [
+            'gpio',
+            'pwm'
+        ]
+    },
+    27: {
+        pins: [
+            'GPIO16',
+            'P1-36'
+        ],
+        peripherals: [
+            'gpio'
+        ]
+    },
+    28: {
+        pins: [
+            'GPIO20',
+            'MOSI1',
+            'P1-38'
+        ],
+        peripherals: [
+            'gpio',
+            'spi'
+        ]
+    },
+    29: {
+        pins: [
+            'GPIO21',
+            'SCLK1',
+            'P1-40'
+        ],
+        peripherals: [
+            'gpio',
+            'spi'
+        ]
+    }
+};
+// Initialize the board info
+var procInfo;
+if (global.raspiTest) {
+    procInfo = 'Revision:a21041';
+}
+else {
+    procInfo = fs_1.readFileSync('/proc/cpuinfo').toString();
+}
+var revMatch = procInfo.match(/Revision\s*:\s*(.*)/);
+if (!revMatch) {
+    throw new Error('Unable to parse revision information in /proc/cpuinfo');
+}
+// If the board has been overclocked, the revision is modified, so clear it here
+var rev = revMatch[1];
+if (/10[0-9a-z]{5}/.test(rev)) {
+    rev = rev.substr(-4);
+}
+else if (/1a[0-9a-z]{5}/.test(rev)) {
+    rev = rev.substr(-6);
+}
+var pins;
+switch (BOARD_REVISIONS[rev]) {
+    case exports.VERSION_1_MODEL_A:
+        // Information is scarce, and no one has complained about it not being supported
+        throw new Error('Raspberry Pi 1 Model A boards are not supported.');
+    case exports.VERSION_1_MODEL_B_REV_1:
+        pins = B1;
+        break;
+    case exports.VERSION_1_MODEL_B_REV_2:
+        pins = B2;
+        break;
+    case exports.VERSION_1_MODEL_ZERO:
+    case exports.VERSION_1_MODEL_A_PLUS:
+    case exports.VERSION_1_MODEL_B_PLUS:
+    case exports.VERSION_2_MODEL_B:
+    case exports.VERSION_3_MODEL_B:
+        pins = BPLUS;
+        break;
+    default:
+        console.warn("Unknown board revision " + rev + ", assuming Raspberry Pi 3 pinout.");
+        pins = BPLUS;
+        break;
+}
+// Create the aliases
+var aliases = {};
+for (var pin in pins) {
+    if (pins.hasOwnProperty(pin)) {
+        var pinAliases = pins[pin].pins;
+        for (var i = 0; i < pinAliases.length; i++) {
+            aliases[pinAliases[i]] = parseInt(pin, 10);
+        }
+    }
+}
+function getBoardRevision() {
+    return BOARD_REVISIONS[rev];
+}
+exports.getBoardRevision = getBoardRevision;
+function getPins() {
+    return pins;
+}
+exports.getPins = getPins;
+function getPinNumber(alias) {
+    if (typeof alias !== 'number' && typeof alias !== 'string') {
+        return null;
+    }
+    alias = alias.toString();
+    if (Object.keys(pins).indexOf(alias) !== -1) {
+        alias = parseInt(alias, 10);
+    }
+    else {
+        alias = aliases[alias];
+    }
+    if (typeof alias === 'undefined') {
+        return null;
+    }
+    return alias;
+}
+exports.getPinNumber = getPinNumber;
+//# sourceMappingURL=index.js.map

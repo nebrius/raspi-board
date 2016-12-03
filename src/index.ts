@@ -22,10 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-import fs from 'fs';
-
-let pins;
-const aliases = {};
+import { readFileSync } from 'fs';
 
 export const VERSION_1_MODEL_ZERO = 'rpi1_zero';
 export const VERSION_1_MODEL_A = 'rpi1_a';
@@ -36,7 +33,12 @@ export const VERSION_1_MODEL_A_PLUS = 'rpi1_aplus';
 export const VERSION_2_MODEL_B = 'rpi2_b';
 export const VERSION_3_MODEL_B = 'rpi3_b';
 
-const BOARD_REVISIONS = {
+export interface IPinInfo {
+  pins: Array<string>;
+  peripherals: Array<string>;
+}
+
+const BOARD_REVISIONS: { [ revision: string ]: string } = {
   '0002': VERSION_1_MODEL_B_REV_1,
   '0003': VERSION_1_MODEL_B_REV_1,
   '0004': VERSION_1_MODEL_B_REV_2,
@@ -715,25 +717,26 @@ const BPLUS = {
 };
 
 // Initialize the board info
-let procInfo;
-if (global.raspiTest) {
+let procInfo: string;
+if ((<any>global).raspiTest) {
   procInfo = 'Revision:a21041';
 } else {
-  procInfo = fs.readFileSync('/proc/cpuinfo').toString();
+  procInfo = readFileSync('/proc/cpuinfo').toString();
 }
-let rev = procInfo.match(/Revision\s*:\s*(.*)/);
-if (!rev) {
+const revMatch = procInfo.match(/Revision\s*:\s*(.*)/);
+if (!revMatch) {
   throw new Error('Unable to parse revision information in /proc/cpuinfo');
 }
-rev = rev[1];
 
 // If the board has been overclocked, the revision is modified, so clear it here
+let rev = revMatch[1];
 if (/10[0-9a-z]{5}/.test(rev)) { // Check for RPi 1 overclock
   rev = rev.substr(-4);
 } else if (/1a[0-9a-z]{5}/.test(rev)) { // Check for RPi 2 overclock
   rev = rev.substr(-6);
 }
 
+let pins: { [ pinNumber: string]: IPinInfo };
 switch (BOARD_REVISIONS[rev]) {
   case VERSION_1_MODEL_A:
     // Information is scarce, and no one has complained about it not being supported
@@ -758,11 +761,12 @@ switch (BOARD_REVISIONS[rev]) {
 }
 
 // Create the aliases
-let pin; // Note: babel complains about const in for...in, and eslint complains about let in for...in
-for (pin in pins) {
+const aliases: { [ alias: string ]: number } = {};
+for (const pin in pins) {
   if (pins.hasOwnProperty(pin)) {
-    for (let i = 0; i < pins[pin].pins.length; i++) {
-      aliases[pins[pin].pins[i]] = parseInt(pin, 10);
+    const pinAliases = pins[pin].pins;
+    for (let i = 0; i < pinAliases.length; i++) {
+      aliases[pinAliases[i]] = parseInt(pin, 10);
     }
   }
 }
@@ -775,17 +779,17 @@ export function getPins() {
   return pins;
 }
 
-export function getPinNumber(alias) {
-  if (typeof alias != 'number' && typeof alias != 'string') {
+export function getPinNumber(alias: string | number): number | null {
+  if (typeof alias !== 'number' && typeof alias !== 'string') {
     return null;
   }
   alias = alias.toString();
-  if (Object.keys(pins).indexOf(alias.toString()) != -1) {
+  if (Object.keys(pins).indexOf(alias) !== -1) {
     alias = parseInt(alias, 10);
   } else {
     alias = aliases[alias];
   }
-  if (typeof alias == 'undefined') {
+  if (typeof alias === 'undefined') {
     return null;
   }
   return alias;

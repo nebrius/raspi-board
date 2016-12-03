@@ -13,6 +13,8 @@ If you have a bug report, feature request, or wish to contribute code, please be
 npm install raspi-board
 ```
 
+Note: this project is written in [TypeScript](http://www.typescriptlang.org/) and includes type definitions in the package.json file. This means that if you want to use it from TypeScript, you don't need to install a separate @types module.
+
 ## Pin Naming
 
 The pins on the Raspberry Pi are a little complicated. There are multiple headers on some Raspberry Pis with extra pins, and the pin numbers are not consistent between Raspberry Pi board versions.
@@ -145,7 +147,7 @@ License
 
 The MIT License (MIT)
 
-Copyright (c) 2014 Bryan Hughes bryan@theoreticalideations.com
+Copyright (c) 2014 Bryan Hughes bryan@nebri.us
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
