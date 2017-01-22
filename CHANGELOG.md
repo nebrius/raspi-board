@@ -1,3 +1,7 @@
+## 4.0.2 (2017-22-1)
+
+- Publishing a new version to update the README on npmjs.com. No other changes.
+
 ## 4.0.1 (2016-12-3)
 
 - Converted the project to TypeScript and cleaned up a bunch of odds and ends
