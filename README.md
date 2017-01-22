@@ -18,8 +18,7 @@ Note: this project is written in [TypeScript](http://www.typescriptlang.org/) an
 ## Example
 
 ```JavaScript
-
-var board = require('raspi-board');
+const board = require('raspi-board');
 
 // Prints 14
 console.log(board.getPinNumber('SCLK0'));
