@@ -24,6 +24,7 @@ THE SOFTWARE.
 "use strict";
 var fs_1 = require('fs');
 exports.VERSION_1_MODEL_ZERO = 'rpi1_zero';
+exports.VERSION_1_MODEL_ZERO_W = 'rpi1_zerow';
 exports.VERSION_1_MODEL_A = 'rpi1_a';
 exports.VERSION_1_MODEL_B_REV_1 = 'rpi1_b1';
 exports.VERSION_1_MODEL_B_REV_2 = 'rpi1_b2';
@@ -45,13 +46,18 @@ var BOARD_REVISIONS = {
     '000f': exports.VERSION_1_MODEL_B_REV_2,
     '0010': exports.VERSION_1_MODEL_B_PLUS,
     '0012': exports.VERSION_1_MODEL_A_PLUS,
+    '0013': exports.VERSION_1_MODEL_B_PLUS,
+    '0015': exports.VERSION_1_MODEL_A_PLUS,
     '900021': exports.VERSION_1_MODEL_A_PLUS,
-    'a01041': exports.VERSION_2_MODEL_B,
-    'a21041': exports.VERSION_2_MODEL_B,
     '900092': exports.VERSION_1_MODEL_ZERO,
     '920092': exports.VERSION_1_MODEL_ZERO,
     '900093': exports.VERSION_1_MODEL_ZERO,
     '920093': exports.VERSION_1_MODEL_ZERO,
+    '9000c1': exports.VERSION_1_MODEL_ZERO_W,
+    'a01040': exports.VERSION_2_MODEL_B,
+    'a01041': exports.VERSION_2_MODEL_B,
+    'a21041': exports.VERSION_2_MODEL_B,
+    'a22042': exports.VERSION_2_MODEL_B,
     'a02082': exports.VERSION_3_MODEL_B,
     'a22082': exports.VERSION_3_MODEL_B
 };
@@ -737,6 +743,7 @@ switch (BOARD_REVISIONS[rev]) {
         pins = B2;
         break;
     case exports.VERSION_1_MODEL_ZERO:
+    case exports.VERSION_1_MODEL_ZERO_W:
     case exports.VERSION_1_MODEL_A_PLUS:
     case exports.VERSION_1_MODEL_B_PLUS:
     case exports.VERSION_2_MODEL_B:

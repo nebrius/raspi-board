@@ -1,4 +1,8 @@
-## 4.0.2 (2017-22-1)
+## 4.1.0 (2017-4-19)
+
+- Added support for the Raspberry Pi Zero W
+
+## 4.0.2 (2017-1-22)
 
 - Publishing a new version to update the README on npmjs.com. No other changes.
 
