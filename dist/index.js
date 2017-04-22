@@ -22,7 +22,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 "use strict";
-var fs_1 = require('fs');
+Object.defineProperty(exports, "__esModule", { value: true });
+var fs_1 = require("fs");
 exports.VERSION_1_MODEL_A = 'rpi1_a';
 exports.VERSION_1_MODEL_B_REV_1 = 'rpi1_b1';
 exports.VERSION_1_MODEL_B_REV_2 = 'rpi1_b2';

@@ -1,13 +1,13 @@
-export declare const VERSION_1_MODEL_A: string;
-export declare const VERSION_1_MODEL_B_REV_1: string;
-export declare const VERSION_1_MODEL_B_REV_2: string;
-export declare const VERSION_1_MODEL_B_PLUS: string;
-export declare const VERSION_1_MODEL_A_PLUS: string;
-export declare const VERSION_1_MODEL_ZERO: string;
-export declare const VERSION_1_MODEL_ZERO_W: string;
-export declare const VERSION_2_MODEL_B: string;
-export declare const VERSION_3_MODEL_B: string;
-export declare const VERSION_UNKNOWN: string;
+export declare const VERSION_1_MODEL_A = "rpi1_a";
+export declare const VERSION_1_MODEL_B_REV_1 = "rpi1_b1";
+export declare const VERSION_1_MODEL_B_REV_2 = "rpi1_b2";
+export declare const VERSION_1_MODEL_B_PLUS = "rpi1_bplus";
+export declare const VERSION_1_MODEL_A_PLUS = "rpi1_aplus";
+export declare const VERSION_1_MODEL_ZERO = "rpi1_zero";
+export declare const VERSION_1_MODEL_ZERO_W = "rpi1_zerow";
+export declare const VERSION_2_MODEL_B = "rpi2_b";
+export declare const VERSION_3_MODEL_B = "rpi3_b";
+export declare const VERSION_UNKNOWN = "unknown";
 export interface IPinInfo {
     pins: Array<string>;
     peripherals: Array<string>;
