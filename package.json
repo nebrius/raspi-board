@@ -29,8 +29,5 @@
   "bugs": {
     "url": "https://github.com/nebrius/raspi-board/issues"
   },
-  "homepage": "https://github.com/nebrius/raspi-board",
-  "dependencies": {
-    "@types/node": "0.0.2"
-  }
+  "homepage": "https://github.com/nebrius/raspi-board"
 }
