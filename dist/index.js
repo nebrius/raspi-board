@@ -23,15 +23,16 @@ THE SOFTWARE.
 */
 "use strict";
 var fs_1 = require('fs');
-exports.VERSION_1_MODEL_ZERO = 'rpi1_zero';
-exports.VERSION_1_MODEL_ZERO_W = 'rpi1_zerow';
 exports.VERSION_1_MODEL_A = 'rpi1_a';
 exports.VERSION_1_MODEL_B_REV_1 = 'rpi1_b1';
 exports.VERSION_1_MODEL_B_REV_2 = 'rpi1_b2';
 exports.VERSION_1_MODEL_B_PLUS = 'rpi1_bplus';
 exports.VERSION_1_MODEL_A_PLUS = 'rpi1_aplus';
+exports.VERSION_1_MODEL_ZERO = 'rpi1_zero';
+exports.VERSION_1_MODEL_ZERO_W = 'rpi1_zerow';
 exports.VERSION_2_MODEL_B = 'rpi2_b';
 exports.VERSION_3_MODEL_B = 'rpi3_b';
+exports.VERSION_UNKNOWN = 'unknown';
 var BOARD_REVISIONS = {
     '0002': exports.VERSION_1_MODEL_B_REV_1,
     '0003': exports.VERSION_1_MODEL_B_REV_1,
@@ -69,7 +70,8 @@ var B1 = {
         ],
         peripherals: [
             'gpio'
-        ]
+        ],
+        gpio: 17
     },
     1: {
         pins: [
@@ -80,7 +82,8 @@ var B1 = {
         peripherals: [
             'gpio',
             'pwm'
-        ]
+        ],
+        gpio: 18
     },
     2: {
         pins: [
@@ -89,7 +92,8 @@ var B1 = {
         ],
         peripherals: [
             'gpio'
-        ]
+        ],
+        gpio: 21
     },
     3: {
         pins: [
@@ -98,7 +102,8 @@ var B1 = {
         ],
         peripherals: [
             'gpio'
-        ]
+        ],
+        gpio: 22
     },
     4: {
         pins: [
@@ -107,7 +112,8 @@ var B1 = {
         ],
         peripherals: [
             'gpio'
-        ]
+        ],
+        gpio: 23
     },
     5: {
         pins: [
@@ -116,7 +122,8 @@ var B1 = {
         ],
         peripherals: [
             'gpio'
-        ]
+        ],
+        gpio: 24
     },
     6: {
         pins: [
@@ -125,7 +132,8 @@ var B1 = {
         ],
         peripherals: [
             'gpio'
-        ]
+        ],
+        gpio: 25
     },
     7: {
         pins: [
@@ -134,7 +142,8 @@ var B1 = {
         ],
         peripherals: [
             'gpio'
-        ]
+        ],
+        gpio: 4
     },
     8: {
         pins: [
@@ -145,7 +154,8 @@ var B1 = {
         peripherals: [
             'gpio',
             'i2c'
-        ]
+        ],
+        gpio: 0
     },
     9: {
         pins: [
@@ -156,7 +166,8 @@ var B1 = {
         peripherals: [
             'gpio',
             'i2c'
-        ]
+        ],
+        gpio: 1
     },
     10: {
         pins: [
@@ -167,7 +178,8 @@ var B1 = {
         peripherals: [
             'gpio',
             'spi'
-        ]
+        ],
+        gpio: 8
     },
     11: {
         pins: [
@@ -176,7 +188,8 @@ var B1 = {
         ],
         peripherals: [
             'gpio'
-        ]
+        ],
+        gpio: 7
     },
     12: {
         pins: [
@@ -187,7 +200,8 @@ var B1 = {
         peripherals: [
             'gpio',
             'spi'
-        ]
+        ],
+        gpio: 10
     },
     13: {
         pins: [
@@ -198,7 +212,8 @@ var B1 = {
         peripherals: [
             'gpio',
             'spi'
-        ]
+        ],
+        gpio: 9
     },
     14: {
         pins: [
@@ -209,7 +224,8 @@ var B1 = {
         peripherals: [
             'gpio',
             'spi'
-        ]
+        ],
+        gpio: 11
     },
     15: {
         pins: [
@@ -220,7 +236,8 @@ var B1 = {
         peripherals: [
             'gpio',
             'uart'
-        ]
+        ],
+        gpio: 14
     },
     16: {
         pins: [
@@ -231,7 +248,8 @@ var B1 = {
         peripherals: [
             'gpio',
             'uart'
-        ]
+        ],
+        gpio: 15
     }
 };
 var B2 = {
@@ -242,7 +260,8 @@ var B2 = {
         ],
         peripherals: [
             'gpio'
-        ]
+        ],
+        gpio: 17
     },
     1: {
         pins: [
@@ -253,7 +272,8 @@ var B2 = {
         peripherals: [
             'gpio',
             'pwm'
-        ]
+        ],
+        gpio: 18
     },
     2: {
         pins: [
@@ -262,7 +282,8 @@ var B2 = {
         ],
         peripherals: [
             'gpio'
-        ]
+        ],
+        gpio: 27
     },
     3: {
         pins: [
@@ -271,7 +292,8 @@ var B2 = {
         ],
         peripherals: [
             'gpio'
-        ]
+        ],
+        gpio: 22
     },
     4: {
         pins: [
@@ -280,7 +302,8 @@ var B2 = {
         ],
         peripherals: [
             'gpio'
-        ]
+        ],
+        gpio: 23
     },
     5: {
         pins: [
@@ -289,7 +312,8 @@ var B2 = {
         ],
         peripherals: [
             'gpio'
-        ]
+        ],
+        gpio: 24
     },
     6: {
         pins: [
@@ -298,7 +322,8 @@ var B2 = {
         ],
         peripherals: [
             'gpio'
-        ]
+        ],
+        gpio: 25
     },
     7: {
         pins: [
@@ -307,7 +332,8 @@ var B2 = {
         ],
         peripherals: [
             'gpio'
-        ]
+        ],
+        gpio: 4
     },
     8: {
         pins: [
@@ -318,7 +344,8 @@ var B2 = {
         peripherals: [
             'gpio',
             'i2c'
-        ]
+        ],
+        gpio: 2
     },
     9: {
         pins: [
@@ -329,7 +356,8 @@ var B2 = {
         peripherals: [
             'gpio',
             'i2c'
-        ]
+        ],
+        gpio: 3
     },
     10: {
         pins: [
@@ -340,7 +368,8 @@ var B2 = {
         peripherals: [
             'gpio',
             'spi'
-        ]
+        ],
+        gpio: 8
     },
     11: {
         pins: [
@@ -349,7 +378,8 @@ var B2 = {
         ],
         peripherals: [
             'gpio'
-        ]
+        ],
+        gpio: 7
     },
     12: {
         pins: [
@@ -360,7 +390,8 @@ var B2 = {
         peripherals: [
             'gpio',
             'spi'
-        ]
+        ],
+        gpio: 10
     },
     13: {
         pins: [
@@ -371,7 +402,8 @@ var B2 = {
         peripherals: [
             'gpio',
             'spi'
-        ]
+        ],
+        gpio: 9
     },
     14: {
         pins: [
@@ -382,7 +414,8 @@ var B2 = {
         peripherals: [
             'gpio',
             'spi'
-        ]
+        ],
+        gpio: 11
     },
     15: {
         pins: [
@@ -393,7 +426,8 @@ var B2 = {
         peripherals: [
             'gpio',
             'uart'
-        ]
+        ],
+        gpio: 14
     },
     16: {
         pins: [
@@ -404,7 +438,8 @@ var B2 = {
         peripherals: [
             'gpio',
             'uart'
-        ]
+        ],
+        gpio: 15
     },
     17: {
         pins: [
@@ -413,7 +448,8 @@ var B2 = {
         ],
         peripherals: [
             'gpio'
-        ]
+        ],
+        gpio: 28
     },
     18: {
         pins: [
@@ -422,7 +458,8 @@ var B2 = {
         ],
         peripherals: [
             'gpio'
-        ]
+        ],
+        gpio: 29
     },
     19: {
         pins: [
@@ -431,7 +468,8 @@ var B2 = {
         ],
         peripherals: [
             'gpio'
-        ]
+        ],
+        gpio: 30
     },
     20: {
         pins: [
@@ -440,7 +478,8 @@ var B2 = {
         ],
         peripherals: [
             'gpio'
-        ]
+        ],
+        gpio: 31
     }
 };
 var BPLUS = {
@@ -451,7 +490,8 @@ var BPLUS = {
         ],
         peripherals: [
             'gpio'
-        ]
+        ],
+        gpio: 17
     },
     1: {
         pins: [
@@ -462,7 +502,8 @@ var BPLUS = {
         peripherals: [
             'gpio',
             'pwm'
-        ]
+        ],
+        gpio: 18
     },
     2: {
         pins: [
@@ -471,7 +512,8 @@ var BPLUS = {
         ],
         peripherals: [
             'gpio'
-        ]
+        ],
+        gpio: 27
     },
     3: {
         pins: [
@@ -480,7 +522,8 @@ var BPLUS = {
         ],
         peripherals: [
             'gpio'
-        ]
+        ],
+        gpio: 22
     },
     4: {
         pins: [
@@ -489,7 +532,8 @@ var BPLUS = {
         ],
         peripherals: [
             'gpio'
-        ]
+        ],
+        gpio: 23
     },
     5: {
         pins: [
@@ -498,7 +542,8 @@ var BPLUS = {
         ],
         peripherals: [
             'gpio'
-        ]
+        ],
+        gpio: 24
     },
     6: {
         pins: [
@@ -507,7 +552,8 @@ var BPLUS = {
         ],
         peripherals: [
             'gpio'
-        ]
+        ],
+        gpio: 25
     },
     7: {
         pins: [
@@ -516,7 +562,8 @@ var BPLUS = {
         ],
         peripherals: [
             'gpio'
-        ]
+        ],
+        gpio: 4
     },
     8: {
         pins: [
@@ -527,7 +574,8 @@ var BPLUS = {
         peripherals: [
             'gpio',
             'i2c'
-        ]
+        ],
+        gpio: 2
     },
     9: {
         pins: [
@@ -538,7 +586,8 @@ var BPLUS = {
         peripherals: [
             'gpio',
             'i2c'
-        ]
+        ],
+        gpio: 3
     },
     10: {
         pins: [
@@ -549,7 +598,8 @@ var BPLUS = {
         peripherals: [
             'gpio',
             'spi'
-        ]
+        ],
+        gpio: 8
     },
     11: {
         pins: [
@@ -560,7 +610,8 @@ var BPLUS = {
         peripherals: [
             'gpio',
             'spi'
-        ]
+        ],
+        gpio: 7
     },
     12: {
         pins: [
@@ -571,7 +622,8 @@ var BPLUS = {
         peripherals: [
             'gpio',
             'spi'
-        ]
+        ],
+        gpio: 10
     },
     13: {
         pins: [
@@ -582,7 +634,8 @@ var BPLUS = {
         peripherals: [
             'gpio',
             'spi'
-        ]
+        ],
+        gpio: 9
     },
     14: {
         pins: [
@@ -593,7 +646,8 @@ var BPLUS = {
         peripherals: [
             'gpio',
             'spi'
-        ]
+        ],
+        gpio: 11
     },
     15: {
         pins: [
@@ -604,7 +658,8 @@ var BPLUS = {
         peripherals: [
             'gpio',
             'uart'
-        ]
+        ],
+        gpio: 14
     },
     16: {
         pins: [
@@ -615,7 +670,8 @@ var BPLUS = {
         peripherals: [
             'gpio',
             'uart'
-        ]
+        ],
+        gpio: 15
     },
     21: {
         pins: [
@@ -624,7 +680,8 @@ var BPLUS = {
         ],
         peripherals: [
             'gpio'
-        ]
+        ],
+        gpio: 5
     },
     22: {
         pins: [
@@ -633,7 +690,8 @@ var BPLUS = {
         ],
         peripherals: [
             'gpio'
-        ]
+        ],
+        gpio: 6
     },
     23: {
         pins: [
@@ -644,7 +702,8 @@ var BPLUS = {
         peripherals: [
             'gpio',
             'pwm'
-        ]
+        ],
+        gpio: 13
     },
     24: {
         pins: [
@@ -657,7 +716,8 @@ var BPLUS = {
             'gpio',
             'pwm',
             'spi'
-        ]
+        ],
+        gpio: 19
     },
     25: {
         pins: [
@@ -666,7 +726,8 @@ var BPLUS = {
         ],
         peripherals: [
             'gpio'
-        ]
+        ],
+        gpio: 26
     },
     26: {
         pins: [
@@ -677,7 +738,8 @@ var BPLUS = {
         peripherals: [
             'gpio',
             'pwm'
-        ]
+        ],
+        gpio: 12
     },
     27: {
         pins: [
@@ -686,7 +748,8 @@ var BPLUS = {
         ],
         peripherals: [
             'gpio'
-        ]
+        ],
+        gpio: 16
     },
     28: {
         pins: [
@@ -697,7 +760,8 @@ var BPLUS = {
         peripherals: [
             'gpio',
             'spi'
-        ]
+        ],
+        gpio: 20
     },
     29: {
         pins: [
@@ -708,7 +772,8 @@ var BPLUS = {
         peripherals: [
             'gpio',
             'spi'
-        ]
+        ],
+        gpio: 21
     }
 };
 // Initialize the board info
@@ -765,8 +830,15 @@ for (var pin in pins) {
         }
     }
 }
+// Create the Wiring Pi to PIGPIO mapping
+var pigpioMapping = {};
+for (var pin in pins) {
+    if (pins.hasOwnProperty(pin)) {
+        pigpioMapping[pin] = pins[pin].gpio;
+    }
+}
 function getBoardRevision() {
-    return BOARD_REVISIONS[rev];
+    return BOARD_REVISIONS[rev] || exports.VERSION_UNKNOWN;
 }
 exports.getBoardRevision = getBoardRevision;
 function getPins() {
@@ -790,4 +862,12 @@ function getPinNumber(alias) {
     return alias;
 }
 exports.getPinNumber = getPinNumber;
+function getGpioNumber(alias) {
+    var wiringpi = getPinNumber(alias);
+    if (wiringpi === null) {
+        return null;
+    }
+    return pigpioMapping[wiringpi];
+}
+exports.getGpioNumber = getGpioNumber;
 //# sourceMappingURL=index.js.map

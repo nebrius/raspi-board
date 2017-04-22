@@ -45,7 +45,7 @@ exports.testGettingPinNumbers = function testGettingPinNumbers(test) {
   test.done();
 };
 
-exports.testLookingupInNumbers = function testLookingupInNumbers(test) {
+exports.testLookingUpPinNumbers = function testLookingUpPinNumbers(test) {
   test.strictEqual(board.getPinNumber('GPIO2'), 8, 'Expected "GPIO2" to resolve to pin 8');
   test.strictEqual(board.getPinNumber('TXD0'), 15, 'Expected "GPIO2" to resolve to pin 15');
   test.strictEqual(board.getPinNumber('P1-12'), 1, 'Expected "P1-12" to resolve to pin 1');
@@ -54,6 +54,18 @@ exports.testLookingupInNumbers = function testLookingupInNumbers(test) {
   test.strictEqual(board.getPinNumber('10'), 10, 'Expected "10" to resolve to pin 10');
   test.strictEqual(board.getPinNumber(50), null, 'Expected 50 to resolve to null');
   test.strictEqual(board.getPinNumber('fake'), null, 'Expected "fake" to resolve to null');
+  test.done();
+};
+
+exports.testLookingUpGpioNumbers = function testLookingUpGpioNumbers(test) {
+  test.strictEqual(board.getGpioNumber('GPIO2'), 2, 'Expected "GPIO2" to resolve to GPIO 2');
+  test.strictEqual(board.getGpioNumber('TXD0'), 14, 'Expected "TXD0" to resolve to GPIO 14');
+  test.strictEqual(board.getGpioNumber('P1-12'), 18, 'Expected "P1-12" to resolve to GPIO 18');
+  test.strictEqual(board.getGpioNumber(10), 8, 'Expected 10 to resolve to GPIO 8');
+  test.strictEqual(board.getGpioNumber(0), 17, 'Expected 0 to resolve to GPIO 17');
+  test.strictEqual(board.getGpioNumber('10'), 8, 'Expected "10" to resolve to GPIO 8');
+  test.strictEqual(board.getGpioNumber(50), null, 'Expected 50 to resolve to null');
+  test.strictEqual(board.getGpioNumber('fake'), null, 'Expected "fake" to resolve to null');
   test.done();
 };
 

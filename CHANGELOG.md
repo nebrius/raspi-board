@@ -1,3 +1,9 @@
+## 4.2.0 (2017-4-21)
+
+- Added the `getGpioNumber` method
+- Added the `gpio` property on pin info returned from the `getPins` method
+- Fixed some bugs around `VERSION_UNKNOWN` not being exported nor returned from `getBoardRevision`
+
 ## 4.1.0 (2017-4-19)
 
 - Added support for the Raspberry Pi Zero W

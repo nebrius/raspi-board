@@ -24,19 +24,21 @@ THE SOFTWARE.
 
 import { readFileSync } from 'fs';
 
-export const VERSION_1_MODEL_ZERO = 'rpi1_zero';
-export const VERSION_1_MODEL_ZERO_W = 'rpi1_zerow';
 export const VERSION_1_MODEL_A = 'rpi1_a';
 export const VERSION_1_MODEL_B_REV_1 = 'rpi1_b1';
 export const VERSION_1_MODEL_B_REV_2 = 'rpi1_b2';
 export const VERSION_1_MODEL_B_PLUS = 'rpi1_bplus';
 export const VERSION_1_MODEL_A_PLUS = 'rpi1_aplus';
+export const VERSION_1_MODEL_ZERO = 'rpi1_zero';
+export const VERSION_1_MODEL_ZERO_W = 'rpi1_zerow';
 export const VERSION_2_MODEL_B = 'rpi2_b';
 export const VERSION_3_MODEL_B = 'rpi3_b';
+export const VERSION_UNKNOWN = 'unknown';
 
 export interface IPinInfo {
   pins: Array<string>;
   peripherals: Array<string>;
+  gpio: number;
 }
 
 const BOARD_REVISIONS: { [ revision: string ]: string } = {
@@ -69,7 +71,7 @@ const BOARD_REVISIONS: { [ revision: string ]: string } = {
   'a22082': VERSION_3_MODEL_B
 };
 
-const B1 = {
+const B1: { [ wiringpi: number ]: IPinInfo } = {
   0: {
     pins: [
       'GPIO17',
@@ -77,7 +79,8 @@ const B1 = {
     ],
     peripherals: [
       'gpio'
-    ]
+    ],
+    gpio: 17
   },
   1: {
     pins: [
@@ -88,7 +91,8 @@ const B1 = {
     peripherals: [
       'gpio',
       'pwm'
-    ]
+    ],
+    gpio: 18
   },
   2: {
     pins: [
@@ -97,7 +101,8 @@ const B1 = {
     ],
     peripherals: [
       'gpio'
-    ]
+    ],
+    gpio: 21
   },
   3: {
     pins: [
@@ -106,7 +111,8 @@ const B1 = {
     ],
     peripherals: [
       'gpio'
-    ]
+    ],
+    gpio: 22
   },
   4: {
     pins: [
@@ -115,7 +121,8 @@ const B1 = {
     ],
     peripherals: [
       'gpio'
-    ]
+    ],
+    gpio: 23
   },
   5: {
     pins: [
@@ -124,7 +131,8 @@ const B1 = {
     ],
     peripherals: [
       'gpio'
-    ]
+    ],
+    gpio: 24
   },
   6: {
     pins: [
@@ -133,7 +141,8 @@ const B1 = {
     ],
     peripherals: [
       'gpio'
-    ]
+    ],
+    gpio: 25
   },
   7: {
     pins: [
@@ -142,7 +151,8 @@ const B1 = {
     ],
     peripherals: [
       'gpio'
-    ]
+    ],
+    gpio: 4
   },
   8: {
     pins: [
@@ -153,7 +163,8 @@ const B1 = {
     peripherals: [
       'gpio',
       'i2c'
-    ]
+    ],
+    gpio: 0
   },
   9: {
     pins: [
@@ -164,7 +175,8 @@ const B1 = {
     peripherals: [
       'gpio',
       'i2c'
-    ]
+    ],
+    gpio: 1
   },
   10: {
     pins: [
@@ -175,7 +187,8 @@ const B1 = {
     peripherals: [
       'gpio',
       'spi'
-    ]
+    ],
+    gpio: 8
   },
   11: {
     pins: [
@@ -184,7 +197,8 @@ const B1 = {
     ],
     peripherals: [
       'gpio'
-    ]
+    ],
+    gpio: 7
   },
   12: {
     pins: [
@@ -195,7 +209,8 @@ const B1 = {
     peripherals: [
       'gpio',
       'spi'
-    ]
+    ],
+    gpio: 10
   },
   13: {
     pins: [
@@ -206,7 +221,8 @@ const B1 = {
     peripherals: [
       'gpio',
       'spi'
-    ]
+    ],
+    gpio: 9
   },
   14: {
     pins: [
@@ -217,7 +233,8 @@ const B1 = {
     peripherals: [
       'gpio',
       'spi'
-    ]
+    ],
+    gpio: 11
   },
   15: {
     pins: [
@@ -228,7 +245,8 @@ const B1 = {
     peripherals: [
       'gpio',
       'uart'
-    ]
+    ],
+    gpio: 14
   },
   16: {
     pins: [
@@ -239,11 +257,12 @@ const B1 = {
     peripherals: [
       'gpio',
       'uart'
-    ]
+    ],
+    gpio: 15
   }
 };
 
-const B2 = {
+const B2: { [ wiringpi: number ]: IPinInfo } = {
   0: {
     pins: [
       'GPIO17',
@@ -251,7 +270,8 @@ const B2 = {
     ],
     peripherals: [
       'gpio'
-    ]
+    ],
+    gpio: 17
   },
   1: {
     pins: [
@@ -262,7 +282,8 @@ const B2 = {
     peripherals: [
       'gpio',
       'pwm'
-    ]
+    ],
+    gpio: 18
   },
   2: {
     pins: [
@@ -271,7 +292,8 @@ const B2 = {
     ],
     peripherals: [
       'gpio'
-    ]
+    ],
+    gpio: 27
   },
   3: {
     pins: [
@@ -280,7 +302,8 @@ const B2 = {
     ],
     peripherals: [
       'gpio'
-    ]
+    ],
+    gpio: 22
   },
   4: {
     pins: [
@@ -289,7 +312,8 @@ const B2 = {
     ],
     peripherals: [
       'gpio'
-    ]
+    ],
+    gpio: 23
   },
   5: {
     pins: [
@@ -298,7 +322,8 @@ const B2 = {
     ],
     peripherals: [
       'gpio'
-    ]
+    ],
+    gpio: 24
   },
   6: {
     pins: [
@@ -307,7 +332,8 @@ const B2 = {
     ],
     peripherals: [
       'gpio'
-    ]
+    ],
+    gpio: 25
   },
   7: {
     pins: [
@@ -316,7 +342,8 @@ const B2 = {
     ],
     peripherals: [
       'gpio'
-    ]
+    ],
+    gpio: 4
   },
   8: {
     pins: [
@@ -327,7 +354,8 @@ const B2 = {
     peripherals: [
       'gpio',
       'i2c'
-    ]
+    ],
+    gpio: 2
   },
   9: {
     pins: [
@@ -338,7 +366,8 @@ const B2 = {
     peripherals: [
       'gpio',
       'i2c'
-    ]
+    ],
+    gpio: 3
   },
   10: {
     pins: [
@@ -349,7 +378,8 @@ const B2 = {
     peripherals: [
       'gpio',
       'spi'
-    ]
+    ],
+    gpio: 8
   },
   11: {
     pins: [
@@ -358,7 +388,8 @@ const B2 = {
     ],
     peripherals: [
       'gpio'
-    ]
+    ],
+    gpio: 7
   },
   12: {
     pins: [
@@ -369,7 +400,8 @@ const B2 = {
     peripherals: [
       'gpio',
       'spi'
-    ]
+    ],
+    gpio: 10
   },
   13: {
     pins: [
@@ -380,7 +412,8 @@ const B2 = {
     peripherals: [
       'gpio',
       'spi'
-    ]
+    ],
+    gpio: 9
   },
   14: {
     pins: [
@@ -391,7 +424,8 @@ const B2 = {
     peripherals: [
       'gpio',
       'spi'
-    ]
+    ],
+    gpio: 11
   },
   15: {
     pins: [
@@ -402,7 +436,8 @@ const B2 = {
     peripherals: [
       'gpio',
       'uart'
-    ]
+    ],
+    gpio: 14
   },
   16: {
     pins: [
@@ -413,7 +448,8 @@ const B2 = {
     peripherals: [
       'gpio',
       'uart'
-    ]
+    ],
+    gpio: 15
   },
   17: {
     pins: [
@@ -422,7 +458,8 @@ const B2 = {
     ],
     peripherals: [
       'gpio'
-    ]
+    ],
+    gpio: 28
   },
   18: {
     pins: [
@@ -431,7 +468,8 @@ const B2 = {
     ],
     peripherals: [
       'gpio'
-    ]
+    ],
+    gpio: 29
   },
   19: {
     pins: [
@@ -440,7 +478,8 @@ const B2 = {
     ],
     peripherals: [
       'gpio'
-    ]
+    ],
+    gpio: 30
   },
   20: {
     pins: [
@@ -449,11 +488,12 @@ const B2 = {
     ],
     peripherals: [
       'gpio'
-    ]
+    ],
+    gpio: 31
   }
 };
 
-const BPLUS = {
+const BPLUS: { [ wiringpi: number ]: IPinInfo } = {
   0: {
     pins: [
       'GPIO17',
@@ -461,7 +501,8 @@ const BPLUS = {
     ],
     peripherals: [
       'gpio'
-    ]
+    ],
+    gpio: 17
   },
   1: {
     pins: [
@@ -472,7 +513,8 @@ const BPLUS = {
     peripherals: [
       'gpio',
       'pwm'
-    ]
+    ],
+    gpio: 18
   },
   2: {
     pins: [
@@ -481,7 +523,8 @@ const BPLUS = {
     ],
     peripherals: [
       'gpio'
-    ]
+    ],
+    gpio: 27
   },
   3: {
     pins: [
@@ -490,7 +533,8 @@ const BPLUS = {
     ],
     peripherals: [
       'gpio'
-    ]
+    ],
+    gpio: 22
   },
   4: {
     pins: [
@@ -499,7 +543,8 @@ const BPLUS = {
     ],
     peripherals: [
       'gpio'
-    ]
+    ],
+    gpio: 23
   },
   5: {
     pins: [
@@ -508,7 +553,8 @@ const BPLUS = {
     ],
     peripherals: [
       'gpio'
-    ]
+    ],
+    gpio: 24
   },
   6: {
     pins: [
@@ -517,7 +563,8 @@ const BPLUS = {
     ],
     peripherals: [
       'gpio'
-    ]
+    ],
+    gpio: 25
   },
   7: {
     pins: [
@@ -526,7 +573,8 @@ const BPLUS = {
     ],
     peripherals: [
       'gpio'
-    ]
+    ],
+    gpio: 4
   },
   8: {
     pins: [
@@ -537,7 +585,8 @@ const BPLUS = {
     peripherals: [
       'gpio',
       'i2c'
-    ]
+    ],
+    gpio: 2
   },
   9: {
     pins: [
@@ -548,7 +597,8 @@ const BPLUS = {
     peripherals: [
       'gpio',
       'i2c'
-    ]
+    ],
+    gpio: 3
   },
   10: {
     pins: [
@@ -559,7 +609,8 @@ const BPLUS = {
     peripherals: [
       'gpio',
       'spi'
-    ]
+    ],
+    gpio: 8
   },
   11: {
     pins: [
@@ -570,7 +621,8 @@ const BPLUS = {
     peripherals: [
       'gpio',
       'spi'
-    ]
+    ],
+    gpio: 7
   },
   12: {
     pins: [
@@ -581,7 +633,8 @@ const BPLUS = {
     peripherals: [
       'gpio',
       'spi'
-    ]
+    ],
+    gpio: 10
   },
   13: {
     pins: [
@@ -592,7 +645,8 @@ const BPLUS = {
     peripherals: [
       'gpio',
       'spi'
-    ]
+    ],
+    gpio: 9
   },
   14: {
     pins: [
@@ -603,7 +657,8 @@ const BPLUS = {
     peripherals: [
       'gpio',
       'spi'
-    ]
+    ],
+    gpio: 11
   },
   15: {
     pins: [
@@ -614,7 +669,8 @@ const BPLUS = {
     peripherals: [
       'gpio',
       'uart'
-    ]
+    ],
+    gpio: 14
   },
   16: {
     pins: [
@@ -625,7 +681,8 @@ const BPLUS = {
     peripherals: [
       'gpio',
       'uart'
-    ]
+    ],
+    gpio: 15
   },
   21: {
     pins: [
@@ -634,7 +691,8 @@ const BPLUS = {
     ],
     peripherals: [
       'gpio'
-    ]
+    ],
+    gpio: 5
   },
   22: {
     pins: [
@@ -643,7 +701,8 @@ const BPLUS = {
     ],
     peripherals: [
       'gpio'
-    ]
+    ],
+    gpio: 6
   },
   23: {
     pins: [
@@ -654,7 +713,8 @@ const BPLUS = {
     peripherals: [
       'gpio',
       'pwm'
-    ]
+    ],
+    gpio: 13
   },
   24: {
     pins: [
@@ -667,7 +727,8 @@ const BPLUS = {
       'gpio',
       'pwm',
       'spi'
-    ]
+    ],
+    gpio: 19
   },
   25: {
     pins: [
@@ -676,7 +737,8 @@ const BPLUS = {
     ],
     peripherals: [
       'gpio'
-    ]
+    ],
+    gpio: 26
   },
   26: {
     pins: [
@@ -687,7 +749,8 @@ const BPLUS = {
     peripherals: [
       'gpio',
       'pwm'
-    ]
+    ],
+    gpio: 12
   },
   27: {
     pins: [
@@ -696,7 +759,8 @@ const BPLUS = {
     ],
     peripherals: [
       'gpio'
-    ]
+    ],
+    gpio: 16
   },
   28: {
     pins: [
@@ -707,7 +771,8 @@ const BPLUS = {
     peripherals: [
       'gpio',
       'spi'
-    ]
+    ],
+    gpio: 20
   },
   29: {
     pins: [
@@ -718,7 +783,8 @@ const BPLUS = {
     peripherals: [
       'gpio',
       'spi'
-    ]
+    ],
+    gpio: 21
   }
 };
 
@@ -742,7 +808,7 @@ if (/10[0-9a-z]{5}/.test(rev)) { // Check for RPi 1 overclock
   rev = rev.substr(-6);
 }
 
-let pins: { [ pinNumber: string]: IPinInfo };
+let pins: { [ wiringpi: number ]: IPinInfo };
 switch (BOARD_REVISIONS[rev]) {
   case VERSION_1_MODEL_A:
     // Information is scarce, and no one has complained about it not being supported
@@ -778,8 +844,16 @@ for (const pin in pins) {
   }
 }
 
+// Create the Wiring Pi to PIGPIO mapping
+const pigpioMapping: { [wiringPi: number]: number } = {};
+for (const pin in pins) {
+  if (pins.hasOwnProperty(pin)) {
+    pigpioMapping[pin] = pins[pin].gpio;
+  }
+}
+
 export function getBoardRevision() {
-  return BOARD_REVISIONS[rev];
+  return BOARD_REVISIONS[rev] || VERSION_UNKNOWN;
 }
 
 export function getPins() {
@@ -800,4 +874,12 @@ export function getPinNumber(alias: string | number): number | null {
     return null;
   }
   return alias;
+}
+
+export function getGpioNumber(alias: string | number): number | null {
+  const wiringpi = getPinNumber(alias);
+  if (wiringpi === null) {
+    return null;
+  }
+  return pigpioMapping[wiringpi];
 }

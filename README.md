@@ -44,40 +44,44 @@ Be sure to read the [full list of pins](https://github.com/nebrius/raspi-io/wiki
     </tr>
   </thead>
   <tr>
-    <td>VERSION_1_MODEL_ZERO</td>
-    <td>Constant representing the first version of the Raspberry Pi Zero. For use with <code>getBoardRevision()</code></td>
-  </tr>
-  <tr>
     <td>VERSION_1_MODEL_A</td>
-    <td>Constant representing the Raspberry Pi 1 Model A. For use with <code>getBoardRevision()</code></td>
+    <td>Constant representing the Raspberry Pi 1 Model A. Returned from <code>getBoardRevision()</code></td>
   </tr>
   <tr>
     <td>VERSION_1_MODEL_B_REV_1</td>
-    <td>Constant representing the Raspberry Pi 1 Model B Rev 1. For use with <code>getBoardRevision()</code></td>
+    <td>Constant representing the Raspberry Pi 1 Model B Rev 1. Returned from <code>getBoardRevision()</code></td>
   </tr>
   <tr>
     <td>VERSION_1_MODEL_B_REV_2</td>
-    <td>Constant representing the Raspberry Pi 1 Model B Rev 1. For use with <code>getBoardRevision()</code></td>
-  </tr>
-  <tr>
-    <td>VERSION_1_MODEL_B_PLUS</td>
-    <td>Constant representing the Raspberry Pi 1 Model B+. For use with <code>getBoardRevision()</code></td>
+    <td>Constant representing the Raspberry Pi 1 Model B Rev 1. Returned from <code>getBoardRevision()</code></td>
   </tr>
   <tr>
     <td>VERSION_1_MODEL_A_PLUS</td>
-    <td>Constant representing the Raspberry Pi 1 Model A+. For use with <code>getBoardRevision()</code></td>
+    <td>Constant representing the Raspberry Pi 1 Model A+. Returned from <code>getBoardRevision()</code></td>
   </tr>
   <tr>
-    <td>VERSION_2_MODEL_B</td>
-    <td>Constant representing the Raspberry Pi 2 Model B. For use with <code>getBoardRevision()</code></td>
+    <td>VERSION_1_MODEL_B_PLUS</td>
+    <td>Constant representing the Raspberry Pi 1 Model B+. Returned from <code>getBoardRevision()</code></td>
   </tr>
   <tr>
     <td>VERSION_1_MODEL_ZERO</td>
-    <td>Constant representing the Raspberry Pi Zero. For use with <code>getBoardRevision()</code></td>
+    <td>Constant representing the Raspberry Pi Zero. Returned from <code>getBoardRevision()</code></td>
+  </tr>
+  <tr>
+    <td>VERSION_1_MODEL_ZERO_W</td>
+    <td>Constant representing the Raspberry Pi Zero W. Returned from <code>getBoardRevision()</code></td>
+  </tr>
+  <tr>
+    <td>VERSION_2_MODEL_B</td>
+    <td>Constant representing the Raspberry Pi 2 Model B. Returned from <code>getBoardRevision()</code></td>
+  </tr>
+  <tr>
+    <td>VERSION_3_MODEL_B</td>
+    <td>Constant representing the Raspberry Pi 3 Model B. Returned from <code>getBoardRevision()</code></td>
   </tr>
   <tr>
     <td>VERSION_UNKNOWN</td>
-    <td>Constant representing an unknown or unsupported version of the Raspberry Pi. For use with <code>getBoardRevision()</code></td>
+    <td>Constant representing an unknown or unsupported version of the Raspberry Pi. Returned from <code>getBoardRevision()</code></td>
   </tr>
 </table>
 
@@ -115,11 +119,16 @@ _Returns_: An array of pin entry objects structured such that the array index is
     <td>Array</td>
     <td>An array of all the peripherals supported on the pin, and may contain any combination of <code>'gpio'</code>, <code>'pwm'</code>, <code>'i2c'</code>, <code>'uart'</code>, or <code>'spi'</code></td>
   </tr>
+  <tr>
+    <td>gpio</td>
+    <td>number</td>
+    <td>The GPIO number for the pin, e.g. `4` for `GPIO4`. This method works regardless of pinMode</td>
+  </tr>
 </table>
 
 ### getPinNumber(pin)
 
-Normalizes a pin name to a Wiring Pi pin number. This method accounts for the differences between board revisions by checking which Raspberry Pi the method is being called on.
+Normalizes a pin name to a Wiring Pi pin number. This method accounts for the differences between board revisions by checking which Raspberry Pi the code is running on.
 
 _Arguments_:
 
@@ -139,6 +148,29 @@ _Arguments_:
 </table>
 
 _Returns_: A number representing the Wiring Pi pin number, or null if an invalid pin name was passed in.
+
+### getGpioNumber(pin)
+
+Normalizes a pin name to a GPIO pin number, e.g. `TXD0`/`GPIO14` returns `14`. This method accounts for the differences between board revisions by checking which Raspberry Pi the code is running on.
+
+_Arguments_:
+
+<table>
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tr>
+    <td>pin</td>
+    <td>String | Number</td>
+    <td>The pin name/number to normalize. If a number is passed in, it is assumed to be the Wiring Pi pin number</td>
+  </tr>
+</table>
+
+_Returns_: A number representing the GPIO pin number, or null if an invalid pin name was passed in.
 
 License
 =======
