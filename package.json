@@ -1,6 +1,6 @@
 {
   "name": "raspi-board",
-  "version": "4.2.0",
+  "version": "5.0.0",
   "description": "Pin mapping functionality for the Raspberry Pi in Node.js",
   "main": "./dist/index.js",
   "types": "./declarations/index.d.ts",
@@ -10,11 +10,17 @@
     "test": "node test/runner.js"
   },
   "devDependencies": {
-    "nodeunit": "^0.10.2",
-    "tslint": "^5.1.0",
-    "typescript": "^2.2.2",
-    "@types/node": "^7.0.13"
+    "@types/node": "^8.0.28",
+    "nodeunit": "^0.11.1",
+    "tslint": "^5.7.0",
+    "typescript": "^2.5.2"
   },
+  "engines": {
+    "node": ">= 4.0.0"
+  },
+  "cpu": [
+    "arm"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/nebrius/raspi-board.git"

@@ -1,3 +1,9 @@
+## 5.0.0 (2017-9-11)
+
+- BREAKING CHANGE: dropped support for Node.js < 4.0.0, and now enforce it via package.json "engines" field.
+- SORT OF BREAKING-ISH CHANGE: dropped support for attempting to install on non-arm platforms via package.json's "cpu" field.
+    - Attempting to install this on a non-Raspberry Pi platform previously wasn't very useful because it usually crashed with a cryptic error. Now it complains earlier and harder.
+
 ## 4.2.0 (2017-4-21)
 
 - Added the `getGpioNumber` method
