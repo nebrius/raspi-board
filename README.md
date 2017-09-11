@@ -7,7 +7,19 @@ Raspi Board provides pin mapping functionality for the various Raspberry Pi mode
 
 If you have a bug report, feature request, or wish to contribute code, please be sure to check out the Raspi-IO [Contributing Guide](https://github.com/nebrius/raspi-io/blob/master/CONTRIBUTING.md), which also applies to this project.
 
+## System Requirements
+
+- Raspberry Pi Model B Rev 1 or newer (sorry Model A users)
+- Raspbian Jessie or newer
+  - [Node-RED](http://nodered.org/) works, but can be finicky and difficult to debug.
+  - See https://github.com/nebrius/raspi-io/issues/24 for more info about support for other OSes
+- Node 4.0.0 or newer
+
+Detailed instructions for getting a Raspberry Pi ready for NodeBots, including how to install Node.js, can be found in the [wiki](https://github.com/nebrius/raspi-io/wiki/Getting-a-Raspberry-Pi-ready-for-NodeBots)
+
 ## Installation
+
+Install with npm:
 
 ```Shell
 npm install raspi-board
