@@ -1,3 +1,9 @@
+## 5.0.2 (2017-11-18)
+
+- Updated the tsconfig.json and tslint.json configuration files to use a newer style, build tools updated
+- Cleaned up some TypeScript type definitions to be more compatible with DefinitelyTyped
+- Note: there is no functionality change with this update
+
 ## 5.0.1 (2017-9-11)
 
 - Non-code change: updated the README and republishing to make sure it's in npm

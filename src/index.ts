@@ -36,8 +36,8 @@ export const VERSION_3_MODEL_B = 'rpi3_b';
 export const VERSION_UNKNOWN = 'unknown';
 
 export interface IPinInfo {
-  pins: Array<string>;
-  peripherals: Array<string>;
+  pins: string[];
+  peripherals: string[];
   gpio: number;
 }
 
@@ -790,7 +790,7 @@ const BPLUS: { [ wiringpi: number ]: IPinInfo } = {
 
 // Initialize the board info
 let procInfo: string;
-if ((<any>global).raspiTest) {
+if ((global as any).raspiTest) {
   procInfo = 'Revision:a21041';
 } else {
   procInfo = readFileSync('/proc/cpuinfo').toString();
@@ -838,8 +838,8 @@ const aliases: { [ alias: string ]: number } = {};
 for (const pin in pins) {
   if (pins.hasOwnProperty(pin)) {
     const pinAliases = pins[pin].pins;
-    for (let i = 0; i < pinAliases.length; i++) {
-      aliases[pinAliases[i]] = parseInt(pin, 10);
+    for (const pinAlias of pinAliases) {
+      aliases[pinAlias] = parseInt(pin, 10);
     }
   }
 }

@@ -9,8 +9,8 @@ export declare const VERSION_2_MODEL_B = "rpi2_b";
 export declare const VERSION_3_MODEL_B = "rpi3_b";
 export declare const VERSION_UNKNOWN = "unknown";
 export interface IPinInfo {
-    pins: Array<string>;
-    peripherals: Array<string>;
+    pins: string[];
+    peripherals: string[];
     gpio: number;
 }
 export declare function getBoardRevision(): string;

@@ -826,8 +826,9 @@ var aliases = {};
 for (var pin in pins) {
     if (pins.hasOwnProperty(pin)) {
         var pinAliases = pins[pin].pins;
-        for (var i = 0; i < pinAliases.length; i++) {
-            aliases[pinAliases[i]] = parseInt(pin, 10);
+        for (var _i = 0, pinAliases_1 = pinAliases; _i < pinAliases_1.length; _i++) {
+            var pinAlias = pinAliases_1[_i];
+            aliases[pinAlias] = parseInt(pin, 10);
         }
     }
 }
