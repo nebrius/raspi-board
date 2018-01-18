@@ -63,6 +63,7 @@ const BOARD_REVISIONS: { [ revision: string ]: string } = {
   '900093': VERSION_1_MODEL_ZERO,
   '920093': VERSION_1_MODEL_ZERO,
   '9000c1': VERSION_1_MODEL_ZERO_W,
+  '19000c1': VERSION_1_MODEL_ZERO_W, // Bad boy overclocked his Pi Zero W
   'a01040': VERSION_2_MODEL_B,
   'a01041': VERSION_2_MODEL_B,
   'a21041': VERSION_2_MODEL_B,
