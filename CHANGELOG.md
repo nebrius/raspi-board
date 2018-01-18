@@ -1,3 +1,7 @@
+## 5.1.0 (2018-01-18)
+
+- Added support for overclocked Pi Zero W's
+
 ## 5.0.2 (2017-11-18)
 
 - Updated the tsconfig.json and tslint.json configuration files to use a newer style, build tools updated

@@ -56,6 +56,7 @@ var BOARD_REVISIONS = {
     '900093': exports.VERSION_1_MODEL_ZERO,
     '920093': exports.VERSION_1_MODEL_ZERO,
     '9000c1': exports.VERSION_1_MODEL_ZERO_W,
+    '19000c1': exports.VERSION_1_MODEL_ZERO_W,
     'a01040': exports.VERSION_2_MODEL_B,
     'a01041': exports.VERSION_2_MODEL_B,
     'a21041': exports.VERSION_2_MODEL_B,
