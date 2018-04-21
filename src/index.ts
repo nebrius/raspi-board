@@ -33,6 +33,7 @@ export const VERSION_1_MODEL_ZERO = 'rpi1_zero';
 export const VERSION_1_MODEL_ZERO_W = 'rpi1_zerow';
 export const VERSION_2_MODEL_B = 'rpi2_b';
 export const VERSION_3_MODEL_B = 'rpi3_b';
+export const VERSION_3_MODEL_B_PLUS = 'rpi3_bplus';
 export const VERSION_UNKNOWN = 'unknown';
 
 export interface IPinInfo {
@@ -69,7 +70,8 @@ const BOARD_REVISIONS: { [ revision: string ]: string } = {
   'a21041': VERSION_2_MODEL_B,
   'a22042': VERSION_2_MODEL_B,
   'a02082': VERSION_3_MODEL_B,
-  'a22082': VERSION_3_MODEL_B
+  'a22082': VERSION_3_MODEL_B,
+  'a020d3': VERSION_3_MODEL_B_PLUS
 };
 
 const B1: { [ wiringpi: number ]: IPinInfo } = {
@@ -826,10 +828,11 @@ switch (BOARD_REVISIONS[rev]) {
   case VERSION_1_MODEL_B_PLUS:
   case VERSION_2_MODEL_B:
   case VERSION_3_MODEL_B:
+  case VERSION_3_MODEL_B_PLUS:
     pins = BPLUS;
     break;
   default:
-    console.warn(`Unknown board revision ${rev}, assuming Raspberry Pi 3 pinout.`);
+    console.warn(`Unknown board revision ${rev}, assuming Raspberry Pi 3 Model B pinout.`);
     pins = BPLUS;
     break;
 }

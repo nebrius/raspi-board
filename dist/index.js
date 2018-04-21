@@ -33,6 +33,7 @@ exports.VERSION_1_MODEL_ZERO = 'rpi1_zero';
 exports.VERSION_1_MODEL_ZERO_W = 'rpi1_zerow';
 exports.VERSION_2_MODEL_B = 'rpi2_b';
 exports.VERSION_3_MODEL_B = 'rpi3_b';
+exports.VERSION_3_MODEL_B_PLUS = 'rpi3_bplus';
 exports.VERSION_UNKNOWN = 'unknown';
 var BOARD_REVISIONS = {
     '0002': exports.VERSION_1_MODEL_B_REV_1,
@@ -62,7 +63,8 @@ var BOARD_REVISIONS = {
     'a21041': exports.VERSION_2_MODEL_B,
     'a22042': exports.VERSION_2_MODEL_B,
     'a02082': exports.VERSION_3_MODEL_B,
-    'a22082': exports.VERSION_3_MODEL_B
+    'a22082': exports.VERSION_3_MODEL_B,
+    'a020d3': exports.VERSION_3_MODEL_B_PLUS
 };
 var B1 = {
     0: {
@@ -815,10 +817,11 @@ switch (BOARD_REVISIONS[rev]) {
     case exports.VERSION_1_MODEL_B_PLUS:
     case exports.VERSION_2_MODEL_B:
     case exports.VERSION_3_MODEL_B:
+    case exports.VERSION_3_MODEL_B_PLUS:
         pins = BPLUS;
         break;
     default:
-        console.warn("Unknown board revision " + rev + ", assuming Raspberry Pi 3 pinout.");
+        console.warn("Unknown board revision " + rev + ", assuming Raspberry Pi 3 Model B pinout.");
         pins = BPLUS;
         break;
 }

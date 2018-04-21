@@ -1,3 +1,7 @@
+## 5.2.0 (2018-04-21)
+
+- Added support for the Raspberry Pi 3 Model B+
+
 ## 5.1.0 (2018-01-18)
 
 - Added support for overclocked Pi Zero W's
