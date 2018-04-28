@@ -1,3 +1,8 @@
+## 5.3.0 (2018-4-28)
+
+- Added a missing RPi 1 Model B+ and RPi 3 Model B revision numbers
+- Changed the "unknown board" warning message to an info message and added a much longer description.
+
 ## 5.2.0 (2018-04-21)
 
 - Added support for the Raspberry Pi 3 Model B+

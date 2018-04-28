@@ -52,6 +52,7 @@ var BOARD_REVISIONS = {
     '0013': exports.VERSION_1_MODEL_B_PLUS,
     '0015': exports.VERSION_1_MODEL_A_PLUS,
     '900021': exports.VERSION_1_MODEL_A_PLUS,
+    '900032': exports.VERSION_1_MODEL_B_PLUS,
     '900092': exports.VERSION_1_MODEL_ZERO,
     '920092': exports.VERSION_1_MODEL_ZERO,
     '900093': exports.VERSION_1_MODEL_ZERO,
@@ -64,6 +65,7 @@ var BOARD_REVISIONS = {
     'a22042': exports.VERSION_2_MODEL_B,
     'a02082': exports.VERSION_3_MODEL_B,
     'a22082': exports.VERSION_3_MODEL_B,
+    'a32082': exports.VERSION_3_MODEL_B,
     'a020d3': exports.VERSION_3_MODEL_B_PLUS
 };
 var B1 = {
@@ -794,10 +796,10 @@ if (!revMatch) {
 }
 // If the board has been overclocked, the revision is modified, so clear it here
 var rev = revMatch[1];
-if (/10[0-9a-z]{5}/.test(rev)) {
+if (/10[0-9a-z]{5}/.test(rev)) { // Check for RPi 1 overclock
     rev = rev.substr(-4);
 }
-else if (/1a[0-9a-z]{5}/.test(rev)) {
+else if (/1a[0-9a-z]{5}/.test(rev)) { // Check for RPi 2 overclock
     rev = rev.substr(-6);
 }
 var pins;
@@ -821,7 +823,9 @@ switch (BOARD_REVISIONS[rev]) {
         pins = BPLUS;
         break;
     default:
-        console.warn("Unknown board revision " + rev + ", assuming Raspberry Pi 3 Model B pinout.");
+        console.info("Unknown board revision " + rev + ", assuming Raspberry Pi 3 Model B+ pinout. " +
+            "Unless you are running a compute module or very old RPi this should work fine. " +
+            "Please report this board revision in a GitHub issue at https://github.com/nebrius/raspi-board.");
         pins = BPLUS;
         break;
 }

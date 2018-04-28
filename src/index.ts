@@ -59,6 +59,7 @@ const BOARD_REVISIONS: { [ revision: string ]: string } = {
   '0013': VERSION_1_MODEL_B_PLUS,
   '0015': VERSION_1_MODEL_A_PLUS,
   '900021': VERSION_1_MODEL_A_PLUS,
+  '900032': VERSION_1_MODEL_B_PLUS,
   '900092': VERSION_1_MODEL_ZERO,
   '920092': VERSION_1_MODEL_ZERO,
   '900093': VERSION_1_MODEL_ZERO,
@@ -71,6 +72,7 @@ const BOARD_REVISIONS: { [ revision: string ]: string } = {
   'a22042': VERSION_2_MODEL_B,
   'a02082': VERSION_3_MODEL_B,
   'a22082': VERSION_3_MODEL_B,
+  'a32082': VERSION_3_MODEL_B,
   'a020d3': VERSION_3_MODEL_B_PLUS
 };
 
@@ -832,7 +834,9 @@ switch (BOARD_REVISIONS[rev]) {
     pins = BPLUS;
     break;
   default:
-    console.warn(`Unknown board revision ${rev}, assuming Raspberry Pi 3 Model B pinout.`);
+    console.info(`Unknown board revision ${rev}, assuming Raspberry Pi 3 Model B+ pinout. ` +
+      `Unless you are running a compute module or very old RPi this should work fine. ` +
+      `Please report this board revision in a GitHub issue at https://github.com/nebrius/raspi-board.`);
     pins = BPLUS;
     break;
 }
