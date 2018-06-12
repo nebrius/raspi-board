@@ -66,6 +66,7 @@ var BOARD_REVISIONS = {
     'a02082': exports.VERSION_3_MODEL_B,
     'a22082': exports.VERSION_3_MODEL_B,
     'a32082': exports.VERSION_3_MODEL_B,
+    'a52082': exports.VERSION_3_MODEL_B,
     'a020d3': exports.VERSION_3_MODEL_B_PLUS
 };
 var B1 = {

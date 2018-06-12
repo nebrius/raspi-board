@@ -73,6 +73,7 @@ const BOARD_REVISIONS: { [ revision: string ]: string } = {
   'a02082': VERSION_3_MODEL_B,
   'a22082': VERSION_3_MODEL_B,
   'a32082': VERSION_3_MODEL_B,
+  'a52082': VERSION_3_MODEL_B,
   'a020d3': VERSION_3_MODEL_B_PLUS
 };
 

@@ -1,4 +1,8 @@
-## 5.3.0 (2018-4-28)
+## 5.3.1 (2018-06-12)
+
+- Added missing RPi 3 Model B revision number
+
+## 5.3.0 (2018-04-28)
 
 - Added a missing RPi 1 Model B+ and RPi 3 Model B revision numbers
 - Changed the "unknown board" warning message to an info message and added a much longer description.
