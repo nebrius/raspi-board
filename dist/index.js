@@ -23,7 +23,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 Object.defineProperty(exports, "__esModule", { value: true });
-var fs_1 = require("fs");
+const fs_1 = require("fs");
 exports.VERSION_1_MODEL_A = 'rpi1_a';
 exports.VERSION_1_MODEL_B_REV_1 = 'rpi1_b1';
 exports.VERSION_1_MODEL_B_REV_2 = 'rpi1_b2';
@@ -35,7 +35,7 @@ exports.VERSION_2_MODEL_B = 'rpi2_b';
 exports.VERSION_3_MODEL_B = 'rpi3_b';
 exports.VERSION_3_MODEL_B_PLUS = 'rpi3_bplus';
 exports.VERSION_UNKNOWN = 'unknown';
-var BOARD_REVISIONS = {
+const BOARD_REVISIONS = {
     '0002': exports.VERSION_1_MODEL_B_REV_1,
     '0003': exports.VERSION_1_MODEL_B_REV_1,
     '0004': exports.VERSION_1_MODEL_B_REV_2,
@@ -69,7 +69,7 @@ var BOARD_REVISIONS = {
     'a52082': exports.VERSION_3_MODEL_B,
     'a020d3': exports.VERSION_3_MODEL_B_PLUS
 };
-var B1 = {
+const B1 = {
     0: {
         pins: [
             'GPIO17',
@@ -259,7 +259,7 @@ var B1 = {
         gpio: 15
     }
 };
-var B2 = {
+const B2 = {
     0: {
         pins: [
             'GPIO17',
@@ -489,7 +489,7 @@ var B2 = {
         gpio: 31
     }
 };
-var BPLUS = {
+const BPLUS = {
     0: {
         pins: [
             'GPIO17',
@@ -784,26 +784,26 @@ var BPLUS = {
     }
 };
 // Initialize the board info
-var procInfo;
-if (global.raspiTest) {
+let procInfo;
+if (process.env.RASPI_IO_TEST_MODE) {
     procInfo = 'Revision:a21041';
 }
 else {
     procInfo = fs_1.readFileSync('/proc/cpuinfo').toString();
 }
-var revMatch = procInfo.match(/Revision\s*:\s*(.*)/);
+const revMatch = procInfo.match(/Revision\s*:\s*(.*)/);
 if (!revMatch) {
     throw new Error('Unable to parse revision information in /proc/cpuinfo');
 }
 // If the board has been overclocked, the revision is modified, so clear it here
-var rev = revMatch[1];
+let rev = revMatch[1];
 if (/10[0-9a-z]{5}/.test(rev)) { // Check for RPi 1 overclock
     rev = rev.substr(-4);
 }
 else if (/1a[0-9a-z]{5}/.test(rev)) { // Check for RPi 2 overclock
     rev = rev.substr(-6);
 }
-var pins;
+let pins;
 switch (BOARD_REVISIONS[rev]) {
     case exports.VERSION_1_MODEL_A:
         // Information is scarce, and no one has complained about it not being supported
@@ -824,26 +824,25 @@ switch (BOARD_REVISIONS[rev]) {
         pins = BPLUS;
         break;
     default:
-        console.info("Unknown board revision " + rev + ", assuming Raspberry Pi 3 Model B+ pinout. " +
-            "Unless you are running a compute module or very old RPi this should work fine. " +
-            "Please report this board revision in a GitHub issue at https://github.com/nebrius/raspi-board.");
+        console.info(`Unknown board revision ${rev}, assuming Raspberry Pi Zerp/2/3 pinout. ` +
+            `Unless you are running a compute module or very old RPi this should work fine. ` +
+            `Please report this board revision in a GitHub issue at https://github.com/nebrius/raspi-board.`);
         pins = BPLUS;
         break;
 }
 // Create the aliases
-var aliases = {};
-for (var pin in pins) {
+const aliases = {};
+for (const pin in pins) {
     if (pins.hasOwnProperty(pin)) {
-        var pinAliases = pins[pin].pins;
-        for (var _i = 0, pinAliases_1 = pinAliases; _i < pinAliases_1.length; _i++) {
-            var pinAlias = pinAliases_1[_i];
+        const pinAliases = pins[pin].pins;
+        for (const pinAlias of pinAliases) {
             aliases[pinAlias] = parseInt(pin, 10);
         }
     }
 }
 // Create the Wiring Pi to PIGPIO mapping
-var pigpioMapping = {};
-for (var pin in pins) {
+const pigpioMapping = {};
+for (const pin in pins) {
     if (pins.hasOwnProperty(pin)) {
         pigpioMapping[pin] = pins[pin].gpio;
     }
@@ -874,7 +873,7 @@ function getPinNumber(alias) {
 }
 exports.getPinNumber = getPinNumber;
 function getGpioNumber(alias) {
-    var wiringpi = getPinNumber(alias);
+    const wiringpi = getPinNumber(alias);
     if (wiringpi === null) {
         return null;
     }

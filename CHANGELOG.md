@@ -1,3 +1,10 @@
+## 6.0.0 (2018-09-21)
+
+- BREAKING CHANGE: dropped support for Node.js 4.x.x
+- Rewrote unit tests to use Jasmine and bring it in line with other Raspi IO modules
+- Rewrote test mode to use an environment variable instead of a global variable
+- Upgraded dependencies, including bumping TypeScript to v3 and tweaking the TS configuration to target newer versions of JavaScript
+
 ## 5.3.1 (2018-06-12)
 
 - Added missing RPi 3 Model B revision number

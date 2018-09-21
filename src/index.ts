@@ -796,7 +796,7 @@ const BPLUS: { [ wiringpi: number ]: IPinInfo } = {
 
 // Initialize the board info
 let procInfo: string;
-if ((global as any).raspiTest) {
+if (process.env.RASPI_IO_TEST_MODE) {
   procInfo = 'Revision:a21041';
 } else {
   procInfo = readFileSync('/proc/cpuinfo').toString();
@@ -835,7 +835,7 @@ switch (BOARD_REVISIONS[rev]) {
     pins = BPLUS;
     break;
   default:
-    console.info(`Unknown board revision ${rev}, assuming Raspberry Pi 3 Model B+ pinout. ` +
+    console.info(`Unknown board revision ${rev}, assuming Raspberry Pi Zerp/2/3 pinout. ` +
       `Unless you are running a compute module or very old RPi this should work fine. ` +
       `Please report this board revision in a GitHub issue at https://github.com/nebrius/raspi-board.`);
     pins = BPLUS;
