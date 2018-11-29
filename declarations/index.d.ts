@@ -8,6 +8,7 @@ export declare const VERSION_1_MODEL_ZERO_W = "rpi1_zerow";
 export declare const VERSION_2_MODEL_B = "rpi2_b";
 export declare const VERSION_3_MODEL_B = "rpi3_b";
 export declare const VERSION_3_MODEL_B_PLUS = "rpi3_bplus";
+export declare const VERSION_3_MODEL_A_PLUS = "rpi3_aplus";
 export declare const VERSION_UNKNOWN = "unknown";
 export interface IPinInfo {
     pins: string[];

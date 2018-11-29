@@ -1,3 +1,7 @@
+## 6.1.0 (2018-09-21)
+
+- Added support for the Raspberry Pi 3 Model A+
+
 ## 6.0.0 (2018-09-21)
 
 - BREAKING CHANGE: dropped support for Node.js 4.x.x

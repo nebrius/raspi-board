@@ -96,6 +96,10 @@ Be sure to read the [full list of pins](https://github.com/nebrius/raspi-io/wiki
     <td>Constant representing the Raspberry Pi 3 Model B+. Returned from <code>getBoardRevision()</code></td>
   </tr>
   <tr>
+    <td>VERSION_3_MODEL_A_PLUS</td>
+    <td>Constant representing the Raspberry Pi 3 Model A+. Returned from <code>getBoardRevision()</code></td>
+  </tr>
+  <tr>
     <td>VERSION_UNKNOWN</td>
     <td>Constant representing an unknown or unsupported version of the Raspberry Pi. Returned from <code>getBoardRevision()</code></td>
   </tr>
