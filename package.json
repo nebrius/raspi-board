@@ -10,7 +10,8 @@
     "test": "cross-env RASPI_IO_TEST_MODE=true istanbul cover ./node_modules/jasmine/bin/jasmine.js --captureExceptions && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "devDependencies": {
-    "@types/node": "^10.10.2",
+    "@types/node": "^10.12.11",
+    "coveralls": "^3.0.2",
     "cross-env": "^5.2.0",
     "istanbul": "^0.4.5",
     "jasmine": "^3.2.0",
