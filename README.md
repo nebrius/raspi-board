@@ -2,6 +2,8 @@ Raspi Board
 ===========
 
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/nebrius/raspi-io?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Status](https://travis-ci.org/nebrius/raspi-board.svg?branch=master)](https://travis-ci.org/nebrius/raspi-board)
+[![Coverage Status](https://coveralls.io/repos/github/nebrius/raspi-board/badge.svg?branch=master)](https://coveralls.io/github/nebrius/raspi-board?branch=master)
 
 Raspi Board provides pin mapping functionality for the various Raspberry Pi models. This module is meant to be run on a physical Raspberry Pi _only_, and maps pins for the specific board it is being run on.
 
@@ -9,11 +11,11 @@ If you have a bug report, feature request, or wish to contribute code, please be
 
 ## System Requirements
 
-- Raspberry Pi Model B Rev 1 or newer (sorry Model A users)
+- Raspberry Pi Model B Rev 1 or newer (sorry Model A users), except compute modules.
 - Raspbian Jessie or newer
   - [Node-RED](http://nodered.org/) works, but can be finicky and difficult to debug.
   - See https://github.com/nebrius/raspi-io/issues/24 for more info about support for other OSes
-- Node 4.0.0 or newer
+- Node 6.0.0 or newer
 
 Detailed instructions for getting a Raspberry Pi ready for NodeBots, including how to install Node.js, can be found in the [wiki](https://github.com/nebrius/raspi-io/wiki/Getting-a-Raspberry-Pi-ready-for-NodeBots)
 
