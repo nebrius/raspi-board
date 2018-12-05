@@ -1,4 +1,9 @@
-## 6.1.0 (2018-09-21)
+## 6.2.0 (2018-12-5)
+
+- Updated TypeScript to v3 (no compiled output change)
+- Added `module` export to conform with Core IO types
+
+## 6.1.0 (2018-11-29)
 
 - Added support for the Raspberry Pi 3 Model A+
 

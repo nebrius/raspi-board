@@ -105,6 +105,32 @@ Be sure to read the [full list of pins](https://github.com/nebrius/raspi-io/wiki
     <td>VERSION_UNKNOWN</td>
     <td>Constant representing an unknown or unsupported version of the Raspberry Pi. Returned from <code>getBoardRevision()</code></td>
   </tr>
+  <tr>
+    <td>module</td>
+    <td>An easily consumable object for indirectly passing this module around. Intended specifically for use by Core IO (details coming soon)</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><table>
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tr>
+        <td>getPins</td>
+        <td>Alias of the <a href="#getpins">getPins</a> method</td>
+      </tr>
+      <tr>
+        <td>getPinNumber</td>
+        <td>Alias of the <a href="#getpinnumberpin">getPinNumber</a> method</td>
+      </tr>
+      <tr>
+        <td>getGpioNumber</td>
+        <td>Alias of the <a href="#getgpionumberpin">getGpioNumber</a> method</td>
+      </tr>
+  </tr>
 </table>
 
 ### getBoardRevision()
