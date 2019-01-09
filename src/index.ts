@@ -23,7 +23,6 @@ THE SOFTWARE.
 */
 
 import { readFileSync } from 'fs';
-import { IBoardModule } from 'core-io-types';
 
 export const VERSION_1_MODEL_A = 'rpi1_a';
 export const VERSION_1_MODEL_B_REV_1 = 'rpi1_b1';
@@ -896,9 +895,3 @@ export function getGpioNumber(alias: string | number): number | null {
   }
   return pigpioMapping[wiringpi];
 }
-
-export const module: IBoardModule = {
-  getPins,
-  getPinNumber,
-  getGpioNumber
-};

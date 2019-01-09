@@ -1,17 +1,17 @@
 {
   "name": "raspi-board",
-  "version": "6.2.0",
+  "version": "7.0.0",
   "description": "Pin mapping functionality for the Raspberry Pi in Node.js",
   "main": "./dist/index.js",
   "types": "./declarations/index.d.ts",
   "scripts": {
     "prebuild": "tslint 'src/**/*.ts'",
     "build": "tsc",
-    "test": "cross-env RASPI_IO_TEST_MODE=true istanbul cover ./node_modules/jasmine/bin/jasmine.js --captureExceptions && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    "test": "cross-env RASPI_IO_TEST_MODE=true istanbul cover ./node_modules/jasmine/bin/jasmine.js --captureExceptions && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "test-local": "cross-env RASPI_IO_TEST_MODE=true jasmine"
   },
   "devDependencies": {
     "@types/node": "^10.12.11",
-    "core-io-types": "^1.0.1",
     "coveralls": "^3.0.2",
     "cross-env": "^5.2.0",
     "istanbul": "^0.4.5",

@@ -883,9 +883,4 @@ function getGpioNumber(alias) {
     return pigpioMapping[wiringpi];
 }
 exports.getGpioNumber = getGpioNumber;
-exports.module = {
-    getPins,
-    getPinNumber,
-    getGpioNumber
-};
 //# sourceMappingURL=index.js.map

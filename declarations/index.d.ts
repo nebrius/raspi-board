@@ -1,4 +1,3 @@
-import { IBoardModule } from 'core-io-types';
 export declare const VERSION_1_MODEL_A = "rpi1_a";
 export declare const VERSION_1_MODEL_B_REV_1 = "rpi1_b1";
 export declare const VERSION_1_MODEL_B_REV_2 = "rpi1_b2";
@@ -22,4 +21,3 @@ export declare function getPins(): {
 };
 export declare function getPinNumber(alias: string | number): number | null;
 export declare function getGpioNumber(alias: string | number): number | null;
-export declare const module: IBoardModule;

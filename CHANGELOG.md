@@ -1,3 +1,7 @@
+## 7.0.0 (2019-1-9)
+
+- BREAKING CHANGE: Removed `module` export as Core IO Types is also dropping a board specific module
+
 ## 6.2.0 (2018-12-5)
 
 - Updated TypeScript to v3 (no compiled output change)
