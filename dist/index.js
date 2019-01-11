@@ -24,6 +24,7 @@ THE SOFTWARE.
 */
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = require("fs");
+const core_io_types_1 = require("core-io-types");
 exports.VERSION_1_MODEL_A = 'rpi1_a';
 exports.VERSION_1_MODEL_B_REV_1 = 'rpi1_b1';
 exports.VERSION_1_MODEL_B_REV_2 = 'rpi1_b2';
@@ -78,7 +79,7 @@ const B1 = {
             'P1-11'
         ],
         peripherals: [
-            'gpio'
+            core_io_types_1.PeripheralType.GPIO
         ],
         gpio: 17
     },
@@ -89,8 +90,8 @@ const B1 = {
             'P1-12'
         ],
         peripherals: [
-            'gpio',
-            'pwm'
+            core_io_types_1.PeripheralType.GPIO,
+            core_io_types_1.PeripheralType.PWM
         ],
         gpio: 18
     },
@@ -100,7 +101,7 @@ const B1 = {
             'P1-13'
         ],
         peripherals: [
-            'gpio'
+            core_io_types_1.PeripheralType.GPIO
         ],
         gpio: 21
     },
@@ -110,7 +111,7 @@ const B1 = {
             'P1-15'
         ],
         peripherals: [
-            'gpio'
+            core_io_types_1.PeripheralType.GPIO
         ],
         gpio: 22
     },
@@ -120,7 +121,7 @@ const B1 = {
             'P1-16'
         ],
         peripherals: [
-            'gpio'
+            core_io_types_1.PeripheralType.GPIO
         ],
         gpio: 23
     },
@@ -130,7 +131,7 @@ const B1 = {
             'P1-18'
         ],
         peripherals: [
-            'gpio'
+            core_io_types_1.PeripheralType.GPIO
         ],
         gpio: 24
     },
@@ -140,7 +141,7 @@ const B1 = {
             'P1-22'
         ],
         peripherals: [
-            'gpio'
+            core_io_types_1.PeripheralType.GPIO
         ],
         gpio: 25
     },
@@ -150,7 +151,7 @@ const B1 = {
             'P1-7'
         ],
         peripherals: [
-            'gpio'
+            core_io_types_1.PeripheralType.GPIO
         ],
         gpio: 4
     },
@@ -161,8 +162,8 @@ const B1 = {
             'P1-3'
         ],
         peripherals: [
-            'gpio',
-            'i2c'
+            core_io_types_1.PeripheralType.GPIO,
+            core_io_types_1.PeripheralType.I2C
         ],
         gpio: 0
     },
@@ -173,8 +174,8 @@ const B1 = {
             'P1-5'
         ],
         peripherals: [
-            'gpio',
-            'i2c'
+            core_io_types_1.PeripheralType.GPIO,
+            core_io_types_1.PeripheralType.I2C
         ],
         gpio: 1
     },
@@ -185,8 +186,8 @@ const B1 = {
             'CE0'
         ],
         peripherals: [
-            'gpio',
-            'spi'
+            core_io_types_1.PeripheralType.GPIO,
+            core_io_types_1.PeripheralType.SPI
         ],
         gpio: 8
     },
@@ -196,7 +197,7 @@ const B1 = {
             'P1-26'
         ],
         peripherals: [
-            'gpio'
+            core_io_types_1.PeripheralType.GPIO
         ],
         gpio: 7
     },
@@ -207,8 +208,8 @@ const B1 = {
             'P1-19'
         ],
         peripherals: [
-            'gpio',
-            'spi'
+            core_io_types_1.PeripheralType.GPIO,
+            core_io_types_1.PeripheralType.SPI
         ],
         gpio: 10
     },
@@ -219,8 +220,8 @@ const B1 = {
             'P1-21'
         ],
         peripherals: [
-            'gpio',
-            'spi'
+            core_io_types_1.PeripheralType.GPIO,
+            core_io_types_1.PeripheralType.SPI
         ],
         gpio: 9
     },
@@ -231,8 +232,8 @@ const B1 = {
             'P1-23'
         ],
         peripherals: [
-            'gpio',
-            'spi'
+            core_io_types_1.PeripheralType.GPIO,
+            core_io_types_1.PeripheralType.SPI
         ],
         gpio: 11
     },
@@ -243,8 +244,8 @@ const B1 = {
             'P1-8'
         ],
         peripherals: [
-            'gpio',
-            'uart'
+            core_io_types_1.PeripheralType.GPIO,
+            core_io_types_1.PeripheralType.UART
         ],
         gpio: 14
     },
@@ -255,8 +256,8 @@ const B1 = {
             'P1-10'
         ],
         peripherals: [
-            'gpio',
-            'uart'
+            core_io_types_1.PeripheralType.GPIO,
+            core_io_types_1.PeripheralType.UART
         ],
         gpio: 15
     }
@@ -268,7 +269,7 @@ const B2 = {
             'P1-11'
         ],
         peripherals: [
-            'gpio'
+            core_io_types_1.PeripheralType.GPIO
         ],
         gpio: 17
     },
@@ -279,8 +280,8 @@ const B2 = {
             'P1-12'
         ],
         peripherals: [
-            'gpio',
-            'pwm'
+            core_io_types_1.PeripheralType.GPIO,
+            core_io_types_1.PeripheralType.PWM
         ],
         gpio: 18
     },
@@ -290,7 +291,7 @@ const B2 = {
             'P1-13'
         ],
         peripherals: [
-            'gpio'
+            core_io_types_1.PeripheralType.GPIO
         ],
         gpio: 27
     },
@@ -300,7 +301,7 @@ const B2 = {
             'P1-15'
         ],
         peripherals: [
-            'gpio'
+            core_io_types_1.PeripheralType.GPIO
         ],
         gpio: 22
     },
@@ -310,7 +311,7 @@ const B2 = {
             'P1-16'
         ],
         peripherals: [
-            'gpio'
+            core_io_types_1.PeripheralType.GPIO
         ],
         gpio: 23
     },
@@ -320,7 +321,7 @@ const B2 = {
             'P1-18'
         ],
         peripherals: [
-            'gpio'
+            core_io_types_1.PeripheralType.GPIO
         ],
         gpio: 24
     },
@@ -330,7 +331,7 @@ const B2 = {
             'P1-22'
         ],
         peripherals: [
-            'gpio'
+            core_io_types_1.PeripheralType.GPIO
         ],
         gpio: 25
     },
@@ -340,7 +341,7 @@ const B2 = {
             'P1-7'
         ],
         peripherals: [
-            'gpio'
+            core_io_types_1.PeripheralType.GPIO
         ],
         gpio: 4
     },
@@ -351,8 +352,8 @@ const B2 = {
             'P1-3'
         ],
         peripherals: [
-            'gpio',
-            'i2c'
+            core_io_types_1.PeripheralType.GPIO,
+            core_io_types_1.PeripheralType.I2C
         ],
         gpio: 2
     },
@@ -363,8 +364,8 @@ const B2 = {
             'P1-5'
         ],
         peripherals: [
-            'gpio',
-            'i2c'
+            core_io_types_1.PeripheralType.GPIO,
+            core_io_types_1.PeripheralType.I2C
         ],
         gpio: 3
     },
@@ -375,8 +376,8 @@ const B2 = {
             'P1-24'
         ],
         peripherals: [
-            'gpio',
-            'spi'
+            core_io_types_1.PeripheralType.GPIO,
+            core_io_types_1.PeripheralType.SPI
         ],
         gpio: 8
     },
@@ -386,7 +387,7 @@ const B2 = {
             'P1-26'
         ],
         peripherals: [
-            'gpio'
+            core_io_types_1.PeripheralType.GPIO
         ],
         gpio: 7
     },
@@ -397,8 +398,8 @@ const B2 = {
             'P1-19'
         ],
         peripherals: [
-            'gpio',
-            'spi'
+            core_io_types_1.PeripheralType.GPIO,
+            core_io_types_1.PeripheralType.SPI
         ],
         gpio: 10
     },
@@ -409,8 +410,8 @@ const B2 = {
             'P1-21'
         ],
         peripherals: [
-            'gpio',
-            'spi'
+            core_io_types_1.PeripheralType.GPIO,
+            core_io_types_1.PeripheralType.SPI
         ],
         gpio: 9
     },
@@ -421,8 +422,8 @@ const B2 = {
             'P1-23'
         ],
         peripherals: [
-            'gpio',
-            'spi'
+            core_io_types_1.PeripheralType.GPIO,
+            core_io_types_1.PeripheralType.SPI
         ],
         gpio: 11
     },
@@ -433,8 +434,8 @@ const B2 = {
             'P1-8'
         ],
         peripherals: [
-            'gpio',
-            'uart'
+            core_io_types_1.PeripheralType.GPIO,
+            core_io_types_1.PeripheralType.UART
         ],
         gpio: 14
     },
@@ -445,8 +446,8 @@ const B2 = {
             'P1-10'
         ],
         peripherals: [
-            'gpio',
-            'uart'
+            core_io_types_1.PeripheralType.GPIO,
+            core_io_types_1.PeripheralType.UART
         ],
         gpio: 15
     },
@@ -456,7 +457,7 @@ const B2 = {
             'P5-3'
         ],
         peripherals: [
-            'gpio'
+            core_io_types_1.PeripheralType.GPIO
         ],
         gpio: 28
     },
@@ -466,7 +467,7 @@ const B2 = {
             'P5-4'
         ],
         peripherals: [
-            'gpio'
+            core_io_types_1.PeripheralType.GPIO
         ],
         gpio: 29
     },
@@ -476,7 +477,7 @@ const B2 = {
             'P5-5'
         ],
         peripherals: [
-            'gpio'
+            core_io_types_1.PeripheralType.GPIO
         ],
         gpio: 30
     },
@@ -486,7 +487,7 @@ const B2 = {
             'P5-6'
         ],
         peripherals: [
-            'gpio'
+            core_io_types_1.PeripheralType.GPIO
         ],
         gpio: 31
     }
@@ -498,7 +499,7 @@ const BPLUS = {
             'P1-11'
         ],
         peripherals: [
-            'gpio'
+            core_io_types_1.PeripheralType.GPIO
         ],
         gpio: 17
     },
@@ -509,8 +510,8 @@ const BPLUS = {
             'P1-12'
         ],
         peripherals: [
-            'gpio',
-            'pwm'
+            core_io_types_1.PeripheralType.GPIO,
+            core_io_types_1.PeripheralType.PWM
         ],
         gpio: 18
     },
@@ -520,7 +521,7 @@ const BPLUS = {
             'P1-13'
         ],
         peripherals: [
-            'gpio'
+            core_io_types_1.PeripheralType.GPIO
         ],
         gpio: 27
     },
@@ -530,7 +531,7 @@ const BPLUS = {
             'P1-15'
         ],
         peripherals: [
-            'gpio'
+            core_io_types_1.PeripheralType.GPIO
         ],
         gpio: 22
     },
@@ -540,7 +541,7 @@ const BPLUS = {
             'P1-16'
         ],
         peripherals: [
-            'gpio'
+            core_io_types_1.PeripheralType.GPIO
         ],
         gpio: 23
     },
@@ -550,7 +551,7 @@ const BPLUS = {
             'P1-18'
         ],
         peripherals: [
-            'gpio'
+            core_io_types_1.PeripheralType.GPIO
         ],
         gpio: 24
     },
@@ -560,7 +561,7 @@ const BPLUS = {
             'P1-22'
         ],
         peripherals: [
-            'gpio'
+            core_io_types_1.PeripheralType.GPIO
         ],
         gpio: 25
     },
@@ -570,7 +571,7 @@ const BPLUS = {
             'P1-7'
         ],
         peripherals: [
-            'gpio'
+            core_io_types_1.PeripheralType.GPIO
         ],
         gpio: 4
     },
@@ -581,8 +582,8 @@ const BPLUS = {
             'P1-3'
         ],
         peripherals: [
-            'gpio',
-            'i2c'
+            core_io_types_1.PeripheralType.GPIO,
+            core_io_types_1.PeripheralType.I2C
         ],
         gpio: 2
     },
@@ -593,8 +594,8 @@ const BPLUS = {
             'P1-5'
         ],
         peripherals: [
-            'gpio',
-            'i2c'
+            core_io_types_1.PeripheralType.GPIO,
+            core_io_types_1.PeripheralType.I2C
         ],
         gpio: 3
     },
@@ -605,8 +606,8 @@ const BPLUS = {
             'P1-24'
         ],
         peripherals: [
-            'gpio',
-            'spi'
+            core_io_types_1.PeripheralType.GPIO,
+            core_io_types_1.PeripheralType.SPI
         ],
         gpio: 8
     },
@@ -617,8 +618,8 @@ const BPLUS = {
             'P1-26'
         ],
         peripherals: [
-            'gpio',
-            'spi'
+            core_io_types_1.PeripheralType.GPIO,
+            core_io_types_1.PeripheralType.SPI
         ],
         gpio: 7
     },
@@ -629,8 +630,8 @@ const BPLUS = {
             'P1-19'
         ],
         peripherals: [
-            'gpio',
-            'spi'
+            core_io_types_1.PeripheralType.GPIO,
+            core_io_types_1.PeripheralType.SPI
         ],
         gpio: 10
     },
@@ -641,8 +642,8 @@ const BPLUS = {
             'P1-21'
         ],
         peripherals: [
-            'gpio',
-            'spi'
+            core_io_types_1.PeripheralType.GPIO,
+            core_io_types_1.PeripheralType.SPI
         ],
         gpio: 9
     },
@@ -653,8 +654,8 @@ const BPLUS = {
             'P1-23'
         ],
         peripherals: [
-            'gpio',
-            'spi'
+            core_io_types_1.PeripheralType.GPIO,
+            core_io_types_1.PeripheralType.SPI
         ],
         gpio: 11
     },
@@ -665,8 +666,8 @@ const BPLUS = {
             'P1-8'
         ],
         peripherals: [
-            'gpio',
-            'uart'
+            core_io_types_1.PeripheralType.GPIO,
+            core_io_types_1.PeripheralType.UART
         ],
         gpio: 14
     },
@@ -677,8 +678,8 @@ const BPLUS = {
             'P1-10'
         ],
         peripherals: [
-            'gpio',
-            'uart'
+            core_io_types_1.PeripheralType.GPIO,
+            core_io_types_1.PeripheralType.UART
         ],
         gpio: 15
     },
@@ -688,7 +689,7 @@ const BPLUS = {
             'P1-29'
         ],
         peripherals: [
-            'gpio'
+            core_io_types_1.PeripheralType.GPIO
         ],
         gpio: 5
     },
@@ -698,7 +699,7 @@ const BPLUS = {
             'P1-31'
         ],
         peripherals: [
-            'gpio'
+            core_io_types_1.PeripheralType.GPIO
         ],
         gpio: 6
     },
@@ -709,8 +710,8 @@ const BPLUS = {
             'PWM1'
         ],
         peripherals: [
-            'gpio',
-            'pwm'
+            core_io_types_1.PeripheralType.GPIO,
+            core_io_types_1.PeripheralType.PWM
         ],
         gpio: 13
     },
@@ -722,9 +723,9 @@ const BPLUS = {
             'P1-35'
         ],
         peripherals: [
-            'gpio',
-            'pwm',
-            'spi'
+            core_io_types_1.PeripheralType.GPIO,
+            core_io_types_1.PeripheralType.PWM,
+            core_io_types_1.PeripheralType.SPI
         ],
         gpio: 19
     },
@@ -734,7 +735,7 @@ const BPLUS = {
             'P1-37'
         ],
         peripherals: [
-            'gpio'
+            core_io_types_1.PeripheralType.GPIO
         ],
         gpio: 26
     },
@@ -745,8 +746,8 @@ const BPLUS = {
             'P1-32'
         ],
         peripherals: [
-            'gpio',
-            'pwm'
+            core_io_types_1.PeripheralType.GPIO,
+            core_io_types_1.PeripheralType.PWM
         ],
         gpio: 12
     },
@@ -756,7 +757,7 @@ const BPLUS = {
             'P1-36'
         ],
         peripherals: [
-            'gpio'
+            core_io_types_1.PeripheralType.GPIO
         ],
         gpio: 16
     },
@@ -767,8 +768,8 @@ const BPLUS = {
             'P1-38'
         ],
         peripherals: [
-            'gpio',
-            'spi'
+            core_io_types_1.PeripheralType.GPIO,
+            core_io_types_1.PeripheralType.SPI
         ],
         gpio: 20
     },
@@ -779,8 +780,8 @@ const BPLUS = {
             'P1-40'
         ],
         peripherals: [
-            'gpio',
-            'spi'
+            core_io_types_1.PeripheralType.GPIO,
+            core_io_types_1.PeripheralType.SPI
         ],
         gpio: 21
     }

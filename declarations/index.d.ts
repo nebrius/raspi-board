@@ -1,3 +1,4 @@
+import { IPinInfo } from 'core-io-types';
 export declare const VERSION_1_MODEL_A = "rpi1_a";
 export declare const VERSION_1_MODEL_B_REV_1 = "rpi1_b1";
 export declare const VERSION_1_MODEL_B_REV_2 = "rpi1_b2";
@@ -10,14 +11,12 @@ export declare const VERSION_3_MODEL_B = "rpi3_b";
 export declare const VERSION_3_MODEL_B_PLUS = "rpi3_bplus";
 export declare const VERSION_3_MODEL_A_PLUS = "rpi3_aplus";
 export declare const VERSION_UNKNOWN = "unknown";
-export interface IPinInfo {
-    pins: string[];
-    peripherals: string[];
+export interface IRaspiPinInfo extends IPinInfo {
     gpio: number;
 }
 export declare function getBoardRevision(): string;
 export declare function getPins(): {
-    [wiringpi: number]: IPinInfo;
+    [wiringpi: number]: IRaspiPinInfo;
 };
 export declare function getPinNumber(alias: string | number): number | null;
 export declare function getGpioNumber(alias: string | number): number | null;

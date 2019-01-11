@@ -1,3 +1,7 @@
+## 7.1.0 (2019-1-10)
+
+- Reworked the exported pin info to use the Core IO Types pin info interfaces
+
 ## 7.0.0 (2019-1-9)
 
 - BREAKING CHANGE: Removed `module` export as Core IO Types is also dropping a board specific module

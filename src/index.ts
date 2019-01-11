@@ -23,6 +23,7 @@ THE SOFTWARE.
 */
 
 import { readFileSync } from 'fs';
+import { IPinInfo, PeripheralType } from 'core-io-types';
 
 export const VERSION_1_MODEL_A = 'rpi1_a';
 export const VERSION_1_MODEL_B_REV_1 = 'rpi1_b1';
@@ -37,9 +38,7 @@ export const VERSION_3_MODEL_B_PLUS = 'rpi3_bplus';
 export const VERSION_3_MODEL_A_PLUS = 'rpi3_aplus';
 export const VERSION_UNKNOWN = 'unknown';
 
-export interface IPinInfo {
-  pins: string[];
-  peripherals: string[];
+export interface IRaspiPinInfo extends IPinInfo {
   gpio: number;
 }
 
@@ -79,14 +78,14 @@ const BOARD_REVISIONS: { [ revision: string ]: string } = {
   '9020e0': VERSION_3_MODEL_A_PLUS
 };
 
-const B1: { [ wiringpi: number ]: IPinInfo } = {
+const B1: { [ wiringpi: number ]: IRaspiPinInfo } = {
   0: {
     pins: [
       'GPIO17',
       'P1-11'
     ],
     peripherals: [
-      'gpio'
+      PeripheralType.GPIO
     ],
     gpio: 17
   },
@@ -97,8 +96,8 @@ const B1: { [ wiringpi: number ]: IPinInfo } = {
       'P1-12'
     ],
     peripherals: [
-      'gpio',
-      'pwm'
+      PeripheralType.GPIO,
+      PeripheralType.PWM
     ],
     gpio: 18
   },
@@ -108,7 +107,7 @@ const B1: { [ wiringpi: number ]: IPinInfo } = {
       'P1-13'
     ],
     peripherals: [
-      'gpio'
+      PeripheralType.GPIO
     ],
     gpio: 21
   },
@@ -118,7 +117,7 @@ const B1: { [ wiringpi: number ]: IPinInfo } = {
       'P1-15'
     ],
     peripherals: [
-      'gpio'
+      PeripheralType.GPIO
     ],
     gpio: 22
   },
@@ -128,7 +127,7 @@ const B1: { [ wiringpi: number ]: IPinInfo } = {
       'P1-16'
     ],
     peripherals: [
-      'gpio'
+      PeripheralType.GPIO
     ],
     gpio: 23
   },
@@ -138,7 +137,7 @@ const B1: { [ wiringpi: number ]: IPinInfo } = {
       'P1-18'
     ],
     peripherals: [
-      'gpio'
+      PeripheralType.GPIO
     ],
     gpio: 24
   },
@@ -148,7 +147,7 @@ const B1: { [ wiringpi: number ]: IPinInfo } = {
       'P1-22'
     ],
     peripherals: [
-      'gpio'
+      PeripheralType.GPIO
     ],
     gpio: 25
   },
@@ -158,7 +157,7 @@ const B1: { [ wiringpi: number ]: IPinInfo } = {
       'P1-7'
     ],
     peripherals: [
-      'gpio'
+      PeripheralType.GPIO
     ],
     gpio: 4
   },
@@ -169,8 +168,8 @@ const B1: { [ wiringpi: number ]: IPinInfo } = {
       'P1-3'
     ],
     peripherals: [
-      'gpio',
-      'i2c'
+      PeripheralType.GPIO,
+      PeripheralType.I2C
     ],
     gpio: 0
   },
@@ -181,8 +180,8 @@ const B1: { [ wiringpi: number ]: IPinInfo } = {
       'P1-5'
     ],
     peripherals: [
-      'gpio',
-      'i2c'
+      PeripheralType.GPIO,
+      PeripheralType.I2C
     ],
     gpio: 1
   },
@@ -193,8 +192,8 @@ const B1: { [ wiringpi: number ]: IPinInfo } = {
       'CE0'
     ],
     peripherals: [
-      'gpio',
-      'spi'
+      PeripheralType.GPIO,
+      PeripheralType.SPI
     ],
     gpio: 8
   },
@@ -204,7 +203,7 @@ const B1: { [ wiringpi: number ]: IPinInfo } = {
       'P1-26'
     ],
     peripherals: [
-      'gpio'
+      PeripheralType.GPIO
     ],
     gpio: 7
   },
@@ -215,8 +214,8 @@ const B1: { [ wiringpi: number ]: IPinInfo } = {
       'P1-19'
     ],
     peripherals: [
-      'gpio',
-      'spi'
+      PeripheralType.GPIO,
+      PeripheralType.SPI
     ],
     gpio: 10
   },
@@ -227,8 +226,8 @@ const B1: { [ wiringpi: number ]: IPinInfo } = {
       'P1-21'
     ],
     peripherals: [
-      'gpio',
-      'spi'
+      PeripheralType.GPIO,
+      PeripheralType.SPI
     ],
     gpio: 9
   },
@@ -239,8 +238,8 @@ const B1: { [ wiringpi: number ]: IPinInfo } = {
       'P1-23'
     ],
     peripherals: [
-      'gpio',
-      'spi'
+      PeripheralType.GPIO,
+      PeripheralType.SPI
     ],
     gpio: 11
   },
@@ -251,8 +250,8 @@ const B1: { [ wiringpi: number ]: IPinInfo } = {
       'P1-8'
     ],
     peripherals: [
-      'gpio',
-      'uart'
+      PeripheralType.GPIO,
+      PeripheralType.UART
     ],
     gpio: 14
   },
@@ -263,21 +262,21 @@ const B1: { [ wiringpi: number ]: IPinInfo } = {
       'P1-10'
     ],
     peripherals: [
-      'gpio',
-      'uart'
+      PeripheralType.GPIO,
+      PeripheralType.UART
     ],
     gpio: 15
   }
 };
 
-const B2: { [ wiringpi: number ]: IPinInfo } = {
+const B2: { [ wiringpi: number ]: IRaspiPinInfo } = {
   0: {
     pins: [
       'GPIO17',
       'P1-11'
     ],
     peripherals: [
-      'gpio'
+      PeripheralType.GPIO
     ],
     gpio: 17
   },
@@ -288,8 +287,8 @@ const B2: { [ wiringpi: number ]: IPinInfo } = {
       'P1-12'
     ],
     peripherals: [
-      'gpio',
-      'pwm'
+      PeripheralType.GPIO,
+      PeripheralType.PWM
     ],
     gpio: 18
   },
@@ -299,7 +298,7 @@ const B2: { [ wiringpi: number ]: IPinInfo } = {
       'P1-13'
     ],
     peripherals: [
-      'gpio'
+      PeripheralType.GPIO
     ],
     gpio: 27
   },
@@ -309,7 +308,7 @@ const B2: { [ wiringpi: number ]: IPinInfo } = {
       'P1-15'
     ],
     peripherals: [
-      'gpio'
+      PeripheralType.GPIO
     ],
     gpio: 22
   },
@@ -319,7 +318,7 @@ const B2: { [ wiringpi: number ]: IPinInfo } = {
       'P1-16'
     ],
     peripherals: [
-      'gpio'
+      PeripheralType.GPIO
     ],
     gpio: 23
   },
@@ -329,7 +328,7 @@ const B2: { [ wiringpi: number ]: IPinInfo } = {
       'P1-18'
     ],
     peripherals: [
-      'gpio'
+      PeripheralType.GPIO
     ],
     gpio: 24
   },
@@ -339,7 +338,7 @@ const B2: { [ wiringpi: number ]: IPinInfo } = {
       'P1-22'
     ],
     peripherals: [
-      'gpio'
+      PeripheralType.GPIO
     ],
     gpio: 25
   },
@@ -349,7 +348,7 @@ const B2: { [ wiringpi: number ]: IPinInfo } = {
       'P1-7'
     ],
     peripherals: [
-      'gpio'
+      PeripheralType.GPIO
     ],
     gpio: 4
   },
@@ -360,8 +359,8 @@ const B2: { [ wiringpi: number ]: IPinInfo } = {
       'P1-3'
     ],
     peripherals: [
-      'gpio',
-      'i2c'
+      PeripheralType.GPIO,
+      PeripheralType.I2C
     ],
     gpio: 2
   },
@@ -372,8 +371,8 @@ const B2: { [ wiringpi: number ]: IPinInfo } = {
       'P1-5'
     ],
     peripherals: [
-      'gpio',
-      'i2c'
+      PeripheralType.GPIO,
+      PeripheralType.I2C
     ],
     gpio: 3
   },
@@ -384,8 +383,8 @@ const B2: { [ wiringpi: number ]: IPinInfo } = {
       'P1-24'
     ],
     peripherals: [
-      'gpio',
-      'spi'
+      PeripheralType.GPIO,
+      PeripheralType.SPI
     ],
     gpio: 8
   },
@@ -395,7 +394,7 @@ const B2: { [ wiringpi: number ]: IPinInfo } = {
       'P1-26'
     ],
     peripherals: [
-      'gpio'
+      PeripheralType.GPIO
     ],
     gpio: 7
   },
@@ -406,8 +405,8 @@ const B2: { [ wiringpi: number ]: IPinInfo } = {
       'P1-19'
     ],
     peripherals: [
-      'gpio',
-      'spi'
+      PeripheralType.GPIO,
+      PeripheralType.SPI
     ],
     gpio: 10
   },
@@ -418,8 +417,8 @@ const B2: { [ wiringpi: number ]: IPinInfo } = {
       'P1-21'
     ],
     peripherals: [
-      'gpio',
-      'spi'
+      PeripheralType.GPIO,
+      PeripheralType.SPI
     ],
     gpio: 9
   },
@@ -430,8 +429,8 @@ const B2: { [ wiringpi: number ]: IPinInfo } = {
       'P1-23'
     ],
     peripherals: [
-      'gpio',
-      'spi'
+      PeripheralType.GPIO,
+      PeripheralType.SPI
     ],
     gpio: 11
   },
@@ -442,8 +441,8 @@ const B2: { [ wiringpi: number ]: IPinInfo } = {
       'P1-8'
     ],
     peripherals: [
-      'gpio',
-      'uart'
+      PeripheralType.GPIO,
+      PeripheralType.UART
     ],
     gpio: 14
   },
@@ -454,8 +453,8 @@ const B2: { [ wiringpi: number ]: IPinInfo } = {
       'P1-10'
     ],
     peripherals: [
-      'gpio',
-      'uart'
+      PeripheralType.GPIO,
+      PeripheralType.UART
     ],
     gpio: 15
   },
@@ -465,7 +464,7 @@ const B2: { [ wiringpi: number ]: IPinInfo } = {
       'P5-3'
     ],
     peripherals: [
-      'gpio'
+      PeripheralType.GPIO
     ],
     gpio: 28
   },
@@ -475,7 +474,7 @@ const B2: { [ wiringpi: number ]: IPinInfo } = {
       'P5-4'
     ],
     peripherals: [
-      'gpio'
+      PeripheralType.GPIO
     ],
     gpio: 29
   },
@@ -485,7 +484,7 @@ const B2: { [ wiringpi: number ]: IPinInfo } = {
       'P5-5'
     ],
     peripherals: [
-      'gpio'
+      PeripheralType.GPIO
     ],
     gpio: 30
   },
@@ -495,20 +494,20 @@ const B2: { [ wiringpi: number ]: IPinInfo } = {
       'P5-6'
     ],
     peripherals: [
-      'gpio'
+      PeripheralType.GPIO
     ],
     gpio: 31
   }
 };
 
-const BPLUS: { [ wiringpi: number ]: IPinInfo } = {
+const BPLUS: { [ wiringpi: number ]: IRaspiPinInfo } = {
   0: {
     pins: [
       'GPIO17',
       'P1-11'
     ],
     peripherals: [
-      'gpio'
+      PeripheralType.GPIO
     ],
     gpio: 17
   },
@@ -519,8 +518,8 @@ const BPLUS: { [ wiringpi: number ]: IPinInfo } = {
       'P1-12'
     ],
     peripherals: [
-      'gpio',
-      'pwm'
+      PeripheralType.GPIO,
+      PeripheralType.PWM
     ],
     gpio: 18
   },
@@ -530,7 +529,7 @@ const BPLUS: { [ wiringpi: number ]: IPinInfo } = {
       'P1-13'
     ],
     peripherals: [
-      'gpio'
+      PeripheralType.GPIO
     ],
     gpio: 27
   },
@@ -540,7 +539,7 @@ const BPLUS: { [ wiringpi: number ]: IPinInfo } = {
       'P1-15'
     ],
     peripherals: [
-      'gpio'
+      PeripheralType.GPIO
     ],
     gpio: 22
   },
@@ -550,7 +549,7 @@ const BPLUS: { [ wiringpi: number ]: IPinInfo } = {
       'P1-16'
     ],
     peripherals: [
-      'gpio'
+      PeripheralType.GPIO
     ],
     gpio: 23
   },
@@ -560,7 +559,7 @@ const BPLUS: { [ wiringpi: number ]: IPinInfo } = {
       'P1-18'
     ],
     peripherals: [
-      'gpio'
+      PeripheralType.GPIO
     ],
     gpio: 24
   },
@@ -570,7 +569,7 @@ const BPLUS: { [ wiringpi: number ]: IPinInfo } = {
       'P1-22'
     ],
     peripherals: [
-      'gpio'
+      PeripheralType.GPIO
     ],
     gpio: 25
   },
@@ -580,7 +579,7 @@ const BPLUS: { [ wiringpi: number ]: IPinInfo } = {
       'P1-7'
     ],
     peripherals: [
-      'gpio'
+      PeripheralType.GPIO
     ],
     gpio: 4
   },
@@ -591,8 +590,8 @@ const BPLUS: { [ wiringpi: number ]: IPinInfo } = {
       'P1-3'
     ],
     peripherals: [
-      'gpio',
-      'i2c'
+      PeripheralType.GPIO,
+      PeripheralType.I2C
     ],
     gpio: 2
   },
@@ -603,8 +602,8 @@ const BPLUS: { [ wiringpi: number ]: IPinInfo } = {
       'P1-5'
     ],
     peripherals: [
-      'gpio',
-      'i2c'
+      PeripheralType.GPIO,
+      PeripheralType.I2C
     ],
     gpio: 3
   },
@@ -615,8 +614,8 @@ const BPLUS: { [ wiringpi: number ]: IPinInfo } = {
       'P1-24'
     ],
     peripherals: [
-      'gpio',
-      'spi'
+      PeripheralType.GPIO,
+      PeripheralType.SPI
     ],
     gpio: 8
   },
@@ -627,8 +626,8 @@ const BPLUS: { [ wiringpi: number ]: IPinInfo } = {
       'P1-26'
     ],
     peripherals: [
-      'gpio',
-      'spi'
+      PeripheralType.GPIO,
+      PeripheralType.SPI
     ],
     gpio: 7
   },
@@ -639,8 +638,8 @@ const BPLUS: { [ wiringpi: number ]: IPinInfo } = {
       'P1-19'
     ],
     peripherals: [
-      'gpio',
-      'spi'
+      PeripheralType.GPIO,
+      PeripheralType.SPI
     ],
     gpio: 10
   },
@@ -651,8 +650,8 @@ const BPLUS: { [ wiringpi: number ]: IPinInfo } = {
       'P1-21'
     ],
     peripherals: [
-      'gpio',
-      'spi'
+      PeripheralType.GPIO,
+      PeripheralType.SPI
     ],
     gpio: 9
   },
@@ -663,8 +662,8 @@ const BPLUS: { [ wiringpi: number ]: IPinInfo } = {
       'P1-23'
     ],
     peripherals: [
-      'gpio',
-      'spi'
+      PeripheralType.GPIO,
+      PeripheralType.SPI
     ],
     gpio: 11
   },
@@ -675,8 +674,8 @@ const BPLUS: { [ wiringpi: number ]: IPinInfo } = {
       'P1-8'
     ],
     peripherals: [
-      'gpio',
-      'uart'
+      PeripheralType.GPIO,
+      PeripheralType.UART
     ],
     gpio: 14
   },
@@ -687,8 +686,8 @@ const BPLUS: { [ wiringpi: number ]: IPinInfo } = {
       'P1-10'
     ],
     peripherals: [
-      'gpio',
-      'uart'
+      PeripheralType.GPIO,
+      PeripheralType.UART
     ],
     gpio: 15
   },
@@ -698,7 +697,7 @@ const BPLUS: { [ wiringpi: number ]: IPinInfo } = {
       'P1-29'
     ],
     peripherals: [
-      'gpio'
+      PeripheralType.GPIO
     ],
     gpio: 5
   },
@@ -708,7 +707,7 @@ const BPLUS: { [ wiringpi: number ]: IPinInfo } = {
       'P1-31'
     ],
     peripherals: [
-      'gpio'
+      PeripheralType.GPIO
     ],
     gpio: 6
   },
@@ -719,8 +718,8 @@ const BPLUS: { [ wiringpi: number ]: IPinInfo } = {
       'PWM1'
     ],
     peripherals: [
-      'gpio',
-      'pwm'
+      PeripheralType.GPIO,
+      PeripheralType.PWM
     ],
     gpio: 13
   },
@@ -732,9 +731,9 @@ const BPLUS: { [ wiringpi: number ]: IPinInfo } = {
       'P1-35'
     ],
     peripherals: [
-      'gpio',
-      'pwm',
-      'spi'
+      PeripheralType.GPIO,
+      PeripheralType.PWM,
+      PeripheralType.SPI
     ],
     gpio: 19
   },
@@ -744,7 +743,7 @@ const BPLUS: { [ wiringpi: number ]: IPinInfo } = {
       'P1-37'
     ],
     peripherals: [
-      'gpio'
+      PeripheralType.GPIO
     ],
     gpio: 26
   },
@@ -755,8 +754,8 @@ const BPLUS: { [ wiringpi: number ]: IPinInfo } = {
       'P1-32'
     ],
     peripherals: [
-      'gpio',
-      'pwm'
+      PeripheralType.GPIO,
+      PeripheralType.PWM
     ],
     gpio: 12
   },
@@ -766,7 +765,7 @@ const BPLUS: { [ wiringpi: number ]: IPinInfo } = {
       'P1-36'
     ],
     peripherals: [
-      'gpio'
+      PeripheralType.GPIO
     ],
     gpio: 16
   },
@@ -777,8 +776,8 @@ const BPLUS: { [ wiringpi: number ]: IPinInfo } = {
       'P1-38'
     ],
     peripherals: [
-      'gpio',
-      'spi'
+      PeripheralType.GPIO,
+      PeripheralType.SPI
     ],
     gpio: 20
   },
@@ -789,8 +788,8 @@ const BPLUS: { [ wiringpi: number ]: IPinInfo } = {
       'P1-40'
     ],
     peripherals: [
-      'gpio',
-      'spi'
+      PeripheralType.GPIO,
+      PeripheralType.SPI
     ],
     gpio: 21
   }
@@ -816,7 +815,7 @@ if (/10[0-9a-z]{5}/.test(rev)) { // Check for RPi 1 overclock
   rev = rev.substr(-6);
 }
 
-let pins: { [ wiringpi: number ]: IPinInfo };
+let pins: { [ wiringpi: number ]: IRaspiPinInfo };
 switch (BOARD_REVISIONS[rev]) {
   case VERSION_1_MODEL_A:
     // Information is scarce, and no one has complained about it not being supported
