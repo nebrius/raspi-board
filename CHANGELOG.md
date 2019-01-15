@@ -1,3 +1,7 @@
+## 7.1.1 (2019-1-15)
+
+- Fixed a dependency issue where "core-io-types" is not found
+
 ## 7.1.0 (2019-1-10)
 
 - Reworked the exported pin info to use the Core IO Types pin info interfaces
