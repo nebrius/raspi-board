@@ -1,4 +1,4 @@
-import { IPinInfo } from 'core-io-types';
+import { IPinInfo } from 'j5-io-types';
 export declare const VERSION_1_MODEL_A = "rpi1_a";
 export declare const VERSION_1_MODEL_B_REV_1 = "rpi1_b1";
 export declare const VERSION_1_MODEL_B_REV_2 = "rpi1_b2";

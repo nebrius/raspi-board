@@ -23,7 +23,7 @@ THE SOFTWARE.
 */
 
 import { readFileSync } from 'fs';
-import { IPinInfo, PeripheralType } from 'core-io-types';
+import { IPinInfo, PeripheralType } from 'j5-io-types';
 
 export const VERSION_1_MODEL_A = 'rpi1_a';
 export const VERSION_1_MODEL_B_REV_1 = 'rpi1_b1';
@@ -837,7 +837,7 @@ switch (BOARD_REVISIONS[rev]) {
     pins = BPLUS;
     break;
   default:
-    console.info(`Unknown board revision ${rev}, assuming Raspberry Pi Zerp/2/3 pinout. ` +
+    console.info(`Unknown board revision ${rev}, assuming Raspberry Pi Zero/2/3 pinout. ` +
       `Unless you are running a compute module or very old RPi this should work fine. ` +
       `Please report this board revision in a GitHub issue at https://github.com/nebrius/raspi-board.`);
     pins = BPLUS;

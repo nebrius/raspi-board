@@ -1,3 +1,7 @@
+## 7.1.2 (2019-2-20)
+
+- Updated dependencies
+
 ## 7.1.1 (2019-1-15)
 
 - Fixed a dependency issue where "core-io-types" is not found
