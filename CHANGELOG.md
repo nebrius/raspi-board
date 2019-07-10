@@ -1,3 +1,7 @@
+## 7.2.0 (2019-7-9)
+
+- Added support for the Raspberry Pi 4 Model B
+
 ## 7.1.2 (2019-2-20)
 
 - Updated dependencies

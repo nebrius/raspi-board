@@ -36,6 +36,7 @@ export const VERSION_2_MODEL_B = 'rpi2_b';
 export const VERSION_3_MODEL_B = 'rpi3_b';
 export const VERSION_3_MODEL_B_PLUS = 'rpi3_bplus';
 export const VERSION_3_MODEL_A_PLUS = 'rpi3_aplus';
+export const VERSION_4_MODEL_B = 'rpi4_b';
 export const VERSION_UNKNOWN = 'unknown';
 
 export interface IRaspiPinInfo extends IPinInfo {
@@ -75,7 +76,8 @@ const BOARD_REVISIONS: { [ revision: string ]: string } = {
   'a32082': VERSION_3_MODEL_B,
   'a52082': VERSION_3_MODEL_B,
   'a020d3': VERSION_3_MODEL_B_PLUS,
-  '9020e0': VERSION_3_MODEL_A_PLUS
+  '9020e0': VERSION_3_MODEL_A_PLUS,
+  'c03111': VERSION_4_MODEL_B
 };
 
 const B1: { [ wiringpi: number ]: IRaspiPinInfo } = {
