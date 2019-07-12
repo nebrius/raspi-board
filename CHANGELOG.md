@@ -1,3 +1,7 @@
+## 7.2.1 (2019-7-11)
+
+- Added support for another Raspberry Pi 4 Model B variant
+
 ## 7.2.0 (2019-7-9)
 
 - Added support for the Raspberry Pi 4 Model B
