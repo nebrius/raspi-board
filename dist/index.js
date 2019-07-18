@@ -828,6 +828,7 @@ switch (BOARD_REVISIONS[rev]) {
     case exports.VERSION_3_MODEL_B:
     case exports.VERSION_3_MODEL_B_PLUS:
     case exports.VERSION_3_MODEL_A_PLUS:
+    case exports.VERSION_4_MODEL_B:
         pins = BPLUS;
         break;
     default:

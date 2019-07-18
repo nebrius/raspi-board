@@ -1,3 +1,7 @@
+## 7.2.2 (2019-7-17)
+
+- Fixed a bug where the Raspberry Pi 4 wasn't properly wired in to the board detection logic
+
 ## 7.2.1 (2019-7-11)
 
 - Added support for another Raspberry Pi 4 Model B variant

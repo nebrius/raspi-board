@@ -837,6 +837,7 @@ switch (BOARD_REVISIONS[rev]) {
   case VERSION_3_MODEL_B:
   case VERSION_3_MODEL_B_PLUS:
   case VERSION_3_MODEL_A_PLUS:
+  case VERSION_4_MODEL_B:
     pins = BPLUS;
     break;
   default:
