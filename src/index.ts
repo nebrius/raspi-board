@@ -800,19 +800,27 @@ const BPLUS: { [ wiringpi: number ]: IRaspiPinInfo } = {
 };
 
 // Initialize the board info
-let procInfo: string;
+let procInfo: string = '';
+let rev: string = '';
+
 if (process.env.RASPI_IO_TEST_MODE) {
   procInfo = 'Revision:a21041';
 } else {
-  procInfo = readFileSync('/proc/cpuinfo').toString();
-}
-const revMatch = procInfo.match(/Revision\s*:\s*(.*)/);
-if (!revMatch) {
-  throw new Error('Unable to parse revision information in /proc/cpuinfo');
+    try {
+      procInfo = readFileSync('/proc/cpuinfo').toString();
+      const revMatch = procInfo.match(/Revision\s*:\s*(.*)/);
+
+      if (!revMatch) {
+          console.warn('Unable to parse revision information in /proc/cpuinfo');
+      } else {
+          [ , rev ] = revMatch;
+      }
+    } catch (e) {
+      console.warn('Unable to read /proc/cpuinfo file. You are most likely not executing this code on Linux.');
+    }
 }
 
 // If the board has been overclocked, the revision is modified, so clear it here
-let rev = revMatch[1];
 if (/10[0-9a-z]{5}/.test(rev)) { // Check for RPi 1 overclock
   rev = rev.substr(-4);
 } else if (/1a[0-9a-z]{5}/.test(rev)) { // Check for RPi 2 overclock
