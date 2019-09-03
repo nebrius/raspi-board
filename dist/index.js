@@ -72,8 +72,9 @@ const BOARD_REVISIONS = {
     'a52082': exports.VERSION_3_MODEL_B,
     'a020d3': exports.VERSION_3_MODEL_B_PLUS,
     '9020e0': exports.VERSION_3_MODEL_A_PLUS,
+    'a03111': exports.VERSION_4_MODEL_B,
     'b03111': exports.VERSION_4_MODEL_B,
-    'c03111': exports.VERSION_4_MODEL_B
+    'c03111': exports.VERSION_4_MODEL_B // 4GB RAM
 };
 const B1 = {
     0: {
