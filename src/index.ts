@@ -804,7 +804,8 @@ let procInfo = '';
 let rev = '';
 
 if (process.env.RASPI_IO_TEST_MODE) {
-  procInfo = 'Revision:a21041';
+  rev = 'a21041';
+  procInfo = `Revision:${rev}`;
 } else {
     try {
       procInfo = readFileSync('/proc/cpuinfo').toString();

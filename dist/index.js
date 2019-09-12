@@ -794,7 +794,8 @@ const BPLUS = {
 let procInfo = '';
 let rev = '';
 if (process.env.RASPI_IO_TEST_MODE) {
-    procInfo = 'Revision:a21041';
+    rev = 'a21041';
+    procInfo = `Revision:${rev}`;
 }
 else {
     try {
@@ -804,11 +805,11 @@ else {
             console.warn('Unable to parse revision information in /proc/cpuinfo');
         }
         else {
-            [, rev] = revMatch;
+            rev = revMatch[1];
         }
     }
     catch (e) {
-        console.warn('Unable to read /proc/cpuinfo file. You are most likely not executing this code on Linux.');
+        console.warn(`Unable to read /proc/cpuinfo file. Are you running this code on a Raspberry Pi? Error: ${e}`);
     }
 }
 // If the board has been overclocked, the revision is modified, so clear it here
