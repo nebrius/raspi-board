@@ -1,6 +1,6 @@
 {
   "name": "raspi-board",
-  "version": "7.2.3",
+  "version": "7.3.0",
   "description": "Pin mapping functionality for the Raspberry Pi in Node.js",
   "main": "./dist/index.js",
   "types": "./declarations/index.d.ts",
@@ -34,7 +34,22 @@
     "robotics",
     "raspberry pi"
   ],
-  "author": "Bryan Hughes <bryan@nebri.us>",
+  "author": {
+    "name": "Bryan Hughes",
+    "email": "bryan@nebri.us",
+    "url": "https://nebri.us"
+  },
+  "contributors": [
+    {
+      "name": "Bryan Hughes",
+      "email": "bryan@nebri.us",
+      "url": "https://nebri.us"
+    }, {
+      "name": "Adam Wolski",
+      "email": "kontakt@adamwolski.com",
+      "url": "https://github.com/wolasss"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/nebrius/raspi-board/issues"
