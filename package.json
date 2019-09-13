@@ -7,6 +7,8 @@
   "scripts": {
     "prebuild": "tslint 'src/**/*.ts'",
     "build": "tsc",
+    "prebuild-test": "tslint 'spec/**/*.ts'",
+    "build-test": "tsc --build tsconfig.spec.json",
     "test": "cross-env RASPI_IO_TEST_MODE=true istanbul cover ./node_modules/jasmine/bin/jasmine.js --captureExceptions && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "test-local": "cross-env RASPI_IO_TEST_MODE=true jasmine"
   },
@@ -14,13 +16,14 @@
     "j5-io-types": "^2.4.0"
   },
   "devDependencies": {
-    "@types/node": "^10.12.11",
-    "coveralls": "^3.0.2",
-    "cross-env": "^5.2.0",
+    "@types/jasmine": "^3.4.0",
+    "@types/node": "^10.14.18",
+    "coveralls": "^3.0.6",
+    "cross-env": "^5.2.1",
     "istanbul": "^0.4.5",
     "jasmine": "^3.2.0",
-    "tslint": "^5.11.0",
-    "typescript": "^3.0.3"
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.3"
   },
   "engines": {
     "node": ">= 6.0.0"
@@ -44,7 +47,8 @@
       "name": "Bryan Hughes",
       "email": "bryan@nebri.us",
       "url": "https://nebri.us"
-    }, {
+    },
+    {
       "name": "Adam Wolski",
       "email": "kontakt@adamwolski.com",
       "url": "https://github.com/wolasss"

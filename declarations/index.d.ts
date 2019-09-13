@@ -1,4 +1,4 @@
-import { IPinInfo } from 'j5-io-types';
+import { IRaspiPinInfo } from './maps/pinInfo';
 export declare const VERSION_1_MODEL_A = "rpi1_a";
 export declare const VERSION_1_MODEL_B_REV_1 = "rpi1_b1";
 export declare const VERSION_1_MODEL_B_REV_2 = "rpi1_b2";
@@ -12,9 +12,9 @@ export declare const VERSION_3_MODEL_B_PLUS = "rpi3_bplus";
 export declare const VERSION_3_MODEL_A_PLUS = "rpi3_aplus";
 export declare const VERSION_4_MODEL_B = "rpi4_b";
 export declare const VERSION_UNKNOWN = "unknown";
-export interface IRaspiPinInfo extends IPinInfo {
-    gpio: number;
-}
+export { IRaspiPinInfo } from './maps/pinInfo';
+export { PeripheralType } from 'j5-io-types';
+export declare function setBoardRev(newRev: string): void;
 export declare function getBoardRevision(): string;
 export declare function getPins(): {
     [wiringpi: number]: IRaspiPinInfo;

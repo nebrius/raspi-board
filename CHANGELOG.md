@@ -1,3 +1,14 @@
+## 8.0.0 (2019-9-
+
+- Added a proper peripheral map for the Raspberry Pi 4, which supports more options
+- Added new optional properties to each pin description: `spi`, `i2c`, `uart`, and `pwm`
+    - These mirror the `gpio` property, which indicates which peripheral number set it's a part of.
+    - As an example, `RXD0` and `TXD0` both have the `uart` property set to `0`, indicating they're both a part of UART 0
+- BREAKING CHANGE: `CE0` and `CE1` pin aliases have been renamed to `CE0-0` and `CE0-1`
+    - While going through the RPi4 documentation, I realized that these names did not identify the SPI port.
+    - This would have meant there would now be four ambiguous `CE0` pin aliases, since there are four ports
+- Added missing `CE0-1` pin modes to `GPIO7`
+
 ## 7.3.0 (2019-9-12)
 
 - Added better error checking so this module fails gracefully on non-Raspberry Pi systems (thanks to [@wolasss](https://github.com/wolasss) for the PR!)
