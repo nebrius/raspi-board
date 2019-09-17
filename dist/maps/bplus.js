@@ -248,7 +248,8 @@ exports.BPLUS = {
             j5_io_types_1.PeripheralType.GPIO,
             j5_io_types_1.PeripheralType.PWM
         ],
-        gpio: 13
+        gpio: 13,
+        pwm: 1
     },
     24: {
         pins: [
@@ -262,7 +263,8 @@ exports.BPLUS = {
             j5_io_types_1.PeripheralType.PWM,
             j5_io_types_1.PeripheralType.SPI
         ],
-        gpio: 19
+        gpio: 19,
+        pwm: 1
     },
     25: {
         pins: [
@@ -284,7 +286,8 @@ exports.BPLUS = {
             j5_io_types_1.PeripheralType.GPIO,
             j5_io_types_1.PeripheralType.PWM
         ],
-        gpio: 12
+        gpio: 12,
+        pwm: 0
     },
     27: {
         pins: [

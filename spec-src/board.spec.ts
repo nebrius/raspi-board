@@ -31,14 +31,25 @@ import {
   getGpioNumber,
   setBoardRev,
   PeripheralType,
-  VERSION_2_MODEL_B
+  VERSION_1_MODEL_B_REV_1,
+  VERSION_2_MODEL_B,
+  VERSION_4_MODEL_B
 } from '..';
 
 describe('Raspi Board', () => {
 
   it('Expects the correct board revision to be determined', () => {
-    const revision = getBoardRevision();
+    setBoardRev('0002');
+    let revision = getBoardRevision();
+    expect(revision).toEqual(VERSION_1_MODEL_B_REV_1);
+
+    setBoardRev('a01040');
+    revision = getBoardRevision();
     expect(revision).toEqual(VERSION_2_MODEL_B);
+
+    setBoardRev('b03111');
+    revision = getBoardRevision();
+    expect(revision).toEqual(VERSION_4_MODEL_B);
   });
 
   it('sets up the proper pin aliases and modes', () => {
@@ -121,69 +132,51 @@ describe('Raspi Board', () => {
           expect(pinInfo.pins.length).toEqual(pinInfo.peripherals.length + 1);
 
           // Check for the pin header alias, e.g. P1-1
-          let match = headerAliasRegex.exec(pinAlias);
-          if (match) {
+          const headerMatch = headerAliasRegex.exec(pinAlias);
+          if (headerMatch) {
             headerAliasFound = true;
             continue;
           }
 
+          function checkAlias(regex: RegExp, prop: 'gpio' | 'pwm' | 'i2c' | 'uart' | 'spi'): boolean {
+            const match = regex.exec(pinAlias);
+            if (!match) {
+              return false;
+            }
+            const pinNum = parseInt(match[1], 10);
+            const peripheralNum = pinInfo[prop];
+            expect(peripheralNum).toEqual(
+              pinNum,
+              `Expected alias ${pinAlias} to have accompanying ${prop} number ${pinNum}` +
+              `, but instead found ${peripheralNum}`);
+            return true;
+          }
+
           // Check for the GPIO alias, e.g. GPIO4
-          match = gpioAliasRegex.exec(pinAlias);
-          if (match) {
+          if (checkAlias(gpioAliasRegex, 'gpio')) {
             gpioAliasFound = true;
-            expect(pinInfo.gpio).toEqual(parseInt(match[1], 10));
             continue;
           }
 
-          match = pwmAliasRegex.exec(pinAlias);
-          if (match) {
-            expect(pinInfo.pwm).toEqual(parseInt(match[1], 10));
+          // Check for the PWM alias, e.g. PWM0
+          if (checkAlias(pwmAliasRegex, 'pwm')) {
             continue;
           }
 
-          // Check for I2C aliases
-          match = i2cSDAAliasRegex.exec(pinAlias);
-          if (match) {
-            expect(pinInfo.i2c).toEqual(parseInt(match[1], 10));
-            continue;
-          }
-          match = i2cSCLAliasRegex.exec(pinAlias);
-          if (match) {
-            expect(pinInfo.i2c).toEqual(parseInt(match[1], 10));
+          // Check for I2C aliases, e.g. SDA0 or SCL0
+          if (checkAlias(i2cSDAAliasRegex, 'i2c') || checkAlias(i2cSCLAliasRegex, 'i2c')) {
             continue;
           }
 
-          // Check for UART aliases
-          match = uartTXAliasRegex.exec(pinAlias);
-          if (match) {
-            expect(pinInfo.uart).toEqual(parseInt(match[1], 10));
-            continue;
-          }
-          match = uartRXAliasRegex.exec(pinAlias);
-          if (match) {
-            expect(pinInfo.uart).toEqual(parseInt(match[1], 10));
+          // Check for UART aliases, e.g. TXD0 or RXD0
+          if (checkAlias(uartTXAliasRegex, 'uart') || checkAlias(uartRXAliasRegex, 'uart')) {
             continue;
           }
 
-          // Check for SPI aliases
-          match = spiMISOAliasRegex.exec(pinAlias);
-          if (match) {
-            expect(pinInfo.spi).toEqual(parseInt(match[1], 10));
-            continue;
-          }
-          match = spiMOSIAliasRegex.exec(pinAlias);
-          if (match) {
-            expect(pinInfo.spi).toEqual(parseInt(match[1], 10));
-            continue;
-          }
-          match = spiSCLKliasRegex.exec(pinAlias);
-          if (match) {
-            expect(pinInfo.spi).toEqual(parseInt(match[1], 10));
-            continue;
-          }
-          match = spiCEliasRegex.exec(pinAlias);
-          if (match) {
-            expect(pinInfo.spi).toEqual(parseInt(match[1], 10));
+          // Check for SPI aliases, e.g. MISO0, MOSI0, SCLK0, or CE0-0
+          if (checkAlias(spiMISOAliasRegex, 'spi') || checkAlias(spiMOSIAliasRegex, 'spi') ||
+            checkAlias(spiSCLKliasRegex, 'spi') ||checkAlias(spiCEliasRegex, 'spi')
+          ) {
             continue;
           }
 

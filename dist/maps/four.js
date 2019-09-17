@@ -48,7 +48,8 @@ exports.FOURBPLUS = {
             j5_io_types_1.PeripheralType.GPIO,
             j5_io_types_1.PeripheralType.PWM
         ],
-        gpio: 18
+        gpio: 18,
+        pwm: 0
     },
     2: {
         pins: [
@@ -120,7 +121,8 @@ exports.FOURBPLUS = {
             j5_io_types_1.PeripheralType.GPIO,
             j5_io_types_1.PeripheralType.I2C
         ],
-        gpio: 2
+        gpio: 2,
+        i2c: 0
     },
     9: {
         pins: [
@@ -132,7 +134,8 @@ exports.FOURBPLUS = {
             j5_io_types_1.PeripheralType.GPIO,
             j5_io_types_1.PeripheralType.I2C
         ],
-        gpio: 3
+        gpio: 3,
+        i2c: 0
     },
     10: {
         pins: [
@@ -144,7 +147,8 @@ exports.FOURBPLUS = {
             j5_io_types_1.PeripheralType.GPIO,
             j5_io_types_1.PeripheralType.SPI
         ],
-        gpio: 8
+        gpio: 8,
+        spi: 0
     },
     11: {
         pins: [
@@ -169,7 +173,8 @@ exports.FOURBPLUS = {
             j5_io_types_1.PeripheralType.GPIO,
             j5_io_types_1.PeripheralType.SPI
         ],
-        gpio: 10
+        gpio: 10,
+        spi: 0
     },
     13: {
         pins: [
@@ -181,7 +186,8 @@ exports.FOURBPLUS = {
             j5_io_types_1.PeripheralType.GPIO,
             j5_io_types_1.PeripheralType.SPI
         ],
-        gpio: 9
+        gpio: 9,
+        spi: 0
     },
     14: {
         pins: [
@@ -193,7 +199,8 @@ exports.FOURBPLUS = {
             j5_io_types_1.PeripheralType.GPIO,
             j5_io_types_1.PeripheralType.SPI
         ],
-        gpio: 11
+        gpio: 11,
+        spi: 0
     },
     15: {
         pins: [
@@ -205,7 +212,8 @@ exports.FOURBPLUS = {
             j5_io_types_1.PeripheralType.GPIO,
             j5_io_types_1.PeripheralType.UART
         ],
-        gpio: 14
+        gpio: 14,
+        uart: 0
     },
     16: {
         pins: [
@@ -217,7 +225,8 @@ exports.FOURBPLUS = {
             j5_io_types_1.PeripheralType.GPIO,
             j5_io_types_1.PeripheralType.UART
         ],
-        gpio: 15
+        gpio: 15,
+        uart: 0
     },
     21: {
         pins: [
@@ -249,7 +258,8 @@ exports.FOURBPLUS = {
             j5_io_types_1.PeripheralType.GPIO,
             j5_io_types_1.PeripheralType.PWM
         ],
-        gpio: 13
+        gpio: 13,
+        pwm: 1
     },
     24: {
         pins: [
@@ -263,7 +273,9 @@ exports.FOURBPLUS = {
             j5_io_types_1.PeripheralType.PWM,
             j5_io_types_1.PeripheralType.SPI
         ],
-        gpio: 19
+        gpio: 19,
+        pwm: 1,
+        spi: 1
     },
     25: {
         pins: [
@@ -285,7 +297,8 @@ exports.FOURBPLUS = {
             j5_io_types_1.PeripheralType.GPIO,
             j5_io_types_1.PeripheralType.PWM
         ],
-        gpio: 12
+        gpio: 12,
+        pwm: 0
     },
     27: {
         pins: [
@@ -307,7 +320,8 @@ exports.FOURBPLUS = {
             j5_io_types_1.PeripheralType.GPIO,
             j5_io_types_1.PeripheralType.SPI
         ],
-        gpio: 20
+        gpio: 20,
+        spi: 1
     },
     29: {
         pins: [
@@ -319,7 +333,8 @@ exports.FOURBPLUS = {
             j5_io_types_1.PeripheralType.GPIO,
             j5_io_types_1.PeripheralType.SPI
         ],
-        gpio: 21
+        gpio: 21,
+        spi: 1
     }
 };
 //# sourceMappingURL=four.js.map

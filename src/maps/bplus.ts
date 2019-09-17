@@ -249,7 +249,8 @@ export const BPLUS: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.GPIO,
       PeripheralType.PWM
     ],
-    gpio: 13
+    gpio: 13,
+    pwm: 1
   },
   24: {
     pins: [
@@ -263,7 +264,8 @@ export const BPLUS: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.PWM,
       PeripheralType.SPI
     ],
-    gpio: 19
+    gpio: 19,
+    pwm: 1
   },
   25: {
     pins: [
@@ -285,7 +287,8 @@ export const BPLUS: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.GPIO,
       PeripheralType.PWM
     ],
-    gpio: 12
+    gpio: 12,
+    pwm: 0
   },
   27: {
     pins: [
