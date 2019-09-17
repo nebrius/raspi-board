@@ -145,10 +145,10 @@ describe('Raspi Board', () => {
             }
             const pinNum = parseInt(match[1], 10);
             const peripheralNum = pinInfo[prop];
-            expect(peripheralNum).toEqual(
-              pinNum,
-              `Expected alias ${pinAlias} to have accompanying ${prop} number ${pinNum}` +
-              `, but instead found ${peripheralNum}`);
+            expect(peripheralNum)
+              .withContext(`Expected alias ${pinAlias} to have accompanying ${prop.toUpperCase()} number ${pinNum}` +
+                `, but instead found ${peripheralNum}`)
+             .toEqual(pinNum)
             return true;
           }
 
