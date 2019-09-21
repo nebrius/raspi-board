@@ -25,19 +25,16 @@ THE SOFTWARE.
 import { PeripheralType } from 'j5-io-types';
 import { IRaspiPinInfo } from './pinInfo';
 
-export const FOURBPLUS: { [ wiringpi: number ]: IRaspiPinInfo } = {
+export const BPLUS: { [ wiringpi: number ]: IRaspiPinInfo } = {
   0: {
     pins: [
       'GPIO17',
-      'P1-11',
-      'SPI'
+      'P1-11'
     ],
     peripherals: [
-      PeripheralType.GPIO,
-      PeripheralType.SPI
+      PeripheralType.GPIO
     ],
-    gpio: 17,
-    spi: 1
+    gpio: 17
   },
   1: {
     pins: [
@@ -50,7 +47,7 @@ export const FOURBPLUS: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.PWM
     ],
     gpio: 18,
-    pwm: 0
+    pwm: [ 0 ]
   },
   2: {
     pins: [
@@ -122,8 +119,7 @@ export const FOURBPLUS: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.GPIO,
       PeripheralType.I2C
     ],
-    gpio: 2,
-    i2c: 0
+    gpio: 2
   },
   9: {
     pins: [
@@ -135,8 +131,7 @@ export const FOURBPLUS: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.GPIO,
       PeripheralType.I2C
     ],
-    gpio: 3,
-    i2c: 0
+    gpio: 3
   },
   10: {
     pins: [
@@ -149,7 +144,7 @@ export const FOURBPLUS: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.SPI
     ],
     gpio: 8,
-    spi: 0
+    spi: [ 0 ]
   },
   11: {
     pins: [
@@ -162,7 +157,7 @@ export const FOURBPLUS: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.SPI
     ],
     gpio: 7,
-    spi: 0
+    spi: [ 0 ]
   },
   12: {
     pins: [
@@ -174,8 +169,7 @@ export const FOURBPLUS: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.GPIO,
       PeripheralType.SPI
     ],
-    gpio: 10,
-    spi: 0
+    gpio: 10
   },
   13: {
     pins: [
@@ -187,8 +181,7 @@ export const FOURBPLUS: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.GPIO,
       PeripheralType.SPI
     ],
-    gpio: 9,
-    spi: 0
+    gpio: 9
   },
   14: {
     pins: [
@@ -200,8 +193,7 @@ export const FOURBPLUS: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.GPIO,
       PeripheralType.SPI
     ],
-    gpio: 11,
-    spi: 0
+    gpio: 11
   },
   15: {
     pins: [
@@ -213,8 +205,7 @@ export const FOURBPLUS: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.GPIO,
       PeripheralType.UART
     ],
-    gpio: 14,
-    uart: 0
+    gpio: 14
   },
   16: {
     pins: [
@@ -226,8 +217,7 @@ export const FOURBPLUS: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.GPIO,
       PeripheralType.UART
     ],
-    gpio: 15,
-    uart: 0
+    gpio: 15
   },
   21: {
     pins: [
@@ -260,7 +250,7 @@ export const FOURBPLUS: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.PWM
     ],
     gpio: 13,
-    pwm: 1
+    pwm: [ 1 ]
   },
   24: {
     pins: [
@@ -275,8 +265,7 @@ export const FOURBPLUS: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.SPI
     ],
     gpio: 19,
-    pwm: 1,
-    spi: 1
+    pwm: [ 1 ]
   },
   25: {
     pins: [
@@ -299,7 +288,7 @@ export const FOURBPLUS: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.PWM
     ],
     gpio: 12,
-    pwm: 0
+    pwm: [ 0 ]
   },
   27: {
     pins: [
@@ -321,8 +310,7 @@ export const FOURBPLUS: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.GPIO,
       PeripheralType.SPI
     ],
-    gpio: 20,
-    spi: 1
+    gpio: 20
   },
   29: {
     pins: [
@@ -334,7 +322,6 @@ export const FOURBPLUS: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.GPIO,
       PeripheralType.SPI
     ],
-    gpio: 21,
-    spi: 1
+    gpio: 21
   }
 };

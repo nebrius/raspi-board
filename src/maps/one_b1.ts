@@ -47,7 +47,7 @@ export const B1: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.PWM
     ],
     gpio: 18,
-    pwm: 0
+    pwm: [ 0 ]
   },
   2: {
     pins: [
@@ -120,7 +120,7 @@ export const B1: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.I2C
     ],
     gpio: 0,
-    i2c: 0
+    i2c: [ 0 ]
   },
   9: {
     pins: [
@@ -133,7 +133,7 @@ export const B1: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.I2C
     ],
     gpio: 1,
-    i2c: 0
+    i2c: [ 0 ]
   },
   10: {
     pins: [
@@ -146,7 +146,7 @@ export const B1: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.SPI
     ],
     gpio: 8,
-    spi: 0
+    spi: [ 0 ]
   },
   11: {
     pins: [
@@ -159,7 +159,7 @@ export const B1: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.SPI
     ],
     gpio: 7,
-    spi: 0
+    spi: [ 0 ]
   },
   12: {
     pins: [
@@ -172,7 +172,7 @@ export const B1: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.SPI
     ],
     gpio: 10,
-    spi: 0
+    spi: [ 0 ]
   },
   13: {
     pins: [
@@ -185,7 +185,7 @@ export const B1: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.SPI
     ],
     gpio: 9,
-    spi: 0
+    spi: [ 0 ]
   },
   14: {
     pins: [
@@ -198,7 +198,7 @@ export const B1: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.SPI
     ],
     gpio: 11,
-    spi: 0
+    spi: [ 0 ]
   },
   15: {
     pins: [
@@ -211,7 +211,7 @@ export const B1: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.UART
     ],
     gpio: 14,
-    uart: 0
+    uart: [ 0 ]
   },
   16: {
     pins: [
@@ -224,6 +224,6 @@ export const B1: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.UART
     ],
     gpio: 15,
-    uart: 0
+    uart: [ 0 ]
   }
 };

@@ -25,10 +25,10 @@ THE SOFTWARE.
 import { readFileSync } from 'fs';
 import { IRaspiPinInfo } from './maps/pinInfo';
 
-import { B1 } from './maps/b1';
-import { B2 } from './maps/b2';
-import { BPLUS } from './maps/bplus';
-import { FOURBPLUS } from './maps/four';
+import { B1 } from './maps/one_b1';
+import { B2 } from './maps/one_b2';
+import { BPLUS } from './maps/one_bplus';
+import { FOURBPLUS } from './maps/four_b';
 
 export const VERSION_1_MODEL_A = 'rpi1_a';
 export const VERSION_1_MODEL_B_REV_1 = 'rpi1_b1';

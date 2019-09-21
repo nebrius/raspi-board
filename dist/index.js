@@ -24,10 +24,10 @@ THE SOFTWARE.
 */
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = require("fs");
-const b1_1 = require("./maps/b1");
-const b2_1 = require("./maps/b2");
-const bplus_1 = require("./maps/bplus");
-const four_1 = require("./maps/four");
+const one_b1_1 = require("./maps/one_b1");
+const one_b2_1 = require("./maps/one_b2");
+const one_bplus_1 = require("./maps/one_bplus");
+const four_b_1 = require("./maps/four_b");
 exports.VERSION_1_MODEL_A = 'rpi1_a';
 exports.VERSION_1_MODEL_B_REV_1 = 'rpi1_b1';
 exports.VERSION_1_MODEL_B_REV_2 = 'rpi1_b2';
@@ -116,10 +116,10 @@ switch (BOARD_REVISIONS[rev]) {
         // Information is scarce, and no one has complained about it not being supported
         throw new Error('Raspberry Pi 1 Model A boards are not supported.');
     case exports.VERSION_1_MODEL_B_REV_1:
-        pins = b1_1.B1;
+        pins = one_b1_1.B1;
         break;
     case exports.VERSION_1_MODEL_B_REV_2:
-        pins = b2_1.B2;
+        pins = one_b2_1.B2;
         break;
     case exports.VERSION_1_MODEL_ZERO:
     case exports.VERSION_1_MODEL_ZERO_W:
@@ -129,16 +129,16 @@ switch (BOARD_REVISIONS[rev]) {
     case exports.VERSION_3_MODEL_B:
     case exports.VERSION_3_MODEL_B_PLUS:
     case exports.VERSION_3_MODEL_A_PLUS:
-        pins = bplus_1.BPLUS;
+        pins = one_bplus_1.BPLUS;
         break;
     case exports.VERSION_4_MODEL_B:
-        pins = four_1.FOURBPLUS;
+        pins = four_b_1.FOURBPLUS;
         break;
     default:
         console.info(`Unknown board revision ${rev}, assuming Raspberry Pi Zero/2/3 pinout. ` +
             `Unless you are running a compute module or very old RPi you can most likely ignore this warning. ` +
             `Please report this board revision in a GitHub issue at https://github.com/nebrius/raspi-board.`);
-        pins = bplus_1.BPLUS;
+        pins = one_bplus_1.BPLUS;
         break;
 }
 // Create the aliases

@@ -92,7 +92,6 @@ describe('Raspi Board', () => {
         let rev = revs.pop();
         while (rev) {
             __1.setBoardRev(rev);
-            rev = revs.pop();
             const pins = __1.getPins();
             for (const pinNumber in pins) {
                 if (!pins.hasOwnProperty(pinNumber)) {
@@ -118,8 +117,8 @@ describe('Raspi Board', () => {
                         const pinNum = parseInt(match[1], 10);
                         const peripheralNum = pinInfo[prop];
                         expect(peripheralNum)
-                            .withContext(`Expected alias ${pinAlias} to have accompanying ${prop.toUpperCase()} number ${pinNum}` +
-                            `, but instead found ${peripheralNum}`)
+                            .withContext(`Expected alias ${pinAlias} for board ${rev} to have accompanying ${prop.toUpperCase()} ` +
+                            `number ${pinNum}, but instead found ${peripheralNum}`)
                             .toEqual(pinNum);
                         return true;
                     }
@@ -151,8 +150,8 @@ describe('Raspi Board', () => {
                 expect(headerAliasFound).toBeTruthy();
                 expect(gpioAliasFound).toBeTruthy();
             }
+            rev = revs.pop();
         }
-        expect(false).toBe(true);
     });
 });
 //# sourceMappingURL=board.spec.js.map

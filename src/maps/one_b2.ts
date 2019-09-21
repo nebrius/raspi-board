@@ -25,7 +25,7 @@ THE SOFTWARE.
 import { PeripheralType } from 'j5-io-types';
 import { IRaspiPinInfo } from './pinInfo';
 
-export const BPLUS: { [ wiringpi: number ]: IRaspiPinInfo } = {
+export const B2: { [ wiringpi: number ]: IRaspiPinInfo } = {
   0: {
     pins: [
       'GPIO17',
@@ -47,7 +47,7 @@ export const BPLUS: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.PWM
     ],
     gpio: 18,
-    pwm: 0
+    pwm: [ 0 ]
   },
   2: {
     pins: [
@@ -119,7 +119,8 @@ export const BPLUS: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.GPIO,
       PeripheralType.I2C
     ],
-    gpio: 2
+    gpio: 2,
+    i2c: [ 0 ]
   },
   9: {
     pins: [
@@ -131,7 +132,8 @@ export const BPLUS: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.GPIO,
       PeripheralType.I2C
     ],
-    gpio: 3
+    gpio: 3,
+    i2c: [ 0 ]
   },
   10: {
     pins: [
@@ -144,7 +146,7 @@ export const BPLUS: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.SPI
     ],
     gpio: 8,
-    spi: 0
+    spi: [ 0 ]
   },
   11: {
     pins: [
@@ -157,7 +159,7 @@ export const BPLUS: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.SPI
     ],
     gpio: 7,
-    spi: 0
+    spi: [ 0 ]
   },
   12: {
     pins: [
@@ -169,7 +171,8 @@ export const BPLUS: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.GPIO,
       PeripheralType.SPI
     ],
-    gpio: 10
+    gpio: 10,
+    spi: [ 0 ]
   },
   13: {
     pins: [
@@ -181,7 +184,8 @@ export const BPLUS: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.GPIO,
       PeripheralType.SPI
     ],
-    gpio: 9
+    gpio: 9,
+    spi: [ 0 ]
   },
   14: {
     pins: [
@@ -193,7 +197,8 @@ export const BPLUS: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.GPIO,
       PeripheralType.SPI
     ],
-    gpio: 11
+    gpio: 11,
+    spi: [ 0 ]
   },
   15: {
     pins: [
@@ -205,7 +210,8 @@ export const BPLUS: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.GPIO,
       PeripheralType.UART
     ],
-    gpio: 14
+    gpio: 14,
+    uart: [ 0 ]
   },
   16: {
     pins: [
@@ -217,111 +223,47 @@ export const BPLUS: { [ wiringpi: number ]: IRaspiPinInfo } = {
       PeripheralType.GPIO,
       PeripheralType.UART
     ],
-    gpio: 15
+    gpio: 15,
+    uart: [ 0 ]
   },
-  21: {
+  17: {
     pins: [
-      'GPIO5',
-      'P1-29'
+      'GPIO28',
+      'P5-3'
     ],
     peripherals: [
       PeripheralType.GPIO
     ],
-    gpio: 5
+    gpio: 28
   },
-  22: {
+  18: {
     pins: [
-      'GPIO6',
-      'P1-31'
+      'GPIO29',
+      'P5-4'
     ],
     peripherals: [
       PeripheralType.GPIO
     ],
-    gpio: 6
+    gpio: 29
   },
-  23: {
+  19: {
     pins: [
-      'GPIO13',
-      'P1-33',
-      'PWM1'
-    ],
-    peripherals: [
-      PeripheralType.GPIO,
-      PeripheralType.PWM
-    ],
-    gpio: 13,
-    pwm: 1
-  },
-  24: {
-    pins: [
-      'GPIO19',
-      'PWM1',
-      'MISO1',
-      'P1-35'
-    ],
-    peripherals: [
-      PeripheralType.GPIO,
-      PeripheralType.PWM,
-      PeripheralType.SPI
-    ],
-    gpio: 19,
-    pwm: 1
-  },
-  25: {
-    pins: [
-      'GPIO26',
-      'P1-37'
+      'GPIO30',
+      'P5-5'
     ],
     peripherals: [
       PeripheralType.GPIO
     ],
-    gpio: 26
+    gpio: 30
   },
-  26: {
+  20: {
     pins: [
-      'GPIO12',
-      'PWM0',
-      'P1-32'
-    ],
-    peripherals: [
-      PeripheralType.GPIO,
-      PeripheralType.PWM
-    ],
-    gpio: 12,
-    pwm: 0
-  },
-  27: {
-    pins: [
-      'GPIO16',
-      'P1-36'
+      'GPIO31',
+      'P5-6'
     ],
     peripherals: [
       PeripheralType.GPIO
     ],
-    gpio: 16
-  },
-  28: {
-    pins: [
-      'GPIO20',
-      'MOSI1',
-      'P1-38'
-    ],
-    peripherals: [
-      PeripheralType.GPIO,
-      PeripheralType.SPI
-    ],
-    gpio: 20
-  },
-  29: {
-    pins: [
-      'GPIO21',
-      'SCLK1',
-      'P1-40'
-    ],
-    peripherals: [
-      PeripheralType.GPIO,
-      PeripheralType.SPI
-    ],
-    gpio: 21
+    gpio: 31
   }
 };
