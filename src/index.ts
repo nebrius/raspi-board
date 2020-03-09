@@ -79,8 +79,8 @@ const BOARD_REVISIONS: { [ revision: string ]: string } = {
   '9020e0': VERSION_3_MODEL_A_PLUS,
   'a03111': VERSION_4_MODEL_B, // 1GB RAM
   'b03111': VERSION_4_MODEL_B, // 2GB RAM
-  'c03111': VERSION_4_MODEL_B  // 4GB RAM
-  'c03112': VERSION_4_MODEL_B, // 4GB RAM
+  'c03111': VERSION_4_MODEL_B,  // 4GB RAM
+  'c03112': VERSION_4_MODEL_B // 4GB RAM
 };
 
 const B1: { [ wiringpi: number ]: IRaspiPinInfo } = {
