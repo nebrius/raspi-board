@@ -1,3 +1,7 @@
+## 7.3.2 (2020-7-15)
+
+- Added support for a handful of missing RPi models
+
 ## 7.3.1 (2020-3-9)
 
 - Added support for another Raspberry Pi 4 Model B variant

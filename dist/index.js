@@ -23,6 +23,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.getGpioNumber = exports.getPinNumber = exports.getPins = exports.getBoardRevision = exports.VERSION_UNKNOWN = exports.VERSION_4_MODEL_B = exports.VERSION_3_MODEL_A_PLUS = exports.VERSION_3_MODEL_B_PLUS = exports.VERSION_3_MODEL_B = exports.VERSION_2_MODEL_B = exports.VERSION_1_MODEL_ZERO_W = exports.VERSION_1_MODEL_ZERO = exports.VERSION_1_MODEL_A_PLUS = exports.VERSION_1_MODEL_B_PLUS = exports.VERSION_1_MODEL_B_REV_2 = exports.VERSION_1_MODEL_B_REV_1 = exports.VERSION_1_MODEL_A = void 0;
 const fs_1 = require("fs");
 const j5_io_types_1 = require("j5-io-types");
 exports.VERSION_1_MODEL_A = 'rpi1_a';
@@ -70,12 +71,15 @@ const BOARD_REVISIONS = {
     'a22082': exports.VERSION_3_MODEL_B,
     'a32082': exports.VERSION_3_MODEL_B,
     'a52082': exports.VERSION_3_MODEL_B,
+    '2a02082': exports.VERSION_3_MODEL_B,
     'a020d3': exports.VERSION_3_MODEL_B_PLUS,
+    '2a020d3': exports.VERSION_3_MODEL_B_PLUS,
     '9020e0': exports.VERSION_3_MODEL_A_PLUS,
     'a03111': exports.VERSION_4_MODEL_B,
     'b03111': exports.VERSION_4_MODEL_B,
     'c03111': exports.VERSION_4_MODEL_B,
-    'c03112': exports.VERSION_4_MODEL_B // 4GB RAM
+    'c03112': exports.VERSION_4_MODEL_B,
+    'd03114': exports.VERSION_4_MODEL_B // 8GB RAM
 };
 const B1 = {
     0: {
