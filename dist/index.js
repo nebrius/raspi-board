@@ -78,6 +78,7 @@ const BOARD_REVISIONS = {
     '9020e0': exports.VERSION_3_MODEL_A_PLUS,
     'a03111': exports.VERSION_4_MODEL_B,
     'b03111': exports.VERSION_4_MODEL_B,
+    'b03112': exports.VERSION_4_MODEL_B,
     'c03111': exports.VERSION_4_MODEL_B,
     'c03112': exports.VERSION_4_MODEL_B,
     'd03114': exports.VERSION_4_MODEL_B // 8GB RAM
@@ -849,7 +850,7 @@ switch (BOARD_REVISIONS[rev]) {
         break;
     default:
         console.info(`Unknown board revision ${rev}, assuming Raspberry Pi Zero/2/3 pinout. ` +
-            `Unless you are running a compute module or very old RPi this should work fine. ` +
+            `Unless you are running a compute module or very old Raspberry Pi, you can safely ignore this message. ` +
             `Please report this board revision in a GitHub issue at https://github.com/nebrius/raspi-board.`);
         pins = BPLUS;
         break;
