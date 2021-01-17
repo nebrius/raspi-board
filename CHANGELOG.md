@@ -1,3 +1,7 @@
+## 7.3.3 (2020-1-17)
+
+- Added another missing board
+
 ## 7.3.2 (2020-7-15)
 
 - Added support for a handful of missing RPi models

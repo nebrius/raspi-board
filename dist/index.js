@@ -66,6 +66,7 @@ const BOARD_REVISIONS = {
     'a01040': exports.VERSION_2_MODEL_B,
     'a01041': exports.VERSION_2_MODEL_B,
     'a21041': exports.VERSION_2_MODEL_B,
+    '2a21041': exports.VERSION_2_MODEL_B,
     'a22042': exports.VERSION_2_MODEL_B,
     'a02082': exports.VERSION_3_MODEL_B,
     'a22082': exports.VERSION_3_MODEL_B,
