@@ -37,6 +37,7 @@ export const VERSION_3_MODEL_B = 'rpi3_b';
 export const VERSION_3_MODEL_B_PLUS = 'rpi3_bplus';
 export const VERSION_3_MODEL_A_PLUS = 'rpi3_aplus';
 export const VERSION_4_MODEL_B = 'rpi4_b';
+export const VERSION_400 = 'rpi400';
 export const VERSION_UNKNOWN = 'unknown';
 
 export interface IRaspiPinInfo extends IPinInfo {
@@ -82,10 +83,13 @@ const BOARD_REVISIONS: { [ revision: string ]: string } = {
   '9020e0': VERSION_3_MODEL_A_PLUS,
   'a03111': VERSION_4_MODEL_B, // 1GB RAM
   'b03111': VERSION_4_MODEL_B, // 2GB RAM
-  'b03112': VERSION_4_MODEL_B,
-  'c03111': VERSION_4_MODEL_B,  // 4GB RAM
+  'b03112': VERSION_4_MODEL_B, // 2GB RAM
+  'b03114': VERSION_4_MODEL_B, // 2GB RAM
+  'c03111': VERSION_4_MODEL_B, // 4GB RAM
   'c03112': VERSION_4_MODEL_B, // 4GB RAM
-  'd03114': VERSION_4_MODEL_B // 8GB RAM
+  'c03114': VERSION_4_MODEL_B, // 4GB RAM
+  'd03114': VERSION_4_MODEL_B, // 8GB RAM
+  'c03130': VERSION_400,
 };
 
 const B1: { [ wiringpi: number ]: IRaspiPinInfo } = {
@@ -854,12 +858,7 @@ switch (BOARD_REVISIONS[rev]) {
   case VERSION_3_MODEL_B_PLUS:
   case VERSION_3_MODEL_A_PLUS:
   case VERSION_4_MODEL_B:
-    pins = BPLUS;
-    break;
   default:
-    console.info(`Unknown board revision ${rev}, assuming Raspberry Pi Zero/2/3 pinout. ` +
-      `Unless you are running a compute module or very old Raspberry Pi, you can safely ignore this message. ` +
-      `Please report this board revision in a GitHub issue at https://github.com/nebrius/raspi-board.`);
     pins = BPLUS;
     break;
 }
